@@ -66,4 +66,6 @@
 	  $lang['please_enter_password'] = 'يرجى إدخال كلمة المرور';
 	  $lang['password_and_confirm_password_does_not_match'] = 'لا تطابق كلمة المرور وتأكيد كلمة المرور';
 	  $lang['this_email_already_exists'] = 'هذا البريد الإلكتروني موجود بالفعل';
+	  $lang['incorrect_email_or_password'] = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
+	  $lang['account_not_verified'] = 'آسف! لم يتم التحقق من حسابك';
 	  

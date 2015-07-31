@@ -118,32 +118,32 @@ $(document).ready(function(){
 		var valid=1;
 		
 		if(user_name=='' && valid==1) {
-			$("#registration_error").text('Please Enter Username');
+			$("#registration_error").text("<?php echo $this->lang->line('please_enter_username');?>");
 			$(".warning").css('display','block');
 			valid=0;	
 		}
 		
 		if(email_address=='' && valid==1) {
-			$("#registration_error").text('Please Enter Email Address');
+			$("#registration_error").text("<?php echo $this->lang->line('please_enter_email_address');?>");
 			$(".warning").css('display','block');
 			valid=0;	
 		}
 		else if(email_address!=''  && valid==1) {
 			if( !validateEmail(email_address)) {
-				$("#registration_error").text('Please Enter a valid Email');
+				$("#registration_error").text("<?php echo $this->lang->line('please_enter_a_valid_email');?>");
 				$(".warning").css('display','block');
 				valid=0;
 			}
 		}
 		
 		if(password=='' && valid==1) {
-			$("#registration_error").text('Please Enter Password');
+			$("#registration_error").text("<?php echo $this->lang->line('please_enter_password');?>");
 			$(".warning").css('display','block');
 			valid=0;	
 		}
 
 		if(con_password!=password && valid==1) {
-			$("#registration_error").text('password and confirm password does not match');
+			$("#registration_error").text("<?php echo $this->lang->line('password_and_confirm_password_does_not_match');?>");
 			$(".warning").css('display','block');
 			valid=0;	
 		}

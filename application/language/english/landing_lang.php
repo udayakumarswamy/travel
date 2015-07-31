@@ -67,3 +67,5 @@
 	  $lang['please_enter_password'] = 'Please Enter Password';
 	  $lang['password_and_confirm_password_does_not_match'] = 'password and confirm password does not match';
 	  $lang['this_email_already_exists'] = 'This email already exists';
+	  $lang['incorrect_email_or_password'] = 'Either email or Password is incorrect';
+	  $lang['account_not_verified'] = 'Sorry! Your Account is not verified';
