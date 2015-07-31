@@ -59,4 +59,11 @@
 	  $lang['infant']='رضيع';
 	  $lang['total_package_cost']='التكلفة الإجمالية حزمة';
 	  $lang['book_now']='كتاب حزمة الخاص بك الآن';
+
+	  $lang['please_enter_username'] = 'الرجاء إدخال اسم المستخدم';
+	  $lang['please_enter_email_address'] = 'يرجى إدخال عنوان البريد الإلكتروني';
+	  $lang['please_enter_a_valid_email'] = 'يرجى إدخال صالح البريد الإلكتروني';
+	  $lang['please_enter_password'] = 'يرجى إدخال كلمة المرور';
+	  $lang['password_and_confirm_password_does_not_match'] = 'لا تطابق كلمة المرور وتأكيد كلمة المرور';
+	  $lang['this_email_already_exists'] = 'هذا البريد الإلكتروني موجود بالفعل';
 	  

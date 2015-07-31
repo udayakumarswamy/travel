@@ -60,5 +60,10 @@
 	  $lang['infant']='Infant';
 	  $lang['total_package_cost']='Total Package Cost';
 	  $lang['book_now']='Book Your Package Now';
-	  
-	  
+
+	  $lang['please_enter_username'] = 'Please Enter Username';
+	  $lang['please_enter_email_address'] = 'Please Enter Email Address';
+	  $lang['please_enter_a_valid_email'] = 'Please Enter a valid Email';
+	  $lang['please_enter_password'] = 'Please Enter Password';
+	  $lang['password_and_confirm_password_does_not_match'] = 'password and confirm password does not match';
+	  $lang['this_email_already_exists'] = 'This email already exists';
