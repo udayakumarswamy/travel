@@ -8,6 +8,7 @@
 	  $lang['menu']='Menu';
 	  $lang['register']='Register';
 	  $lang['login']='Login';
+	  $lang['submit']='Submit';
 	  $lang['browse']='Browse';
 	  $lang['featured_package']='Featured Package';
 	  $lang['top_destination']='Top Destination';
@@ -69,3 +70,8 @@
 	  $lang['this_email_already_exists'] = 'This email already exists';
 	  $lang['incorrect_email_or_password'] = 'Either email or Password is incorrect';
 	  $lang['account_not_verified'] = 'Sorry! Your Account is not verified';
+	  $lang['forgot_password_title'] = 'Enter your email address below and click Submit. We will send a new password to you.';
+	  $lang['forgot_email_required'] = 'The above Email field is required';
+	  $lang['forgot_success_msg'] = 'Password changed and send to your email.';
+	  $lang['forgot_cant_changed'] = "Password can't changed";
+	  $lang['forgot_email_not_found'] = 'Sorry! This email not found in our database';

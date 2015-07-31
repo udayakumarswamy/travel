@@ -8,6 +8,7 @@
 	  $lang['menu']='قائمة الطعام';
 	  $lang['register']='تسجيل';
 	  $lang['login']='تسجيل الدخول';
+	  $lang['submit']='عرض';
 	  $lang['browse']='تصفح';
 	  $lang['featured_package']='حزمة مميزة';
 	  $lang['top_destination']='أعلى الوجهة';
@@ -68,4 +69,9 @@
 	  $lang['this_email_already_exists'] = 'هذا البريد الإلكتروني موجود بالفعل';
 	  $lang['incorrect_email_or_password'] = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
 	  $lang['account_not_verified'] = 'آسف! لم يتم التحقق من حسابك';
+	  $lang['forgot_password_title'] = 'أدخل عنوان بريدك الإلكتروني أدناه وانقر على إرسال. سوف نقوم بإرسال كلمة مرور جديدة لك.';
+	  $lang['forgot_email_required'] = 'مطلوب مجال البريد الإلكتروني أعلاه';
+	  $lang['forgot_success_msg'] = 'تغيير كلمة المرور وإرسالها إلى البريد الإلكتروني الخاص بك.';
+	  $lang['forgot_cant_changed'] = "كلمة السر لا يمكن تغييرها";
+	  $lang['forgot_email_not_found'] = 'آسف! هذا البريد الإلكتروني غير موجود في قاعدة بياناتنا';
 	  
