@@ -4,8 +4,21 @@ class Landing  extends CI_Controller
 {
 	function __construct(){
 		parent::__construct();	
-		$this->session->set_userdata('language','english');
-		$this->lang->load('landing', 'english');
+		if( !empty($this->session->userdata('language')))
+		{
+			if($this->session->userdata('language')=='english')
+			{
+				$this->lang->load('landing', 'english');
+			}
+			if($this->session->userdata('language')=='arabic')
+			{
+				$this->lang->load('landing', 'arabic');
+			}
+		}
+		else{
+			$this->session->set_userdata('language','english');
+			$this->lang->load('landing', 'english');
+		}
 	}
 	
 	function index(){
@@ -369,5 +382,26 @@ class Landing  extends CI_Controller
 		</ul>
 		<?php }  
 	}
+	
+	function set_session_lang()
+	{
+		$lang = $this->input->post('language');
+		if(isset($lang) && !empty($lang))
+		{
+			if(trim($lang) == 'en')
+			{
+				$this->session->set_userdata('language','english');
+				$this->lang->load('landing', 'english');
+			}
+			if(trim($lang) == 'ar')
+			{
+				$this->session->set_userdata('language','arabic');	
+				$this->lang->load('landing', 'arabic');
+			}
+			echo 1;
+		}
+	}
+	
+	
 }
 

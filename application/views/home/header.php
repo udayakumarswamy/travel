@@ -56,18 +56,21 @@ $(document).ready(function(){
 		var valid=1;
 
 		if(email == '' && valid == 1) {
+			
 			$(".error").text("<?php echo $this->lang->line('please_enter_email_address');?>");
 			$(".warning").css('display','block');
 			valid=0;
 		}
 		else if(email!='' && valid==1) {
 			if( !validateEmail(email)) {
+				
 				$(".error").text("<?php echo $this->lang->line('please_enter_a_valid_email');?>");
 				$(".warning").css('display','block');
 				valid=0;
 			}
 		}
 		if(pass=='' && valid==1) {
+			
 			$(".error").text("<?php echo $this->lang->line('please_enter_password');?>");
 			$(".warning").css('display','block');
 			valid=0;
@@ -85,10 +88,12 @@ $(document).ready(function(){
 						window.location='<?php echo base_url();?>landing/welcome';
 					}
 					else if(data.result==0) {
+						
 						$(".error").text("<?php echo $this->lang->line('please_enter_email_address');?>");
 						$(".warning").css('display','block');
 					}
 					else if(data.result==2) {
+						
 						$(".error").text("<?php echo $this->lang->line('account_not_verified');?>");
 						$(".warning").css('display','block');
 					}
@@ -200,6 +205,34 @@ $(document).ready(function(){
   });
 });
 
+function set_session(lang)
+{
+	if(lang != '')
+	{
+		$.ajax({
+			type: "POST",
+			url: "<?php echo base_url();?>index.php/landing/set_session_lang",
+			data: "language="+lang,
+			success: function(msg) {
+				location.reload();
+				if(lang == 'en')
+				{
+					/*$('#li_english').addClass('active');
+					$('#li_arabic').removeClass('active');
+					$('#btn_active').empty().html('EN <i class="fa fa-angle-down">');*/
+				}
+				else
+				{
+					/*$('#li_arabic').addClass('active');
+					$('#li_english').removeClass('active');
+					$('#btn_active').empty().html('AR <i class="fa fa-angle-down">');*/
+				}
+				console.log('!!!!!!!!!!!');
+			}
+		});
+	
+	}
+}
 </script>   
 		   
 		   
@@ -251,11 +284,14 @@ $(document).ready(function(){
 
 							<!-- HEADER LANGUAGE : begin -->
 							<div class="header-language">
-								<button class="header-btn">EN <i class="fa fa-angle-down"></i></button>
+								<button class="header-btn" id="btn_active">EN <i class="fa fa-angle-down"></i></button> 
 								<nav class="header-nav">
 									<ul class="custom-list">
-										<li class="active"><a href="<?php echo base_url();?>landing">EN</a></li>
-										<li><a href="<?php echo base_url();?>ar/landing">AR</a></li>
+										<?php /*?><li class="active"><a href="<?php echo base_url();?>landing">EN</a></li>
+										<li><a href="<?php echo base_url();?>ar/landing">AR</a></li><?php */?>
+										
+										<li class="active" id="li_english" ><a href="javascript:void(0)" onClick="set_session('en');">EN</a></li>
+										<li id="li_arabic"><a href="javascript:void(0)" onClick="set_session('ar');">AR</a></li>
 										
 									</ul>
 								</nav>
