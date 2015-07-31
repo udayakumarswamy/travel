@@ -56,19 +56,19 @@ $(document).ready(function(){
 		var valid=1;
 
 		if(email == '' && valid == 1) {
-			$(".error").text('Please Enter Email');
+			$(".error").text("<?php echo $this->lang->line('please_enter_email_address');?>");
 			$(".warning").css('display','block');
 			valid=0;
 		}
 		else if(email!='' && valid==1) {
 			if( !validateEmail(email)) {
-				$(".error").text('Please Enter a valid Email');
+				$(".error").text("<?php echo $this->lang->line('please_enter_a_valid_email');?>");
 				$(".warning").css('display','block');
 				valid=0;
 			}
 		}
 		if(pass=='' && valid==1) {
-			$(".error").text('Please Enter Password');
+			$(".error").text("<?php echo $this->lang->line('please_enter_password');?>");
 			$(".warning").css('display','block');
 			valid=0;
 		}
@@ -85,11 +85,11 @@ $(document).ready(function(){
 						window.location='<?php echo base_url();?>landing/welcome';
 					}
 					else if(data.result==0) {
-						$(".error").text('Either email or Password is incorrect');
+						$(".error").text("<?php echo $this->lang->line('please_enter_email_address');?>");
 						$(".warning").css('display','block');
 					}
 					else if(data.result==2) {
-						$(".error").text('Sorry! Your Account is not verified');
+						$(".error").text("<?php echo $this->lang->line('account_not_verified');?>");
 						$(".warning").css('display','block');
 					}
 				}
@@ -191,7 +191,7 @@ $(document).ready(function(){
 					$(".warning").css('display','none');
   			}
     		else {
-	    		$("#registration_error").text('This email already exists');
+	    		$("#registration_error").text("<?php echo $this->lang->line('this_email_already_exists');?>");
 					$(".warning").css('display','block');
     			// $("#usr_verify").css({ "background-image": "url('<?php //echo base_url();?>images/no.png')" });
   			}
