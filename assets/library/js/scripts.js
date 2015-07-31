@@ -873,7 +873,7 @@ $(document).ready(function(){
 		}, function(){
 			if ( media_query_breakpoint > 991 ) {
 				self.find( '.header-btn' ).removeClass( 'hover' );
-				form_holder.stop( true, true ).delay(10).slideUp(200);
+				form_holder.stop( true, true ).delay(15).slideUp(200);
 			}
 		});
 

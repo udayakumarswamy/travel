@@ -48,82 +48,87 @@ function validateEmail(email) {
 }
 $(document).ready(function(){
 
-	$("#userloginForm").submit(function(e){
-	$(".error").text('');
-	$(".warning").css('display','none');	
-	var email=$("#email").val();
-	var pass=$("#pass").val();
+	$("#userloginForm").submit(function(e) {
+		$(".error").text('');
+		$(".warning").css('display','none');
+		var email=$("#email").val();
+		var pass=$("#pass").val();
+		var valid=1;
 
-	var valid=1;
-	
-	if(email=='' && valid==1){
-		$(".error").text('Please Enter Email');
-		$(".warning").css('display','block');
-		valid=0;	
-	}else if(email!=''  && valid==1){
-		
-	    if( !validateEmail(email)) {
-			$(".error").text('Please Enter a valid Email');
-		    $(".warning").css('display','block');
-		    valid=0;
+		if(email == '' && valid == 1) {
+			$(".error").text('Please Enter Email');
+			$(".warning").css('display','block');
+			valid=0;
 		}
-	}
-	if(pass=='' && valid==1){
-		$(".error").text('Please Enter Password');
-		$(".warning").css('display','block');
-		valid=0;	
-	}
-	//alert(valid);
-	if(valid==1){
-		$.ajax({
-			type:"POST",
-			url:'<?php echo base_url();?>index.php/<?php if($postfix!=''){echo '/ar';}?>/landing/login',
-			data:{'email':email,'pass':pass},
-			dataType:"json",
-			success: function(data){
-				if(data.result==1){
-					window.location='<?php echo base_url();?>index.php<?php if($postfix!=''){echo '/ar';}?>/landing/welcome';						
-				}else if(data.result==0){					
-					$(".error").text('Either email or Password is incorrect');
-					$(".warning").css('display','block');	
-				}else if(data.result==2){					
-					$(".error").text('Sorry! Your Account is not verified');
-					$(".warning").css('display','block');	
-				}
+		else if(email!='' && valid==1) {
+			if( !validateEmail(email)) {
+				$(".error").text('Please Enter a valid Email');
+				$(".warning").css('display','block');
+				valid=0;
 			}
-		});		
-	}
-	e.preventDefault();
-});
-	
-	
-    $('#userregistrationForm').submit(function(evnt){
+		}
+		if(pass=='' && valid==1) {
+			$(".error").text('Please Enter Password');
+			$(".warning").css('display','block');
+			valid=0;
+		}
+		//alert(valid);
+
+		if(valid==1) {
+			$.ajax({
+				type:"POST",
+				url:'<?php echo base_url();?>landing/login',
+				data:{'email':email,'pass':pass},
+				dataType:"json",
+				success: function(data) {
+					if(data.result==1) {
+						window.location='<?php echo base_url();?>landing/welcome';
+					}
+					else if(data.result==0) {
+						$(".error").text('Either email or Password is incorrect');
+						$(".warning").css('display','block');
+					}
+					else if(data.result==2) {
+						$(".error").text('Sorry! Your Account is not verified');
+						$(".warning").css('display','block');
+					}
+				}
+			});
+		}
+		e.preventDefault();
+	});
+
+  $('#userregistrationForm').submit(function(evnt) {
 		$(".registration_error").text('');
 		$("#registration_success").text("");
-	    $(".warning").css('display','none');	
-	    $(".success").css('display','none');
+    $(".warning").css('display','none');
+    $(".success").css('display','none');
+
 		var email_address=$("#email_address").val();
 		var user_name=$("#user_name").val();
 		var password=$("#password").val();
 		var con_password=$("#con_password").val();
 		var user_type;
-		$("input[name='user_type']").each(function(){
+		
+		$("input[name='user_type']").each(function() {
 			if($(this).is(':checked'))
 				user_type=$(this).val();
 		});
+		
 		var valid=1;
 		
-		if(user_name=='' && valid==1){
-		$("#registration_error").text('Please Enter Username');
-		$(".warning").css('display','block');
-		valid=0;	
+		if(user_name=='' && valid==1) {
+			$("#registration_error").text('Please Enter Username');
+			$(".warning").css('display','block');
+			valid=0;	
 		}
-		if(email_address=='' && valid==1){
-		$("#registration_error").text('Please Enter Email Address');
-		$(".warning").css('display','block');
-		valid=0;	
-		}else if(email_address!=''  && valid==1){
 		
+		if(email_address=='' && valid==1) {
+			$("#registration_error").text('Please Enter Email Address');
+			$(".warning").css('display','block');
+			valid=0;	
+		}
+		else if(email_address!=''  && valid==1) {
 			if( !validateEmail(email_address)) {
 				$("#registration_error").text('Please Enter a valid Email');
 				$(".warning").css('display','block');
@@ -131,83 +136,68 @@ $(document).ready(function(){
 			}
 		}
 		
-		
-		
-	    if(password=='' && valid==1){
-		$("#registration_error").text('Please Enter Password');
-		$(".warning").css('display','block');
-		valid=0;	
+		if(password=='' && valid==1) {
+			$("#registration_error").text('Please Enter Password');
+			$(".warning").css('display','block');
+			valid=0;	
 		}
-		if(con_password!=password && valid==1){
-		$("#registration_error").text('password and confirm password does not match');
-		$(".warning").css('display','block');
-		valid=0;	
-		}
-		
-		
-	    if(valid==1){
-			/*alert(email_address);
-			alert(password);
-			alert(user_name);*/
-			$.ajax({
-			   type: "POST",
-			   url: "<?php echo base_url();?>index.php<?php if($postfix!=''){echo '/ar';}?>/landing/registration",
-			   data: {'email_address':email_address,'password':password,"user_name":user_name,"user_type":user_type},
-			   dataType:"json",
-			   success: function(obj){
-				 //  var obj = JSON.parse(data);
-				   var errormsg = obj.error;
-				  // alert(obj.success);
-                   if(obj.success){
-				  // alert("The registration processed successfully!")
-				  // $(".warning").css('display','none');
-				   //$("#registration_success").text("The registration processed successfully.Please confirm your mail!");
-		           //$(".success").css('display','block');
-                      window.location='<?php echo base_url();?>index.php<?php if($postfix!=''){echo '/ar';}?>/landing/thankyou';						
 
-				   }else{
-				    $(".success").css('display','none');
+		if(con_password!=password && valid==1) {
+			$("#registration_error").text('password and confirm password does not match');
+			$(".warning").css('display','block');
+			valid=0;	
+		}
+		
+		if(valid==1){
+			$.ajax({
+				type: "POST",
+			  url: "<?php echo base_url();?>landing/registration",
+			  data: {'email_address':email_address,'password':password,"user_name":user_name,"user_type":user_type},
+			  dataType:"json",
+			  success: function(obj){
+				//  var obj = JSON.parse(data);
+					var errormsg = obj.error;
+				  // alert(obj.success);
+				  if(obj.success) {
+				  	// alert("The registration processed successfully!")
+				  	// $(".warning").css('display','none');
+				   	//$("#registration_success").text("The registration processed successfully.Please confirm your mail!");
+	          //$(".success").css('display','block');
+            window.location='<?php echo base_url();?>landing/thankyou';
+          }
+          else {
+          	$(".success").css('display','none');
 				    $(".warning").css('display','block');
-					$("#registration_error").text(errormsg);
-				   }
+						$("#registration_error").text(errormsg);
+			   	}
 			  }
-			  
 			});
-			
 		}
 		evnt.preventDefault(); //Avoid that the event 'submit' continues with its normal execution, so that, we avoid to reload the whole page
-		
-    });
+	});
 
-
-
- $("#email_address").on( "focusout", function(){
-   $("#registration_error").text();
-   $(".warning").css('display','none');
+	$("#email_address").on( "focusout", function() {
+  	$("#registration_error").text();
+   	$(".warning").css('display','none');
   
-  $.ajax({
-   type: "POST",
-   url: "<?php echo base_url();?>index.php/landing/check_email",
-   data: "email_address="+$("#email_address").val(),
-   success: function(msg){
-
-    if(msg=="true")
-    {
-    // $("#usr_verify").css({ "background-image": "url('<?php echo base_url();?>images/yes.png')" });
-	    $("#registration_error").text();
-		$(".warning").css('display','none');
-    }
-    else
-    {
-	    $("#registration_error").text('This email already exists');
-		$(".warning").css('display','block');
-    // $("#usr_verify").css({ "background-image": "url('<?php //echo base_url();?>images/no.png')" });
-    }
-   }
+  	$.ajax({
+   		type: "POST",
+   		url: "<?php echo base_url();?>landing/check_email",
+		  data: "email_address="+$("#email_address").val(),
+		  success: function(msg) {
+		  	if(msg=="true") {
+		  		// $("#usr_verify").css({ "background-image": "url('<?php echo base_url();?>images/yes.png')" });
+	    		$("#registration_error").text();
+					$(".warning").css('display','none');
+  			}
+    		else {
+	    		$("#registration_error").text('This email already exists');
+					$(".warning").css('display','block');
+    			// $("#usr_verify").css({ "background-image": "url('<?php //echo base_url();?>images/no.png')" });
+  			}
+   		}
+  	});
   });
-  
- });
- 
 });
 
 </script>   
@@ -242,7 +232,7 @@ $(document).ready(function(){
 							<nav class="header-nav">
 								<ul>
 									<li class="has-submenu" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
-										<a href="<?php echo base_url();?>index.php/<?php if($postfix!=''){echo 'ar';}?>/landing" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('home');?></a>
+										<a href="<?php echo base_url();?>landing" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('home');?></a>
 										
 									</li>
 									
@@ -264,8 +254,8 @@ $(document).ready(function(){
 								<button class="header-btn">EN <i class="fa fa-angle-down"></i></button>
 								<nav class="header-nav">
 									<ul class="custom-list">
-										<li class="active"><a href="<?php echo base_url();?>index.php/landing">EN</a></li>
-										<li><a href="<?php echo base_url();?>index.php/ar/landing">AR</a></li>
+										<li class="active"><a href="<?php echo base_url();?>landing">EN</a></li>
+										<li><a href="<?php echo base_url();?>ar/landing">AR</a></li>
 										
 									</ul>
 								</nav>
@@ -274,7 +264,7 @@ $(document).ready(function(){
 							
 							<!-- HEADER REGISTER : begin -->
 							<?php if($this->session->userdata('userId')){?>
-							<a href="<?php echo base_url();?>index.php/landing/welcome">
+							<a href="<?php echo base_url();?>landing/welcome">
 							My Account
 							</a>
 							<?php } ?>
@@ -315,7 +305,7 @@ $(document).ready(function(){
 
 							<!-- HEADER LOGIN : begin -->
 							<?php if($this->session->userdata('userId')){?>
-							<a href="<?php echo base_url();?>index.php/landing/logout">
+							<a href="<?php echo base_url();?>landing/logout">
 							Log Out
 							</a>
 							<?php } ?>
@@ -336,7 +326,7 @@ $(document).ready(function(){
                                           <button class="submit-btn button" id="btn_submit"><i class="fa fa-power-off"></i><?php echo $this->lang->line('login');?></button>
                                         </p>
                                         <p class="form-row forgot-password">
-											<a href="<?php echo base_url();?>index.php/landing/forgotpassword" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('forgot_password');?></a>
+											<a href="<?php echo base_url();?>landing/forgotpassword" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('forgot_password');?></a>
 										</p>
                                          </form>
 										
@@ -355,7 +345,7 @@ $(document).ready(function(){
 
 							<!-- HEADER ADD OFFER : begin -->
 							<?php if($this->session->userdata('userId') && $this->session->userdata('usertype')==2 ){?>
-							<span class="header-add-offer"><a href="<?php echo base_url();?>index.php/agent/add_package" class="button"><i class="fa fa-plus"></i> Add Package</a></span>
+							<span class="header-add-offer"><a href="<?php echo base_url();?>agent/add_package" class="button"><i class="fa fa-plus"></i> Add Package</a></span>
 							<?php } ?>
 							<!-- HEADER ADD OFFER : end -->
 
