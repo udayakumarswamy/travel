@@ -1,0 +1,5 @@
+[07-Jul-2015 14:40:05 Asia/Calcutta] PHP Fatal error:  Call to a member function login() on a non-object in /home/midclass/public_html/property/application/controllers/landing.php on line 21
+[07-Jul-2015 14:41:43 Asia/Calcutta] PHP Fatal error:  Call to undefined method CI_Loader::mode() in /home/midclass/public_html/property/application/controllers/landing.php on line 17
+[09-Jul-2015 10:20:23 Asia/Calcutta] PHP Fatal error:  Call to a member function verifyEmailAddress() on a non-object in /home/midclass/public_html/property/application/controllers/landing.php on line 85
+[09-Jul-2015 10:21:06 Asia/Calcutta] PHP Fatal error:  Call to a member function verifyEmailAddress() on a non-object in /home/midclass/public_html/property/application/controllers/landing.php on line 85
+[26-Jul-2015 15:01:41 Etc/GMT] PHP Fatal error:  Call to undefined method Packagemodel::get_maenities() in /home/safacs2/public_html/travel/application/controllers/package.php on line 39
