@@ -9,7 +9,7 @@ class Admin  extends CI_Controller
 		//$this->load->model('admin/adminusermodel');
 		$this->load->model('admin/adminmodel');
 		//$this->load->model('admin/common_methods');
-	//	$this->load->theme('admin');
+		//	$this->load->theme('admin');
 		$this->load->helper('auth');
 		$this->load->library('pagination');
 		$this->load->helper('form');

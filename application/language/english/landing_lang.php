@@ -48,7 +48,6 @@
 	  $lang['make_reservation']='Make Reservation';
 	  $lang['property_details']='Property Details';
 	  $lang['location_details']='Location &amp; Details';
-	  
 	  $lang['country']='Country';
 	  $lang['package_include']='Package Includes';
 	  $lang['description']='Description';
@@ -61,7 +60,6 @@
 	  $lang['infant']='Infant';
 	  $lang['total_package_cost']='Total Package Cost';
 	  $lang['book_now']='Book Your Package Now';
-
 	  $lang['please_enter_username'] = 'Please Enter Username';
 	  $lang['please_enter_email_address'] = 'Please Enter Email Address';
 	  $lang['please_enter_a_valid_email'] = 'Please Enter a valid Email';
@@ -104,7 +102,17 @@
 	  $lang['old_new_pwd_same'] = 'New Password and Repeat Password must be Same';
 	  $lang['pwd_changed'] = 'Password Changed Successfully';
 	  $lang['no_old_pwd_in_db'] = 'Sorry! Old password not found in our Database';
-
+$lang['logo'] = 'LOGO';
+	  $lang['welcome_dashboard'] = 'Welcome To Dashboard';
+	  $lang['logout'] = 'Logout';
+	  $lang['property_management'] = 'Property Management';
+	  $lang['package_list'] = 'Package List';
+	  $lang['list_amenities'] = 'List Amenities';
+	  $lang['add_amenities'] = 'Add Amenities';
+	  $lang['cms_management'] = 'CMS Management';
+	  $lang['add_cms_page'] = 'Add CMS Page';
+	  $lang['list_cms_page'] = 'List of CMS Page';
+	  $lang['testimonial_management'] = 'Testimonial Management';
 	  $lang['package_title'] = 'Package Title';
 	  $lang['no_of_seats_avail_for_adults'] = 'Number of Seats Available for Adults';
 	  $lang['no_of_seats_avail_for_childs'] = 'Number of Seats Available for Childs';
