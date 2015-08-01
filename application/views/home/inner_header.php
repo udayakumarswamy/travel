@@ -42,6 +42,37 @@
 			height: 16px;
 		}
 		</style>
+		<script type="text/javascript">
+		function set_session(lang)
+		{
+			if(lang != '')
+			{
+				$.ajax({
+					type: "POST",
+					// url: "landing/set_session_lang",
+					url: "<?php echo base_url();?>index.php/landing/set_session_lang",
+					data: "language="+lang,
+					success: function(msg) {
+						location.reload();
+						/*if(lang == 'en')
+						{
+							$('#li_english').addClass('active');
+							$('#li_arabic').removeClass('active');
+							$('#btn_active').empty().html('EN <i class="fa fa-angle-down"></i>');
+						}
+						else
+						{
+							$('#li_arabic').addClass('active');
+							$('#li_english').removeClass('active');
+							$('#btn_active').empty().html('AR <i class="fa fa-angle-down"></i>');
+						}*/
+					}
+				});
+			
+			}
+		}
+
+		</script>
 	</head>
 	<body class="enable-fixed-header enable-style-switcher enable-inview-animations">
 
