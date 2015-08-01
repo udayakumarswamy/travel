@@ -122,37 +122,40 @@ class Landing  extends CI_Controller
 		$this->load->view('home/verify', $data);   
 		$this->load->view('home/footer',$data);
 	  }
-	  public function welcome()
-	 {
-		    if($this->session->userdata('language')=='english')
-				$data['postfix']='';
-			else
-				$data['postfix']='_ar';	
-			if($this->session->userdata('userId')){
+
+
+	public function welcome()
+	{
+		/*if($this->session->userdata('language')=='english')
+			$data['postfix']='';
+		else
+			$data['postfix']='_ar';	*/
+		if(!empty($this->session->userdata('userId')))
+		{
 			$data['title']= 'Welcome';
 			$data['username'] = $this->session->userdata('username');
 			$data['usertype'] = $this->session->userdata('usertype');
 			$this->load->view('home/inner_header',$data);
 			$this->load->view('home/welcome', $data);
 			$this->load->view('home/footer',$data);
-			}else{
-				redirect('index.php/landing');
-			}
-		
-			
-		
+		}else{
+			redirect('/landing');
+		}
 
-	 /* if(($this->session->userdata('username')!="")){
-	   $data['title']= 'Welcome';
-	//  $this->load->view('home/header_view',$data);
-	   $this->load->view('home/welcome', $data);
-	  //$this->load->view('home/footer_view',$data);
-	  }else{
-		  redirect("home/index");
-	  }
-     //  http://www.technicalkeeda.com/php-codeigniter/verify-email-address-using-php-codeigniter*/
-	 }
-	 
+
+
+
+		/* if(($this->session->userdata('username')!="")){
+		$data['title']= 'Welcome';
+		//  $this->load->view('home/header_view',$data);
+		$this->load->view('home/welcome', $data);
+		//$this->load->view('home/footer_view',$data);
+		}else{
+		redirect("home/index");
+		}
+		//  http://www.technicalkeeda.com/php-codeigniter/verify-email-address-using-php-codeigniter*/
+	}
+
 	 public function check_email()
 	{
      $this->load->model('usermodel');

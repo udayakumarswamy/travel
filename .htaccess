@@ -1,18 +1,6 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
-
-php_value upload_max_filesize 500M
-php_value post_max_size 500M
-php_value memory_limit 32M
-
-	#Checks to see if the user is attempting to access a valid file,
-	#such as an image or css document, if this isn't true it sends the
-	#request to index.php
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	#This last condition enables access to the images and css folders, and the robots.txt file
-	RewriteCond $1 !^(index\.php|public|images|robots\.txt|css)
-	RewriteRule ^(.*)$ index.php/$1 [L]
-      
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L] 
 </IfModule>
-

@@ -71,7 +71,7 @@
 							<nav class="header-nav">
 								<ul>
 									<li class="has-submenu" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
-										<a href="<?php echo base_url();?>index.php/<?php if($postfix!=''){echo 'ar';}?>/landing" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('home');?></a>
+										<a href="/landing" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('home');?></a>
 										
 									</li>
 									
@@ -90,11 +90,30 @@
 
 							<!-- HEADER LANGUAGE : begin -->
 							<div class="header-language">
-								<button class="header-btn">EN <i class="fa fa-angle-down"></i></button>
+								<?php 
+								$lang = '';
+								if(empty($this->session->userdata('language'))){
+									$lang = 'EN';
+								}
+								else
+								{
+									if(trim($this->session->userdata('language')) == 'arabic'){
+										$lang = 'AR';
+									}
+									else
+									{
+										$lang = 'EN';
+									}
+								}
+								?>
+								<button class="header-btn"><?php echo $lang;?> <i class="fa fa-angle-down"></i></button>
 								<nav class="header-nav">
 									<ul class="custom-list">
-										<li class="active"><a href="<?php echo base_url();?>index.php/landing">EN</a></li>
-										<li><a href="<?php echo base_url();?>index.php/ar/landing">AR</a></li>
+										<?php /*<li class="active"><a href="<?php echo base_url();?>index.php/landing">EN</a></li>
+										<li><a href="<?php echo base_url();?>index.php/ar/landing">AR</a></li> */?>
+										<li class="active" ><a href="javascript:void(0)" onClick="set_session('en');">EN</a></li>
+										<li ><a href="javascript:void(0)" onClick="set_session('ar');">AR</a></li>
+										
 										
 									</ul>
 								</nav>

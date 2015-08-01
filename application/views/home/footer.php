@@ -40,7 +40,37 @@
 		<script src="<?php echo base_url();?>assets/library/twitter/jquery.tweet.min.js" type="text/javascript"></script>
 		<script src="<?php echo base_url();?>assets/library/js/scripts.js" type="text/javascript"></script>
 		<!-- SCRIPTS : end -->
+		<script type="text/javascript">
+		function set_session(lang)
+		{
+			if(lang != '')
+			{
+				$.ajax({
+					type: "POST",
+					url: "landing/set_session_lang",
+					// url: "<?php echo base_url();?>index.php/landing/set_session_lang",
+					data: "language="+lang,
+					success: function(msg) {
+						location.reload();
+						/*if(lang == 'en')
+						{
+							$('#li_english').addClass('active');
+							$('#li_arabic').removeClass('active');
+							$('#btn_active').empty().html('EN <i class="fa fa-angle-down"></i>');
+						}
+						else
+						{
+							$('#li_arabic').addClass('active');
+							$('#li_english').removeClass('active');
+							$('#btn_active').empty().html('AR <i class="fa fa-angle-down"></i>');
+						}*/
+					}
+				});
+			
+			}
+		}
 
+		</script>
 	</body>
 </html>
 
