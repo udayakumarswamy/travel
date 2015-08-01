@@ -103,7 +103,7 @@ $(document).ready(function(){
 <div class="col-sm-6">
 <p class="form-submit">
 <button class="button submit-btn" data-loading-label="Sending...">
-sub
+
 	<i class="fa fa-envelope"></i> <?php echo $this->lang->line('submit');?> </button>
 </p>
 </div>
