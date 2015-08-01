@@ -7,7 +7,16 @@
 
       <div class="col-sm-12">
         <div class="st-form-container">
-          <h5><?php echo $this->lang->line('add_package');?></h5>
+          <h5>
+            <?php
+              if($package_details['package_id']=='') {
+                echo $this->lang->line('add_package');
+              }
+              else {
+                echo $this->lang->line('edit_package');
+              }
+            ?>
+          </h5>
           <div id="error_div" class="alert alert-danger" style="display:none"></div>
           <div id="success_div" class="alert alert-success" style="display:none"></div>
 
@@ -28,7 +37,7 @@
           <div class="row">
             <div class="col-sm-6">
               <p>
-                <input type="text" id="dept_date" name="dept_date" value="<?php echo $package_details['dept_date'];?>" class="required" placeholder="<?php echo $this->lang->line('departure_date');?>">
+                <input type="text" id="dept_date" name="dept_date" value="<?php echo date('n/d/Y', strtotime($package_details['dept_date']));?>" class="required" placeholder="<?php echo $this->lang->line('departure_date');?>">
                 <script>
                 $(function() {
                   $( "#dept_date" ).datepicker();
@@ -38,7 +47,7 @@
             </div>
             <div class="col-sm-6">
               <p>
-                <input type="text" id="arr_date" name="arr_date"  value="<?php echo $package_details['arr_date'];?>" class="required" placeholder="<?php echo $this->lang->line('arrival_date');?>">
+                <input type="text" id="arr_date" name="arr_date"  value="<?php echo date('n/d/Y', strtotime($package_details['arr_date']));?>" class="required" placeholder="<?php echo $this->lang->line('arrival_date');?>">
               </p>
               <script>
               $(function() {

@@ -35,6 +35,7 @@
 	  $lang['change_password']='Change Password';
 	  $lang['package_listing']='Pacakge Listing';
 	  $lang['add_package']='Add Package';
+	  $lang['edit_package']='Edit Package';
 	  $lang['log_out']='Log Out';
 	  $lang['search_result']='Search Results';
 	  $lang['packages_found']='Packages Found';
@@ -132,3 +133,9 @@ $lang['logo'] = 'LOGO';
 	  $lang['enter_country'] = 'Please enter Country';
 	  $lang['enter_pkg_dest'] = 'Please enter Package destination';
 	  $lang['data_saved_sucfuly'] = 'Data Saved Successfully';
+
+	  $lang['your_pkg_list'] = 'Your Package List';
+	  $lang['pkg_name'] = 'Package Name';
+	  $lang['pkg_dept_date'] = 'Package Departure Date';
+	  $lang['status'] = 'Status';
+	  $lang['action'] = 'Action';
