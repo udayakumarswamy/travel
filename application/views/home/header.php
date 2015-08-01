@@ -215,19 +215,18 @@ function set_session(lang)
 			data: "language="+lang,
 			success: function(msg) {
 				location.reload();
-				if(lang == 'en')
+				/*if(lang == 'en')
 				{
-					/*$('#li_english').addClass('active');
+					$('#li_english').addClass('active');
 					$('#li_arabic').removeClass('active');
-					$('#btn_active').empty().html('EN <i class="fa fa-angle-down">');*/
+					$('#btn_active').empty().html('EN <i class="fa fa-angle-down"></i>');
 				}
 				else
 				{
-					/*$('#li_arabic').addClass('active');
+					$('#li_arabic').addClass('active');
 					$('#li_english').removeClass('active');
-					$('#btn_active').empty().html('AR <i class="fa fa-angle-down">');*/
-				}
-				console.log('!!!!!!!!!!!');
+					$('#btn_active').empty().html('AR <i class="fa fa-angle-down"></i>');
+				}*/
 			}
 		});
 	
@@ -266,7 +265,6 @@ function set_session(lang)
 								<ul>
 									<li class="has-submenu" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
 										<a href="<?php echo base_url();?>landing" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('home');?></a>
-										
 									</li>
 									
 									
@@ -284,13 +282,29 @@ function set_session(lang)
 
 							<!-- HEADER LANGUAGE : begin -->
 							<div class="header-language">
-								<button class="header-btn" id="btn_active">EN <i class="fa fa-angle-down"></i></button> 
+								<?php 
+								$lang = '';
+								if(empty($this->session->userdata('language'))){
+									$lang = 'EN';
+								}
+								else
+								{
+									if(trim($this->session->userdata('language')) == 'arabic'){
+										$lang = 'AR';
+									}
+									else
+									{
+										$lang = 'EN';
+									}
+								}
+								?>
+								<button class="header-btn" id="btn_active"><?php echo $lang; ?> <i class="fa fa-angle-down"></i></button> 
 								<nav class="header-nav">
 									<ul class="custom-list">
 										<?php /*?><li class="active"><a href="<?php echo base_url();?>landing">EN</a></li>
 										<li><a href="<?php echo base_url();?>ar/landing">AR</a></li><?php */?>
 										
-										<li class="active" id="li_english" ><a href="javascript:void(0)" onClick="set_session('en');">EN</a></li>
+										<li class="active" id="li_english"><a href="javascript:void(0)" onClick="set_session('en');">EN</a></li>
 										<li id="li_arabic"><a href="javascript:void(0)" onClick="set_session('ar');">AR</a></li>
 										
 									</ul>

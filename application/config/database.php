@@ -49,8 +49,10 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'safacs2_travelus';
-$db['default']['password'] = 'B4rDW@!ASdcXSwD';
+//$db['default']['username'] = 'safacs2_travelus';
+//$db['default']['password'] = 'B4rDW@!ASdcXSwD';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '';
 $db['default']['database'] = 'safacs2_travel';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
