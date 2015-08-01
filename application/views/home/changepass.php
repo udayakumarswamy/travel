@@ -47,13 +47,13 @@ $(document).ready(function(){
 						}else if(data.result==0){					
 							$("#success").text('');
 							$(".success").css('display','none');
-							$("#error").text("Password can't changed");
+							$("#error").text("<?php echo $this->lang->line('went_wrong');?>");
 							$(".warning").css('display','block');
 							
 						}else if(data.result==2){		
 						    $("#success").text('');
 							$(".success").css('display','none');			
-							$("#error").text('Sorry! Old password not found in our database');
+							$("#error").text("<?php echo $this->lang->line('no_old_pwd_in_db');?>");
 							$(".warning").css('display','block');	
 						}
 					}

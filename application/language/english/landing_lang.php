@@ -103,3 +103,4 @@
 	  $lang['enter_new_pwd'] = 'Please Enter New Password';
 	  $lang['old_new_pwd_same'] = 'New Password and Repeat Password must be Same';
 	  $lang['pwd_changed'] = 'Password Changed Successfully';
+	  $lang['no_old_pwd_in_db'] = 'Sorry! Old password not found in our Database';
