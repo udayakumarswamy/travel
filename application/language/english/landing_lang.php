@@ -104,3 +104,23 @@
 	  $lang['old_new_pwd_same'] = 'New Password and Repeat Password must be Same';
 	  $lang['pwd_changed'] = 'Password Changed Successfully';
 	  $lang['no_old_pwd_in_db'] = 'Sorry! Old password not found in our Database';
+
+	  $lang['package_title'] = 'Package Title';
+	  $lang['no_of_seats_avail_for_adults'] = 'Number of Seats Available for Adults';
+	  $lang['no_of_seats_avail_for_childs'] = 'Number of Seats Available for Childs';
+	  $lang['no_of_seats_avail_for_infants'] = 'Number of Seats Available for Infants';
+	  $lang['package_description'] = 'Package Description';
+	  $lang['upload'] = 'Upload';
+	  $lang['save'] = 'Save';
+	  $lang['enter_pckg_title'] = 'Please enter package title';
+	  $lang['enter_departure_date'] = 'Please enter Departure Date';
+	  $lang['enter_arval_date'] = 'Please enter Arrival Date';
+	  $lang['enter_pkg_cost_adult'] = 'Please enter Package Cost for Adult';
+	  $lang['enter_pkg_cost_child'] = 'Please enter Package Cost for Childs';
+	  $lang['enter_pkg_cost_infant'] = 'Please enter Package Cost for Infants';
+	  $lang['enter_noof_seats_adult'] = 'Please enter No of Seats for Adult';
+	  $lang['enter_noof_seats_child'] = 'Please enter No of Seats for Childs';
+	  $lang['enter_noof_seats_infant'] = 'Please enter No of Seats for Infants';
+	  $lang['enter_country'] = 'Please enter Country';
+	  $lang['enter_pkg_dest'] = 'Please enter Package destination';
+	  $lang['data_saved_sucfuly'] = 'Data Saved Successfully';
