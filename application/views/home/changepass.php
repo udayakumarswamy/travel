@@ -12,18 +12,18 @@ $(document).ready(function(){
 		
 		    var valid=1;
 			if(oldpass=='' && valid==1){
-				$("#error").text('Please Enter old password');
+				$("#error").text("<?php echo $this->lang->line('enter_old_pwd');?>");
 				$(".warning").css('display','block');
 				valid=0;	
 			}
 		   if(newpass==''  && valid==1){
-					$("#error").text('Please Enter new password');
+					$("#error").text("<?php echo $this->lang->line('enter_new_pwd');?>");
 					$(".warning").css('display','block');
 					valid=0;
 			}
 		
 		  if(repeatnewpassword!=newpass && valid==1){
-				$("#error").text('password and repeat password must be same');
+				$("#error").text("<?php echo $this->lang->line('old_new_pwd_same');?>");
 				$(".warning").css('display','block');
 				valid=0;	
 			}
@@ -40,7 +40,7 @@ $(document).ready(function(){
 					//alert(data.result);
 						if(data.result==1){
 						//	window.location='<?php //echo base_url();?>index.php/landing/welcome';
-						  $("#success").text('Password changed');
+						  $("#success").text("<?php echo $this->lang->line('pwd_changed');?>");
 				          $(".warning").css('display','none');
 					      $("#error").text('');
 						  $(".success").css('display','block');
@@ -70,14 +70,14 @@ $(document).ready(function(){
 
 <div class="col-sm-12">
 <div class="st-form-container">
-<h5>Change Your Pasword Here</h5>
+<h5><?php echo $this->lang->line('change_pwd_here');?></h5>
 <form id="changePassfrm" name="changePassfrm"  class="default-form">
-						<p class="alert-message warning" style="display:none;"><i class="ico fa fa-exclamation-circle"></i><span id="error"></span> <i class="fa fa-times close"></i></p>
-						<p class="alert-message success"  style="display:none;"><i class="ico fa fa-exclamation-circle"></i><span id="success"></span> <i class="fa fa-times close"></i></p>
+<p class="alert-message warning" style="display:none;"><i class="ico fa fa-exclamation-circle"></i><span id="error"></span> <i class="fa fa-times close"></i></p>
+<p class="alert-message success"  style="display:none;"><i class="ico fa fa-exclamation-circle"></i><span id="success"></span> <i class="fa fa-times close"></i></p>
 <div class="row">
 <div class="col-sm-6">
 <p>
-<input type="password" id="oldpassword" name="oldpassword" class="required" placeholder="Old Password">
+<input type="password" id="oldpassword" name="oldpassword" class="required" placeholder="<?php echo $this->lang->line('old_pwd');?>">
 </p>
 </div>
 <div class="col-sm-6">
@@ -89,20 +89,22 @@ $(document).ready(function(){
 <div class="row">
 <div class="col-sm-6">
 <p>
-<input type="password" id="newpassword" name="newpassword" class="required " placeholder="New Password">
+<input type="password" id="newpassword" name="newpassword" class="required " placeholder="<?php echo $this->lang->line('new_pwd');?>">
 </p>
 </div>
 <div class="col-sm-6">
-<p> <input type="password" id="repeatnewpassword" name="repeatnewpassword" class="required " placeholder="Repeat New Password"> </p>
+<p> <input type="password" id="repeatnewpassword" name="repeatnewpassword" class="required " placeholder="<?php echo $this->lang->line('repeat_pwd');?>"> </p>
 </div>
 </div>
 <div class="row">
 <div class="col-sm-6">
-<p class="form-note">All fields are required</p>
+<p class="form-note"><?php echo $this->lang->line('all_fields_req');?></p>
 </div>
 <div class="col-sm-6">
 <p class="form-submit">
-<button class="button submit-btn" data-loading-label="Sending..."><i class="fa fa-envelope"></i> Sunmit </button>
+<button class="button submit-btn" data-loading-label="Sending...">
+sub
+	<i class="fa fa-envelope"></i> <?php echo $this->lang->line('submit');?> </button>
 </p>
 </div>
 </div>

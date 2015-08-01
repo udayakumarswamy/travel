@@ -75,3 +75,31 @@
 	  $lang['forgot_success_msg'] = 'Password changed and send to your email.';
 	  $lang['forgot_cant_changed'] = "Password can't changed";
 	  $lang['forgot_email_not_found'] = 'Sorry! This email not found in our database';
+
+	  /*****************/
+	  $lang['update_profile'] = 'Update Profile';
+	  $lang['first_name'] = 'First Name';
+	  $lang['last_name'] = 'Last Name';
+	  $lang['user_code'] = 'User Code';
+	  $lang['phone'] = 'Phone';
+	  $lang['address'] = 'Address';
+	  $lang['male'] = 'Male';
+	  $lang['female'] = 'Female';
+	  $lang['please_enter_first_name'] = 'Please Enter First name';
+	  $lang['please_enter_last_name'] = 'Please Enter Last name';
+	  $lang['please_enter_email'] = 'Please Enter Email';
+	  $lang['please_enter_user_name'] = 'Please Enter User name';
+	  $lang['please_enter_phone_no'] = 'Please Enter Phone number';
+	  $lang['please_enter_address'] = 'Please Enter Address';
+	  $lang['please_enter_gender'] = 'Please Select Gender';
+	  $lang['went_wrong'] = 'Some thing went wrong. Please try agian.';
+	  $lang['profile_success_msg'] = 'Profile Updated Successfully.';
+	  $lang['change_pwd_here'] = 'Change Your Pasword Here';
+	  $lang['old_pwd'] = 'Old Password';
+	  $lang['new_pwd'] = 'New Password';
+	  $lang['repeat_pwd'] = 'Repeat New Password';
+	  $lang['all_fields_req'] = 'All fields are required.';
+	  $lang['enter_old_pwd'] = 'Please Enter Old Password';
+	  $lang['enter_new_pwd'] = 'Please Enter New Password';
+	  $lang['old_new_pwd_same'] = 'New Password and Repeat Password must be Same';
+	  $lang['pwd_changed'] = 'Password Changed Successfully';

@@ -23,24 +23,21 @@ class Landing  extends CI_Controller
 	
 	function index(){
 		//$this->load->view('home/index');
-		
-		    
-			$data['title']= 'Home';
-			$this->load->model('packagemodel','package');
-			$this->load->model('testimonialmodel','testimonial');
-			$this->load->model('cmsmodel','cms');
-			if($this->session->userdata('language')=='english')
-				$data['postfix']='';
-			else
-				$data['postfix']='_ar';	
-			$data['featured']=$this->package->list_featured_package();
-			$data['destination']=$this->package->list_featured_destination();
-			$data['testimonials']=$this->testimonial->list_testimonial();
-			$data['cms_about']=$this->cms->get_content(1);
-			$this->load->view('home/header',$data);
-			$this->load->view("home/index", $data);
-			$this->load->view('home/footer',$data);
-		 
+		$data['title']= 'Home';
+		$this->load->model('packagemodel','package');
+		$this->load->model('testimonialmodel','testimonial');
+		$this->load->model('cmsmodel','cms');
+		/*if($this->session->userdata('language')=='english')
+		$data['postfix']='';
+		else
+		$data['postfix']='_ar';	*/
+		$data['featured']=$this->package->list_featured_package();
+		$data['destination']=$this->package->list_featured_destination();
+		$data['testimonials']=$this->testimonial->list_testimonial();
+		$data['cms_about']=$this->cms->get_content(1);
+		$this->load->view('home/header',$data);
+		$this->load->view("home/index", $data);
+		$this->load->view('home/footer',$data);
 	}
 	
 	public function login()
@@ -309,44 +306,47 @@ class Landing  extends CI_Controller
 	 $this->load->view('home/footer',$data);
 	}
 	
-	public function my_account($updmsg = ''){
-		if($this->session->userdata('language')=='english')
-				$data['postfix']='';
-			else
-				$data['postfix']='_ar';	
-	    if(($this->session->userdata('username')!="")){
+	
+	public function my_account($updmsg = '')
+	{
+		if(($this->session->userdata('username')!=""))
+		{
 			$data['title']="Update Account";
 			$this->load->model('usermodel');
-			if( $this->input->post('update')){
-				
-				//if($this->input->post('updid')){
-					$udata['FirstName'] = $this->input->post('first_name');
-					$udata['LastName'] = $this->input->post('last_name');
-					$udata['userName'] = $this->input->post('username');
-					$udata['Mobile'] = $this->input->post('phone');
-					$udata['Address'] = $this->input->post('address');
-					//$udata['City'] = $this->input->post('city');
-					$udata['country'] = $this->input->post('country');
-					$udata['Gender'] = $this->input->post('gender');
-					//$udata['Zipcode'] = $this->input->post('city');
-					//$udata['description'] = $this->input->post('description');
-					$udata['BirthDate'] = $this->input->post('dob');
-					$udata['dDateModify'] = date("Y:m:d H:i:s");
-					if($this->usermodel->update_user($udata)){
-					    redirect("index.php/landing/my_account/updsuccess");
-					}else{
-						redirect("index.php/landing/my_account/upderror");
-					}
-				
-			   // }else{
-					
-					//$this->index();
-				//}
-			}else{
-				
-				if($updmsg=="upderror"){
+			if( $this->input->post('update'))
+			{
+				$udata['FirstName'] = $this->input->post('first_name');
+				$udata['LastName'] = $this->input->post('last_name');
+				$udata['userName'] = $this->input->post('username');
+				$udata['Mobile'] = $this->input->post('phone');
+				$udata['Address'] = $this->input->post('address');
+				//$udata['City'] = $this->input->post('city');
+				// $udata['country'] = $this->input->post('country');
+				$udata['Gender'] = $this->input->post('gender');
+				//$udata['Zipcode'] = $this->input->post('city');
+				//$udata['description'] = $this->input->post('description');
+				// $udata['BirthDate'] = $this->input->post('dob');
+				// $udata['dDateModify'] = date("Y:m:d H:i:s");
+				// echo '<pre>';print_r($udata);exit;
+				if($this->usermodel->update_user($udata))
+				{
+					// redirect("index.php/landing/my_account/updsuccess");
+					echo 1;
+				}
+				else
+				{
+					// redirect("index.php/landing/my_account/upderror");
+					echo 2;
+				}
+			}
+			else
+			{
+				if($updmsg=="upderror")
+				{
 					$data['upd_error'] ="Sorry update not successfull";
-				}else if($updmsg=="updsuccess"){
+				}
+				else if($updmsg=="updsuccess")
+				{
 					$data['upd_success'] ="Update successfull";
 				}
 				$data['userInfo'] = $this->usermodel->fetchUserInfo($this->session->userdata('userId'));
@@ -359,10 +359,11 @@ class Landing  extends CI_Controller
 				$this->load->view('home/my_account',$data);
 				$this->load->view('home/footer',$data);
 			}
-		}else{
+		}
+		else
+		{
 			$this->index();
 		}
-		
 	}
 	
 	function get_country_by_abv(){
