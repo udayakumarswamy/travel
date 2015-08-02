@@ -160,3 +160,4 @@
 
 	  $lang['view_package'] = 'View Package';
 	  $lang['noof_people'] = 'No of People';
+	  $lang['booked_by'] = 'Booked by';

@@ -20,12 +20,16 @@
                         <table class="table  table-hover general-table">
                             <thead>
                             <tr>
-                                <th> #</th>
-                                <th>Package Name</th>
-                                
-								<th>No of People</th>
-								<th>Booked By</th>
-								<th>Booking Time</th>
+                                <th width="5%">
+                                        #
+                                    </th>
+                                    <th>Image</th>
+                                    <th><?php echo $this->lang->line('pkg_name'); ?></th>
+                                    <th><?php echo $this->lang->line('booked_by'); ?></th>
+                                    <th><?php echo $this->lang->line('noof_people'); ?></th>
+                                    <th><?php echo $this->lang->line('total_package_cost'); ?></th>
+                                    <th><?php echo $this->lang->line('departure_date'); ?></th>
+                                    <th><?php echo $this->lang->line('arrival_date'); ?></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -33,12 +37,18 @@
 							$i=1;
 							foreach($bookings as $b){?>
 							<tr>
-                                <td><?php echo $i;?></td>
-                                <td class="hidden-phone"><?php echo stripslashes($b['package_title']);?></td>
-                               
-								<td>Adults-<?php echo $b['adults'];?><br/>Children-<?php echo $b['children'];?><br/>Infant-<?php echo $b['infant'];?></td>
-								<td><?php echo $b['userName'];?></td>
-								<td><?php echo date('d/m/Y H:i:s',strtotime($b['booking_time']));?></td>
+                                <td><?php echo $b['booking_code'];?></td>
+                                <td><img src="<?php echo base_url(); ?>/uploads/<?php echo $b['is_featured_image'];?>" width="100"></td>
+                                <td class="hidden-phone">
+                                    <a href="<?php echo base_url(); ?>admin/view_package/<?php echo $b['package_id']; ?>">
+                                        <?php echo stripslashes($b['package_title']);?>
+                                    </a>
+                                </td>
+                               <td><?php echo $b['userName']; ?></td>
+                                <td>Adults-<?php echo $b['adults'];?><br/>Children-<?php echo $b['children'];?><br/>Infant-<?php echo $b['infant'];?></td>
+                                <td><?php echo $b['package_cost'];?></td>
+                                <td><?php echo date('d/m/Y', strtotime($b['dept_date']));?></td>
+                                <td><?php echo date('d/m/Y', strtotime($b['arr_date']));?></td>
                             </tr>
                             <?php 
 								$i++;
