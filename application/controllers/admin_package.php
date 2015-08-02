@@ -158,7 +158,7 @@ function del_package(){
 			redirect("index.php/admin/admin_login");
 		}
 		$this->load->model('packagemodel','package');
-		$data['amenities']=$this->package->get_amanities_by_id($amenities_id);
+		$data['amenities'] = $this->package->get_amanities_by_id($amenities_id);
 		$this->load->view('admin/header');
 		$this->load->view('admin/amenities_add',$data);
 		$this->load->view('admin/footer');
@@ -178,14 +178,13 @@ function del_package(){
 	}
 	
 	function save_amenities(){
+		// echo '<pre>';print_r($this->input->post());exit;
 		$amenities=$this->input->post('amenities');
 		$am_id=$this->input->post('id');
 		$this->load->model('packagemodel','package');
 		$result=$this->package->save_amenities($amenities,$am_id);
-		$ret_arr=array('result'=>result);
+		$ret_arr = array('result'=>$result);
 		echo json_encode($ret_arr);
-		
-		
 	}
 	
 	function del_amenity(){

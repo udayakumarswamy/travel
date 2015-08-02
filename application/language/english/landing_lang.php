@@ -158,7 +158,10 @@
 	  $lang['is_featured_image'] = 'Is Featured Image';
 	  $lang['cancel'] = 'Cancel';
 	  $lang['featured_image_successfully'] = 'Featured Image set successfully';
-
 	  $lang['view_package'] = 'View Package';
 	  $lang['noof_people'] = 'No of People';
 	  $lang['booked_by'] = 'Booked by';
+	  $lang['add_amenities_now'] = 'Add Amenities Now';
+	  $lang['pls_enter_amenity'] = 'Please Enter Amenity';
+	  $lang['amenity_added_successfully'] = 'Amenity added successfully';
+	  $lang['amenity_updated_successfully'] = 'Amenity Updated successfully';
