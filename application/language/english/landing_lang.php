@@ -132,6 +132,7 @@
 	  $lang['enter_noof_seats_infant'] = 'Please enter No of Seats for Infants';
 	  $lang['enter_country'] = 'Please enter Country';
 	  $lang['enter_pkg_dest'] = 'Please enter Package destination';
+	  $lang['enter_pkg_desc'] = 'Please enter Package descreption';
 	  $lang['data_saved_sucfuly'] = 'Data Saved Successfully';
 	  $lang['add_testimonial'] = 'Add Testimonial';
 	  $lang['list_testimonial'] = 'List Testimonial';

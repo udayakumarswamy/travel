@@ -45,6 +45,7 @@
 	}
 	
 	function save_package(){
+		// echo '<pre>';print_r($this->input->post());exit;
 		 $package_id=$this->input->post('package_id');
 		 if($package_id==0 || $package_id=='')
 		 	$package_id=0;
