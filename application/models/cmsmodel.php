@@ -18,15 +18,20 @@
 							'cms_page_content'=>$cms_page_content,
 							'cms_page_content_ar'=>$cms_page_content_ar
 						  );	
-						
+			$res = '';
 			if($cms_id==0){
 				$this->db->insert('dt_cms',$arr_cms);
-				return $this->db->insert_id();
+				$res = $this->db->insert_id();
 			}else{
 				$this->db->where('cms_id',$cms_id);
-				$this->db->update('dt_cms',$arr_cms);
-				return 1;
-			}				
+				$res = $this->db->update('dt_cms',$arr_cms);
+			}
+			if($res)				
+			{
+				return 'success';
+			}else{
+				return 'fail';
+			}
 			
 		}
 		

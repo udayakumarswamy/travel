@@ -1,6 +1,3 @@
-<?php
-//$getAdmin = mysql_fetch_array(mysql_query("SELECT * FROM adminis WHERE admin_id = '".$this->session->userdata('admin_id')."'"));
-?>
 <section id="main-content">
         <section class="wrapper">
         <!-- page start-->
@@ -8,9 +5,9 @@
             <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        List of Amenities
+                        <?php echo $this->lang->line('list_amenities');?>
                         <span class="tools pull-right">
-						    <a href="<?php echo base_url();?>index.php/admin/add_amenities/">Add Amenities</a>
+						    <a href="<?php echo base_url();?>index.php/admin/add_amenities/"><?php echo $this->lang->line('add_amenities');?></a>
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                             <a href="javascript:;" class="fa fa-cog"></a>
                             <a href="javascript:;" class="fa fa-times"></a>
@@ -21,9 +18,8 @@
                             <thead>
                             <tr>
                                 <th> #</th>
-                                <th>Amenities Name</th>
-                                
-								<th>Action</th>
+                                <th><?php echo $this->lang->line('amenities_name');?></th>
+                                <th><?php echo $this->lang->line('action');?></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -33,17 +29,11 @@
 							<tr>
                                 <td><?php echo $i;?></td>
                                 <td class="hidden-phone"><?php echo stripslashes($a['amenities_value']);?></td>
-                               
-								<td><a href="<?php echo base_url();?>index.php/admin_package/add_amenities/<?php echo $a['id'];?>"><span class="fa fa-pencil"></span></a>&nbsp;&nbsp;<a href="#"  class="del" data-id=<?php echo $a['id'];?>><span class="fa fa-minus"></span></a></td>
+                               <td><a href="<?php echo base_url();?>index.php/admin_package/add_amenities/<?php echo $a['id'];?>"><span class="fa fa-pencil"></span></a>&nbsp;&nbsp;<a href="#"  class="del" data-id=<?php echo $a['id'];?>><span class="fa fa-minus"></span></a></td>
                             </tr>
                             <?php 
 								$i++;
 							} ?>
-                            
-                            
-                            
-                            
-
                             </tbody>
                         </table>
                     </div>
@@ -59,8 +49,8 @@
 	<script type="text/javascript">
 		$(".del").click(function(){
 			var am_id=$(this).data('id');
-			r=confirm('Are you sure you want to delete?');
-			if(r==true){
+			r=confirm("<?php echo $this->lang->line('are_u_sure_delete');?>");
+			if(r==true){ 
 			$.ajax({
 				type:"POST",
 				url:"<?php echo base_url();?>index.php/admin_package/del_amenity",

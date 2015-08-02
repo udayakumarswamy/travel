@@ -108,7 +108,7 @@
 	  $lang['logout'] = 'Logout';
 	  $lang['property_management'] = 'Property Management';
 	  $lang['package_list'] = 'Package List';
-	  $lang['list_amenities'] = 'List Amenities';
+	  $lang['list_amenities'] = 'List of Amenities';
 	  $lang['add_amenities'] = 'Add Amenities';
 	  $lang['cms_management'] = 'CMS Management';
 	  $lang['add_cms_page'] = 'Add CMS Page';
@@ -165,3 +165,14 @@
 	  $lang['pls_enter_amenity'] = 'Please Enter Amenity';
 	  $lang['amenity_added_successfully'] = 'Amenity added successfully';
 	  $lang['amenity_updated_successfully'] = 'Amenity Updated successfully';
+	  $lang['add_cms'] = 'Add CMS';
+	  $lang['cms_page'] = 'CMS Page Name in English';
+	  $lang['cms_page_content_in_english'] = 'CMS Page Content in English';
+	  $lang['cms_page_content_in_arabic'] = 'CMS Page Content in Arabic';
+	  $lang['cms_page_in_arabic'] = 'CMS Page Name in Arabic';
+
+	  $lang['pls_enter_cms_page_name'] = 'Please Enter CMS Page Name';
+	  $lang['pls_enter_arabic_cms_page_name'] = 'Please Enter Arabic CMS Page Name';
+	  $lang['pls_enter_content_in_english'] = 'Please Enter Page Content in English';
+	  $lang['pls_enter_content_in_arabic'] = 'Please Enter Page Content in Arabic';
+	  $lang['amenities_name'] = 'Amenities Name';
