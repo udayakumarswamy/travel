@@ -122,6 +122,28 @@ class Admin  extends CI_Controller
 		$this->load->view('admin/footer');
 	}
 
+	function view_package($pkg_id) {
+
+		if(!isAdminLoggedIn())
+		{
+			redirect("index.php/admin/admin_login");
+		}
+		
+		$this->load->model('country');
+		$data['country_list'] = $this->country->get_country_ids();
+		$this->load->model('packagemodel','package');
+
+		$this->load->model('admin/adminmodel','admin');
+		$data['package_details']=$this->admin->view_package($pkg_id);
+
+		$data['images']=$this->package->get_images($pkg_id);
+		$data['amenities_list'] = $this->admin->fetch_amenities();
+
+		$this->load->view('admin/header');
+		$this->load->view('admin/view_package',$data);
+		$this->load->view('admin/footer');
+	}
+
 	function set_session_lang()
 	{
 		$lang = $this->input->post('language');

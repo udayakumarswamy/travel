@@ -30,6 +30,13 @@ class Adminmodel extends CI_Model
 		return $result->result_array();
 	
 	}
+	public function view_package($pkg_id) {
+		$this->db->select('*');
+		$this->db->from('package_details');
+		$this->db->where('package_id',$pkg_id);
+		$result=$this->db->get();
+		return $result->result_array();
+	}
 	public function add_package(){
 		$this->load->model('country');
 		$data['country_list'] = $this->country->get_country();

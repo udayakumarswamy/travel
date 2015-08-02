@@ -30,6 +30,7 @@ class Adminmodel extends CI_Model
 		return $result->result_array();
 	
 	}
+
 	public function add_package(){
 		$this->load->model('country');
 		$data['country_list'] = $this->country->get_country();
