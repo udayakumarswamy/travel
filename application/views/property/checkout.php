@@ -64,7 +64,7 @@ if($postfix=='')
 		<input class="required" type="password" placeholder="<?php echo $this->lang->line('password');?>"  id="p_pass" name="pass" >
 	</p>
 	<p class="form-row">
-	  <button class="submit-btn button" id="btn_submit"><i class="fa fa-power-off"></i><?php echo $this->lang->line('login');?>/button>
+	  <button class="submit-btn button" id="btn_submit"><i class="fa fa-power-off"></i><?php echo $this->lang->line('login');?>></button>
 	</p>
 </div>
 <?php echo form_close();?>

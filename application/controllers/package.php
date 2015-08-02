@@ -93,9 +93,9 @@
             
             $this->load->model('packagemodel','package');
             $data['filter']=$filter;
-            $data['total_rows']=$this->package->get_search_total_result($country_name,$country_id,$dept_date,$arr_date,$adults,$children,$sort_type,$sort);
+            // $data['total_rows']=$this->package->get_search_total_result($country_name,$country_id,$dept_date,$arr_date,$adults,$children,$sort_type,$sort);
             $data['package']=$this->package->get_search_result($country_name,$country_id,$dept_date,$arr_date,$adults,$children,$sort_type,$sort);
-            
+            $data['total_rows'] = count($data['package']);
             if($sort_type=='' || $sort_type=='alpha')
                 $this->load->view('property/list_package',$data);
             else
@@ -170,6 +170,20 @@
             $booking_id=$this->package->book_package($package_id,$adults,$children,$infant,$user_id,$package_cost);
             $this->load->view('home/header',$data);
             $this->load->view('property/booking_success');
+            $this->load->view('home/footer');
+        }
+
+        function booking_faliure(){
+           if($this->session->userdata('language')=='english')
+                $data['postfix']='';
+            else
+                $data['postfix']='_ar'; 
+            if($this->session->userdata('language')=='english')
+                $data['postfix']='';
+            else
+                $data['postfix']='_ar'; 
+            $this->load->view('home/header',$data);
+            $this->load->view('property/booking_failure');
             $this->load->view('home/footer');
         }
         function intermediate_booking($user_id=0){

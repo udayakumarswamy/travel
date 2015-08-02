@@ -61,7 +61,7 @@ if($postfix=='')
 														<p class="form-row">
 															
 																<select name="children" id="children" class=" person required" data-placeholder="Children">
-																	<option><?php echo $this->lang->line('children');?></option>
+																	<option><?php echo $this->lang->line('child');?></option>
 																	<option value="1" <?php if($children==1){?> selected="selected" <?php } ?>>1</option>
 																	<option value="2"<?php if($children==2){?> selected="selected" <?php } ?>>2</option>
 																	<option value="3" <?php if($children==3){?> selected="selected" <?php } ?>>3</option>
