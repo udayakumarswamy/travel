@@ -34,7 +34,7 @@
 			$data['package_details']=$this->agent->get_package($package_id);
 			$data['images']=$this->agent->get_images($package_id);
 			$data['countries']=$this->agent->list_country();
-			$data['amenities']=$this->package->get_amanities();
+			$data['amenities']=$this->package->list_amenities_display();
 			$this->load->view('agent/package_form',$data);
 			$this->load->view('home/footer');
 		}else{
