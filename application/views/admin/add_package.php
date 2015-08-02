@@ -121,7 +121,11 @@
 	<option value="" selected="selected" required>-Select-</option>
 	<?php
 	foreach($country_list as $key => $country){
-	?><option value="<?php echo $key; ?>" <?php if($package_details['country_id']==$key){?> selected="selected" <?php } ?>><?php echo $country; ?></option>
+		$select = '';
+		if(isset($package_details['country_id']) && !empty($package_details['country_id']) && $package_details['country_id'] == $key){
+			$select = 'selected="selected"';
+		}
+	?><option value="<?php echo $key; ?>" <?php echo $select;?>><?php echo $country; ?></option>
 	<?php			
 	}
 	?>
@@ -176,7 +180,7 @@
 	<div class="form-group">
 	<div class="col-lg-offset-3 col-lg-6">
 
-	<button class="btn btn-primary submit-btn" type="submit"><?php echo $this->lang->line('save');?></button>
+	<button class="btn btn-primary submit-btn" type="button" onclick="return add_pkg()"><?php echo $this->lang->line('save');?></button>
 	<button class="btn btn-default" type="button"><?php echo $this->lang->line('cancel');?></button>
 	</div>
 	</div>
@@ -224,10 +228,11 @@ var hid_upload_file;
 			}
 		}
 	});
+});
 
-$(".submit-btn").click(function(e){
-	//alert(hid_upload_file);
-	e.preventDefault();	
+function add_pkg(){	
+	console.log('@@@@@@@@@@@@@');return false;
+	// e.preventDefault();	
 	var package_title=$("#package_title").val();
 	var dept_date=$("#dept_date").val();
 	var arr_date=$("#arr_date").val();
@@ -251,7 +256,8 @@ $(".submit-btn").click(function(e){
 		}		
 	});
 	var package_desc=$("#package_desc").val();
-	var valid=1;
+	var valid = 1;
+	
 	if(package_title=='' && valid==1){
 		valid=0;
 		$("#error_div").show();
@@ -354,28 +360,22 @@ $(".submit-btn").click(function(e){
 	var package_id=$("#package_id").val();
 	var posted_by_id=$("#posted_by_id").val();
 	if(valid==1){
-
-	$.ajax({
-	type:"POST",
-	url:'<?php echo base_url();?>index.php/admin_package/save_package',
-	data:{'package_id':package_id,'package_title':package_title,'dept_date':dept_date,'arr_date':arr_date,'package_cost_adult':package_cost_adult,'package_cost_child':package_cost_child,'package_cost_infant':package_cost_infant,'number_of_seats_adult':number_of_seats_adult,'number_of_seats_child':number_of_seats_child,'number_of_seats_infant':number_of_seats_infant,'country_id':country_id,'amenities':ameneties,'package_desc':package_desc,'files':hid_upload_file,'posted_by_id':posted_by_id},
-	dataType:"json",
-	success:function(data){
-		if(data.result>0){
-			$("#error_div").hide();
-			$("#success_div").show();
-			$("#success_div").html("<?php echo $this->lang->line('data_saved_sucfuly');?>");
-			$('html, body').animate({
-				scrollTop: $('.err').offset().top
-			}, 500);
-		}
+		$.ajax({
+			type:"POST",
+			url:'<?php echo base_url();?>index.php/admin_package/save_package',
+			data:{'package_id':package_id,'package_title':package_title,'dept_date':dept_date,'arr_date':arr_date,'package_cost_adult':package_cost_adult,'package_cost_child':package_cost_child,'package_cost_infant':package_cost_infant,'number_of_seats_adult':number_of_seats_adult,'number_of_seats_child':number_of_seats_child,'number_of_seats_infant':number_of_seats_infant,'country_id':country_id,'amenities':ameneties,'package_desc':package_desc,'files':hid_upload_file,'posted_by_id':posted_by_id},
+			dataType:"json",
+			success:function(data){
+				if(data.result>0){
+					$("#error_div").hide();
+					$("#success_div").show();
+					$("#success_div").html("<?php echo $this->lang->line('data_saved_sucfuly');?>");
+					$('html, body').animate({
+						scrollTop: $('.err').offset().top
+					}, 500);
+				}
+			}
+		});
 	}
-});
-
 }
-});
-});
 </script>
-<!--main content end-->	
-<!------------------------->
-
