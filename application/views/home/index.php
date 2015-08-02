@@ -21,7 +21,7 @@
 
 							<!-- SWAP : begin -->
 							<li class="tab-content active">
-								<?php $attributes=array('class'=>'default-form');
+								<?php $attributes=array('class'=>'default-form','method' =>'GET');
 									  if($postfix=='')
 									  	$folder='';
 									  else

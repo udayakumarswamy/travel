@@ -223,7 +223,7 @@ if($postfix=='')
 										<!-- TYPE : end -->
 
 										<!-- FORM SWAP : begin -->
-										<?php $attributes=array('id'=>'properties-search-form-swap','class'=>'default-form');
+										<?php $attributes=array('id'=>'properties-search-form-swap','class'=>'default-form', 'method'=>'GET');
 											
 											 echo form_open('index.php/'.$folder.'package/search_package', $attributes);
 										?>
@@ -264,18 +264,18 @@ if($postfix=='')
 								</script>
 											<!-- ARRIVAL DATE, DEPARTURE DATE : begin -->
 											<p class="form-row clearfix">
-												<span class="calendar-input input-left" title="Arrival">
-													<?php $arr_date_arr=explode('-',$arr_date);
-														  $new_arr_date=$arr_date_arr[1].'/'.$arr_date_arr[2].'/'.$arr_date_arr[0];
-													?>	  
-													<input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/yy" value="<?php echo $new_arr_date;?>">
-													<i class="fa fa-calendar"></i>
-												</span>
-												<span class="calendar-input input-right" title="Departure">
-													<?php $dept_date_arr=explode('-',$dept_date);
-														  $new_dept_date=$dept_date_arr[1].'/'.$dept_date_arr[2].'/'.$dept_date_arr[0];
+												<span class="calendar-input input-left" title="Departure">
+													<?php 
+														  $new_dept_date= date('m/d/Y', strtotime($dept_date));
 													?>	 
 													<input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/yy" value="<?php echo $new_dept_date;?>">
+													<i class="fa fa-calendar"></i>
+												</span>
+												<span class="calendar-input input-right" title="Arrival">
+													<?php 
+														  $new_arr_date=date('m/d/Y', strtotime($arr_date));
+													?>	  
+													<input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/yy" value="<?php echo $new_arr_date;?>">
 													<i class="fa fa-calendar"></i>
 												</span>
 											</p>
