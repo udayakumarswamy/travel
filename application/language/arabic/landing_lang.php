@@ -185,3 +185,9 @@
 	  $lang['pls_enter_arabic_testimonial_page_name'] = 'الرجاء أدخل اسم العربية التزكية الصفحة';
 	  $lang['testimonial'] = 'شهادة';
 	  $lang['arabic'] = 'العربية';
+	  
+	  $lang['amenity_name'] = 'اسم الميزة';
+	  $lang['active'] = 'نشط';
+	  $lang['in_active'] = 'غير فعال';
+	  $lang['pls_select_amenity_status'] = 'الرجاء اختيار الميزة الحالة';
+	  $lang['other'] = 'آخر';
