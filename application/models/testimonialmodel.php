@@ -18,15 +18,15 @@
 							'testimonial_page_content'=>$testimonial_page_content,
 							'testimonial_page_content_ar'=>$testimonial_page_content_ar
 						  );	
-						
+						$res = '';
 			if($testimonial_id==0){
 				$this->db->insert('dt_testimonial',$arr_testimonial);
-				return $this->db->insert_id();
+				$res =  $this->db->insert_id();
 			}else{
 				$this->db->where('testimonial_id',$testimonial_id);
-				$this->db->update('dt_testimonial',$arr_testimonial);
-				return 1;
-			}				
+				$res = $this->db->update('dt_testimonial',$arr_testimonial);
+			}
+			return $res;				
 			
 		}
 		
@@ -37,7 +37,13 @@
 		$result=$this->db->get();
 		return $result->row_array();
 		
-		}
-		
+		} 
+
+	function del_testmonial($test_id){
+		$this->db->where('testimonial_id',$test_id);
+		$this->db->delete('dt_testimonial');
+		return 1;
+	}
+		 
 		
 }

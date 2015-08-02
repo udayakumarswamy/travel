@@ -1,6 +1,3 @@
-<?php
-//$getAdmin = mysql_fetch_array(mysql_query("SELECT * FROM adminis WHERE admin_id = '".$this->session->userdata('admin_id')."'"));
-?>
 <section id="main-content">
         <section class="wrapper">
         <!-- page start-->
@@ -8,9 +5,9 @@
             <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        List of Testimonials
+                        <?php echo $this->lang->line('list_testimonial');?>
                         <span class="tools pull-right">
-						    <a href="<?php echo base_url();?>index.php/admin/add_amenities/">Add Testimonial</a>
+						    <a href="<?php echo base_url();?>index.php/admin/add_amenities/"><?php echo $this->lang->line('add_testimonial');?></a>
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                             <a href="javascript:;" class="fa fa-cog"></a>
                             <a href="javascript:;" class="fa fa-times"></a>
@@ -21,9 +18,9 @@
                             <thead>
                             <tr>
                                 <th> #</th>
-                                <th>Testimonial</th>
-                                <th>Testimonial(Arabic)</th>
-								<th>Action</th>
+                                <th><?php echo $this->lang->line('testimonial');?></th>
+                                <th><?php echo $this->lang->line('testimonial');?>(<?php echo $this->lang->line('arabic');?>)</th>
+								<th><?php echo $this->lang->line('action');?></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -39,11 +36,6 @@
                             <?php 
 								$i++;
 							} ?>
-                            
-                            
-                            
-                            
-
                             </tbody>
                         </table>
                     </div>
@@ -59,16 +51,16 @@
 	<script type="text/javascript">
 		$(".del").click(function(){
 			var am_id=$(this).data('id');
-			r=confirm('Are you sure you want to delete?');
+			r=confirm("<?php echo $this->lang->line('are_u_sure_delete');?>");
 			if(r==true){
 			$.ajax({
 				type:"POST",
-				url:"<?php echo base_url();?>index.php/admin_package/del_amenity",
+				url:"<?php echo base_url();?>index.php/testimonial/del_testimonial",
 				data:{'am_id':am_id},
 				dataType:"json",
 				success:function(data){
 					if(data.result==1){
-						window.location="<?php echo base_url();?>index.php/admin_package/list_amenities";
+						window.location="<?php echo base_url();?>index.php/testimonial/list_testimonial";
 					}
 				}
 				

@@ -135,7 +135,7 @@
 	  $lang['enter_pkg_desc'] = 'Please enter Package descreption';
 	  $lang['data_saved_sucfuly'] = 'Data Saved Successfully';
 	  $lang['add_testimonial'] = 'Add Testimonial';
-	  $lang['list_testimonial'] = 'List Testimonial';
+	  $lang['list_testimonial'] = 'List Testimonials';
 	  $lang['booking_management'] = 'Booking Management';
 	  $lang['list_bookings'] = 'List of Bookings';
 	  $lang['login_page'] = 'Login Page';
@@ -175,6 +175,13 @@
 	  $lang['pls_enter_arabic_cms_page_name'] = 'Please Enter Arabic CMS Page Name';
 	  $lang['pls_enter_content_in_english'] = 'Please Enter Page Content in English';
 	  $lang['pls_enter_content_in_arabic'] = 'Please Enter Page Content in Arabic';
-	  $lang['amenities_name'] = 'Amenities Name';
 	  $lang['page_name'] = 'Page Name';
+	  $lang['amenities_name'] = 'Amenities Name';
+	  $lang['add_testimonial'] = 'Add Testimonial';
+	  $lang['testimonial_page'] = 'Testimonial Page Name in English';
+	  $lang['testimonial_page_in_arabic'] = 'Testimonial Page Name in Arabic';
+	  $lang['pls_enter_testimonial_page_name'] = 'Please Enter Testimonial Page Name';
+	  $lang['pls_enter_arabic_testimonial_page_name'] = 'Please Enter Arabic Testimonial Page Name';
+	  $lang['testimonial'] = 'Testimonial';
+	  $lang['arabic'] = 'Arabic';
 	  

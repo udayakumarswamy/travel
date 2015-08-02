@@ -31,7 +31,7 @@
 <script type="text/javascript">
 tinymce.init({
     mode : "exact",
-	elements:"cms_page_content",
+	elements:"cms_page_content, testimonial_page_content",
     editor_selector : "mceEditor",
 	directionality :"ltr",
     plugins: [
