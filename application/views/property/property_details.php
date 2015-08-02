@@ -1,8 +1,8 @@
 <?php 
-if($postfix=='')
-									  	$folder='';
-									  else
-									  	$folder='ar/';
+/*if($postfix=='')
+$folder='';
+else
+$folder='ar/';*/
 ?>
 <!-- CORE : begin -->
 		<div id="core" class="page-property-details">
@@ -179,57 +179,63 @@ if($postfix=='')
 								<!-- PROPERTY DETAILS : end -->
 
 							</div>
-							<div class="col-md-4 col-md-pull-8">
+	<div class="col-md-4 col-md-pull-8">
 
-								<!-- PROPERTY LOCATION DETAILS : begin -->
-								<aside class="property-location-details">
-									<h3 class="property-location-title"><?php echo $this->lang->line('location_details');?></h3>
+		<!-- PROPERTY LOCATION DETAILS : begin -->
+		<aside class="property-location-details">
+			<h3 class="property-location-title"><?php echo $this->lang->line('location_details');?></h3>
 
-									<!-- PROPERTY MAP : begin -->
-									<!--<div class="property-map">
-										<iframe src="https://maps.google.com/maps?q=32.524526,-117.12392&amp;num=1&amp;ie=UTF8&amp;ll=32.514104,-117.110953&amp;spn=0.007843,0.013937&amp;t=m&amp;z=14&amp;output=embed"></iframe>
-										<a href="#" class="map-btn"><i class="fa fa-search-plus"></i></a>
-									</div>-->
-									<!-- PROPERTY MAP : end -->
+			<!-- PROPERTY MAP : begin -->
+			<!--<div class="property-map">
+				<iframe src="https://maps.google.com/maps?q=32.524526,-117.12392&amp;num=1&amp;ie=UTF8&amp;ll=32.514104,-117.110953&amp;spn=0.007843,0.013937&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+				<a href="#" class="map-btn"><i class="fa fa-search-plus"></i></a>
+			</div>-->
+			<!-- PROPERTY MAP : end -->
 
-									<!-- PROPERTY INFO : begin -->
-									<div class="property-info">
-										
+			<!-- PROPERTY INFO : begin -->
+			<div class="property-info">
+				
 
-										<!-- ADDRESS : begin -->
-										<div class="toggle-container property-address">
-											<h5 class="toggle-title"><?php echo $this->lang->line('country');?></h5>
-											<div class="toggle-content">
+				<!-- ADDRESS : begin -->
+				<div class="toggle-container property-address">
+					<h5 class="toggle-title"><?php echo $this->lang->line('country');?></h5>
+					<div class="toggle-content">
 
-												<p><?php echo $package['country'];?></p>
+						<p><?php echo $package['country'];?></p>
 
-											</div>
-										</div>
-										<!-- ADDRESS : end -->
+					</div>
+				</div>
+				<!-- ADDRESS : end -->
 
-										
+				
 
-										<!-- ADDITIONAL : begin -->
-										<div class="toggle-container property-additional">
-											<h5 class="toggle-title"><?php echo $this->lang->line('package_include');?></h5>
-											<div class="toggle-content">
+				<!-- ADDITIONAL : begin -->
+				<div class="toggle-container property-additional">
+					<h5 class="toggle-title"><?php echo $this->lang->line('package_include');?></h5>
+					<div class="toggle-content">
 
-												<ul class="custom-list check-list">
-													<?php $pkg_include=explode('~',$package['amenities']);
-													  foreach($pkg_include as $k=>$v){?>
+						<ul class="custom-list check-list">
+							<?php 
+							$pkg_include = array();
+							if(isset($package['amenities']) && !empty($package['amenities'])){
+								$pkg_include=explode('~',$package['amenities']);
+							}
+							if(count($amenities) > 0){
+								foreach ($amenities as $key => $amenity) {
+									if(in_array($amenity['amenities_value'], $pkg_include))	{
+										echo '<li>'.$amenity['amenities_value'].'</li>';
+									}								
+								}
+							}?>
+						</ul>
+					</div>
+				</div>
+				<!-- ADDITIONAL : end -->
 
-													  <li><?php echo $v;?></li>
-													<?php  } ?>
-												</ul>
+			</div>
+			<!-- PROPERTY INFO : end -->
 
-											</div>
-										</div>
-										<!-- ADDITIONAL : end -->
-
-									</div>
-									<!-- PROPERTY INFO : end -->
-
-								</aside>
+		</aside>
 								<!-- PROPERTY LOCATION DETAILS : end -->
 
 							</div>

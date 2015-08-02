@@ -21,13 +21,17 @@
         }
 
         function package_details($package_id){
-            if($this->session->userdata('language')=='english')
+            /*if($this->session->userdata('language')=='english')
                 $data['postfix']='';
             else
-                $data['postfix']='_ar'; 
+                $data['postfix']='_ar'; */
             $this->load->model('packagemodel','package');
             $data['package']=$this->package->get_package_details($package_id);
             $data['package_images']=$this->package->get_package_image_details($package_id);
+            $data['amenities'] = $this->list_amenities();
+
+            $this->load->model('packagemodel','package');
+            // echo '<pre>'; print_r($data);exit;
             $this->load->view('home/header',$data);
             $this->load->view("property/property_details.php", $data);
             $this->load->view('home/footer',$data);
@@ -214,4 +218,11 @@
             $result=array('result'=>$total_cost);
             echo json_encode($result);
         }
+
+    function list_amenities(){
+        $this->load->model('packagemodel','package');
+        $amenities = $this->package->get_amanities();
+        return $amenities;
+    }
+
 }
