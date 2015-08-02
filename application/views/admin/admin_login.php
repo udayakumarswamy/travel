@@ -90,10 +90,10 @@
            <!-- <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>-->
                 <input type="submit" name="sub" value="Sign in" class="btn btn-lg btn-login btn-block" />
             <div class="registration">
-                Don't have an account yet?
+                <!-- Don't have an account yet?
                 <a class="" href="registration.html">
                     Create an account
-                </a>
+                </a> -->
             </div>
 
         </div>

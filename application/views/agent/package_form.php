@@ -96,8 +96,22 @@
               <p>
                 <?php 
                 $amm_arr=explode('~',$package_details['amenities']);
+                // print_r($amenities);
+
+                $amenities_list = $amenities;
+                if(count($amenities_list) > 0) 
+                {
+                  foreach ($amenities_list as $key => $amenity) {
+                    $checked = '';
+                    if(in_array($amenity['amenities_value'], $amm_arr)) {
+                      $checked = 'checked="checked"';
+                    }?>
+              <input type="checkbox" name="aminity_group" id="<?php echo $key.'_'.$amenity['amenities_value'];?>" value="<?php echo $amenity['amenities_value'];?>" <?php echo $checked;?> class="chkbox">
+              <label for="dummy-checkbox"><?php echo $amenity['amenities_value'];?></label>
+              <?php }
+                }
                 ?>
-                <input type="checkbox" name="" id="food" value="food" <?php if(in_array('food',$amm_arr)){?> checked="checked" <?php } ?> class="chkbox">
+                <!-- <input type="checkbox" name="" id="food" value="food" <?php if(in_array('food',$amm_arr)){?> checked="checked" <?php } ?> class="chkbox">
                 <label for="dummy-checkbox">Food</label>
 
                 <input type="checkbox" value="transport" class="chkbox" <?php if(in_array('transport',$amm_arr)){?> checked="checked" <?php } ?>>
@@ -105,7 +119,7 @@
 
 
                 <input type="checkbox" name="" value="guide" <?php if(in_array('guide',$amm_arr)){?> checked="checked" <?php } ?> class="chkbox">
-                <label for="dummy-checkbox">Guide</label>
+                <label for="dummy-checkbox">Guide</label> -->
 
 
               </p>
