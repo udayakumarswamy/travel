@@ -139,6 +139,7 @@
 	  $lang['list_bookings'] = 'List of Bookings';
 	  $lang['login_page'] = 'Login Page';
 	  $lang['required'] = 'required';
+	  $lang['optional'] = 'optional';
 	  $lang['your_pkg_list'] = 'Your Package List';
 	  $lang['pkg_name'] = 'Package Name';
 	  $lang['pkg_dept_date'] = 'Package Departure Date';
@@ -148,3 +149,11 @@
 	  $lang['pkg_arr_date'] = 'Package Arr Date';
 	  $lang['featured'] = 'Featured';
 	  $lang['are_u_sure_delete'] = 'Are you sure you want to delete?';
+	  $lang['package_cost_per_adult'] = 'Package Cost Per Adult';
+	  $lang['package_cost_per_child'] = 'Package Cost Per Child';
+	  $lang['package_cost_per_infant'] = 'Package Cost Per Infant';
+	  $lang['number_beds_for_adult'] = 'Number of Beds For Adult';
+	  $lang['amenities'] = 'Amenities';
+	  $lang['is_featured_image'] = 'Is Featured Image';
+	  $lang['cancel'] = 'Cancel';
+	  $lang['featured_image_successfully'] = 'Featured Image set successfully';
