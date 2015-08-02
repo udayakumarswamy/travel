@@ -271,7 +271,18 @@
 								<?php if($usertype==2){ ?>
 								<li><a href="<?php echo base_url();?>index.php/agent/add_package"><?php echo $this->lang->line('add_package');?></a>/</li>
 								<?php } ?>
+								<?php
+								if($usertype == 1) {
+									?>
+								<li><a href="<?php echo base_url();?>index.php/user/list_bookings"><?php echo $this->lang->line('list_bookings');?></a></li>
+									<?php
+								} else {
+									?>
 								<li><a href="<?php echo base_url();?>index.php/agent/list_package"><?php echo $this->lang->line('package_listing');?></a></li>
+
+									<?php
+								}
+								?>
 								</ul>
 							</div>
 						</div>

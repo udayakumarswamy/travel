@@ -146,5 +146,18 @@ public function fetchUserInfo($userId){
   }
 }
 
+function get_bookings($userId){
+    $this->db->select('*');
+    $this->db->from('package_booking a');
+    $this->db->join('package_details b','a.package_id=b.package_id');
+    $this->db->join('userinfo c', 'a.booked_by=c.userId');
+    $this->db->where('a.booked_by', $userId);
+    $this->db->order_by('booking_time','desc');
+      
+    $result=$this->db->get()->result_array();
+    
+    return $result;
+  }
+
 }
 ?>

@@ -6,6 +6,21 @@ class User extends CI_Controller{
 	{
         parent::__construct();
 		$this->load->model('usermodel');
+    if( !empty($this->session->userdata('language')))
+    {
+      if($this->session->userdata('language')=='english')
+      {
+        $this->lang->load('landing', 'english');
+      }
+      if($this->session->userdata('language')=='arabic')
+      {
+        $this->lang->load('landing', 'arabic');
+      }
+    }
+    else{
+      $this->session->set_userdata('language','english');
+      $this->lang->load('landing', 'english');
+    }
 	}
 
  public function index()
@@ -168,6 +183,23 @@ public function check_email_exists($email){
 	}
 	$ret_arr=array('result'=>$result);
 	echo json_encode($ret_arr);
+}
+
+function list_bookings(){
+  if(!empty($this->session->userdata('userId')))
+  {
+    $data['title']= 'Welcome';
+    $data['username'] = $this->session->userdata('username');
+    $data['usertype'] = $this->session->userdata('usertype');
+    $this->load->model('usermodel','user');
+    $data['bookings']=$this->user->get_bookings($this->session->userdata('userId'));
+    $this->load->view('home/inner_header',$data);
+    // print_r($data['bookings']);
+    $this->load->view('agent/list_booking', $data);
+    $this->load->view('home/footer',$data);
+  }else{
+    redirect('/landing');
+  }
 }
 
 

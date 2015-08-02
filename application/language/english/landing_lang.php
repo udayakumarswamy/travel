@@ -157,3 +157,6 @@
 	  $lang['is_featured_image'] = 'Is Featured Image';
 	  $lang['cancel'] = 'Cancel';
 	  $lang['featured_image_successfully'] = 'Featured Image set successfully';
+
+	  $lang['view_package'] = 'View Package';
+	  $lang['noof_people'] = 'No of People';
