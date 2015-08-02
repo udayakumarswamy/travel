@@ -172,7 +172,7 @@ if($postfix=='')
 										});
 									</script>
 									<!-- PROPERTIES LISTING FOOTER : begin -->
-									<div class="properties-listing-footer clearfix">
+									<!-- <div class="properties-listing-footer clearfix">
 										<div class="default-form">
 											<span class="select-box links">
 												<select name="listing-pagination">
@@ -189,7 +189,7 @@ if($postfix=='')
 												</select>
 											</span>
 										</div>
-									</div>
+									</div> -->
 									<!-- PROPERTIES LISTING FOOTER : end -->
 
 								</div>
@@ -283,14 +283,16 @@ if($postfix=='')
 
 											<!-- NUMBER OF ADULTS AN CHILDREN : begin -->
 											<p class="form-row clearfix">
-												<span class="select-box input-left" title="Adults">
+												<span class="select-box input-left" title="Adults" value='1'>
 													<select name="adults" data-placeholder="Adults">
-														<option><?php echo $this->lang->line('adults');?>/option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
+														<option><?php echo $this->lang->line('adults');?></option>
+														<?php
+														for ($i=1; $i <= 5; $i++) { 
+															?>
+														<option value="<?php echo $i; ?>" <?php if($adult == $i) { echo "selected"; } ?>><?php echo $i; ?></option>
+															<?php
+														}
+														?>
 													</select>
 												</span>
 												<span class="select-box input-right" title="Children">
@@ -442,7 +444,7 @@ if($postfix=='')
 														<script type="text/javascript">
 														 $(document).ready(function(){
 															$(".range-to").change(function(){
-																alert('A');
+																// alert('A');
 															});
 														 });	
 														</script>

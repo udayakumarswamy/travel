@@ -1,39 +1,40 @@
+<!-- PROPERTY 1 : begin -->
 
-
-	<!-- PROPERTY 1 : begin -->
-	
-	<?php
-	 $i=1; 
-	 if($filter!='')
-	 {
-	 	$filter_arr=explode('~',$filter);
-	 }	
-	 foreach($package as $p){
-	 $class='property';
-	 
-	 if($i==1){
-	 	$class=$class.' first-in-row odd';
-	 }
-	 if($i%3==0)
-	 {
-	 	$class=$class.' odd';
-	 }
-	 $flag=0;
-	 if(!empty($filter_arr)){
-	 	foreach($filter_arr as $k=>$v){
-			$a_arr=explode('~',$p['amenities']);
-			if(in_array($v,$a_arr)){
-				$flag=1;
-				break;
-			}
+<?php
+ $i=1; 
+ // echo strtolower($filter);
+ if($filter!='')
+ {
+ 	$filter_arr=explode('~',$filter);
+ }	
+ foreach($package as $p){
+ $class='property';
+ 
+ if($i==1){
+ 	// $class=$class.' first-in-row odd';
+ 	$class=$class;
+ }
+ if($i%3==0)
+ {
+ 	$class=$class.' odd';
+ }
+ $flag=0;
+ // print_r($p);
+ if(!empty($filter_arr)){
+ 	foreach($filter_arr as $k=>$v){
+		$a_arr=explode('~',$p['amenities']);
+		if(in_array($v,$a_arr)){
+			$flag=1;
+			break;
 		}
-		
-	 
-	 }else{
-	 	$flag=1;
-	 }
-	 
-	 ?>
+	}
+	
+ 
+ }else{
+ 	$flag=1;
+ }
+ 
+ ?>
 	<?php if($flag==1){?> 
 	<li class="<?php echo $class;?>">
 		<a href="#" class="property-thumb">
