@@ -118,4 +118,18 @@ function list_package(){
 		redirect("index.php/landing/index");
 	}	
 }
+
+	function save_amenity(){
+		if(($this->session->userdata('username')!="")){
+			$aminity_name = $this->input->post('aminity');
+			$aminity_status = $this->input->post('amenity_status');
+			$aminity_id = $this->input->post('amenity_id');
+			$this->load->model('packagemodel','package');
+			$result=$this->package->save_amenities($aminity_name,$aminity_status,$aminity_id);
+			echo $result;
+		}else{
+			redirect("index.php/landing/index");
+		}
+
+	}
 }

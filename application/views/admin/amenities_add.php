@@ -22,9 +22,28 @@
 									<input type="hidden" name="am_id" id="am_id" value="<?php echo isset($amenities['id']) && !empty($amenities['id']) ? $amenities['id'] : 0;?>"/>
 									<div class="form-group" >
 										<div class="col-lg-offset-2 col-lg-6" style="padding-bottom:20px">
-                                        <input type="text" class="form-control" id="amenities" name="amenities" style="width:400px;" value="<?php echo isset($amenities['amenities_value']) && !empty($amenities['amenities_value']) ? $amenities['amenities_value']:'';?>" />
+                                        <input type="text" class="form-control" id="amenities" name="amenities" style="width:400px;" value="<?php echo isset($amenities['amenities_value']) && !empty($amenities['amenities_value']) ? $amenities['amenities_value']:'';?>" placeholder="<?php echo $this->lang->line('amenity_name');?>" />
 										</div>
                                     </div>
+                                    <!--  -->
+<?php 
+$act_checked = '';
+$inact_checked = '';
+if(isset($amenities['status']) ){
+	if($amenities['status'] == 1){
+		$act_checked = 'checked="checked"';
+	}if($amenities['status'] == 0){
+		$inact_checked = 'checked="checked"';
+	}
+} ?>                                    
+                                    <div class="form-group ">
+	<label class="control-label col-lg-3" for="cemail"><?php echo $this->lang->line('status');?> </label>
+	<div class="col-lg-6">
+	<input type="radio" class="" name="aminity_status" value="1" id="active_1" <?php echo $act_checked;?>/>  <?php echo $this->lang->line('active');?>&nbsp;&nbsp;&nbsp;
+	<input type="radio" class="" name="aminity_status" value="0" id="active_0" <?php echo $inact_checked;?>/>  <?php echo $this->lang->line('in_active');?>
+	</div>
+	</div>
+                                    <!--  -->
                                     <div class="form-group">
                                         <div class="col-lg-offset-3 col-lg-6">
                                             <button class="btn btn-primary submit-btn" type="button" onclick="save_eminity()"><?php echo $this->lang->line('save');?></button>
@@ -47,10 +66,19 @@
 	function save_eminity(){
 		// e.preventDefault();
 		var amenities=$("#amenities").val();
+		var status_amt = $("input[name='aminity_status']:checked").val();
 		if(amenities==''){
 			$("#error_div").show();
 			$("#error_div").text("<?php echo $this->lang->line('pls_enter_amenity');?>");
+			return false;
 		}
+		 if(typeof(status_amt) == 'undefined' || status_amt == '')
+		 {
+			$("#error_div").show();
+			$("#error_div").text("<?php echo $this->lang->line('pls_select_amenity_status');?>");
+			return false;
+		 }
+
 		var am_id=$("#am_id").val();
 		if(am_id==''){
 			am_id=0;
@@ -58,7 +86,7 @@
 		$.ajax({
 			type:"POST",
 			url:"<?php echo base_url();?>index.php/admin_package/save_amenities",
-			data:{'amenities':amenities,'id':am_id},
+			data:{'amenities':amenities,'amenity_status':status_amt,'id':am_id},
 			dataType:"json",
 			success:function(data){
 				

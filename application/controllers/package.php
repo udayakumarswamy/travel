@@ -221,7 +221,7 @@
 
     function list_amenities(){
         $this->load->model('packagemodel','package');
-        $amenities = $this->package->get_amanities();
+        $amenities = $this->package->list_amenities_display();
         return $amenities;
     }
 

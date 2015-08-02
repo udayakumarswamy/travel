@@ -184,4 +184,9 @@
 	  $lang['pls_enter_arabic_testimonial_page_name'] = 'Please Enter Arabic Testimonial Page Name';
 	  $lang['testimonial'] = 'Testimonial';
 	  $lang['arabic'] = 'Arabic';
+	  $lang['amenity_name'] = 'Amenity Name';
+	  $lang['active'] = 'Active';
+	  $lang['in_active'] = 'Inactive';
+	  $lang['pls_select_amenity_status'] = 'Please Select Amenity Status';
+	  $lang['other'] = 'Other';
 	  

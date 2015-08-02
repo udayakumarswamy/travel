@@ -19,6 +19,7 @@
                             <tr>
                                 <th> #</th>
                                 <th><?php echo $this->lang->line('amenities_name');?></th>
+                                <th><?php echo $this->lang->line('status');?></th>
                                 <th><?php echo $this->lang->line('action');?></th>
                             </tr>
                             </thead>
@@ -29,6 +30,7 @@
 							<tr>
                                 <td><?php echo $i;?></td>
                                 <td class="hidden-phone"><?php echo stripslashes($a['amenities_value']);?></td>
+                                <td class="hidden-phone"><?php echo isset($a['status']) && !empty($a['status']) && $a['status'] == 1 ? "Active" : "Inactive";?></td>
                                <td><a href="<?php echo base_url();?>index.php/admin_package/add_amenities/<?php echo $a['id'];?>"><span class="fa fa-pencil"></span></a>&nbsp;&nbsp;<a href="#"  class="del" data-id=<?php echo $a['id'];?>><span class="fa fa-minus"></span></a></td>
                             </tr>
                             <?php 

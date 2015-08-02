@@ -111,20 +111,21 @@
               <?php }
                 }
                 ?>
-                <!-- <input type="checkbox" name="" id="food" value="food" <?php if(in_array('food',$amm_arr)){?> checked="checked" <?php } ?> class="chkbox">
-                <label for="dummy-checkbox">Food</label>
-
-                <input type="checkbox" value="transport" class="chkbox" <?php if(in_array('transport',$amm_arr)){?> checked="checked" <?php } ?>>
-                <label for="dummy-checkbox2">Transportation</label>
-
-
-                <input type="checkbox" name="" value="guide" <?php if(in_array('guide',$amm_arr)){?> checked="checked" <?php } ?> class="chkbox">
-                <label for="dummy-checkbox">Guide</label> -->
-
-
+<input type="checkbox" name="aminity_group_other" id="other" class="chkbox" onchange="display_amenity(this)"/>
+<label for="dummy-checkbox"><?php echo $this->lang->line('other');?></label>  
               </p>
             </div>
           </div>
+
+          <!--  -->
+        <div class="row" id="new_aminity" style="display:none;">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-6">
+                <p><input type="text" id="new_amenity" name="new_amenity" class="required" value="" placeholder="<?php echo $this->lang->line('amenity_name');?>" onblur="save_amenity(this.value);"></p>
+            </div>
+        </div>
+          <!--  -->
+
           <p>
             <textarea id="package_desc"  name="package_desc" class="required" placeholder="<?php echo $this->lang->line('package_description');?>"><?php echo $package_details['package_desc'];?></textarea>
           </p>
@@ -333,5 +334,32 @@
       }
     });
 });
+
+function save_amenity (new_amenity) {
+    var aminity = $.trim(new_amenity);
+    var status = 0;
+    var amenity_id = 0;
+
+    $.ajax({
+          type:"POST",
+          url:'<?php echo base_url();?>index.php/agent/save_amenity',
+          data:{'aminity':aminity,'amenity_status':status,'amenity_id':amenity_id},
+          dataType:"json",
+          success:function(data){
+
+            $('#new_aminity').hide();
+            
+          }
+        });
+}
+function display_amenity(){
+    var sel_status = $('#other').prop('checked');
+    if(sel_status)
+    {
+        $('#new_aminity').show();
+    } else {
+        $('#new_aminity').hide();
+    }
+}
 </script>
 <!-- CORE : end --> 

@@ -174,9 +174,9 @@ class Packagemodel extends CI_Model
 		return 1;
 	}
 	
-	function save_amenities($amenities='',$am_id=0)
+	function save_amenities($amenities='',$amenity_status='',$am_id=0)
 	{
-		$am_arr=array('amenities_value'=>$amenities);
+		$am_arr=array('amenities_value'=>$amenities,'status'=>$amenity_status);
 		if($am_id==0){
 			$this->db->insert('additional_amenities',$am_arr);
 			return 1;
@@ -185,26 +185,20 @@ class Packagemodel extends CI_Model
 			$this->db->update('additional_amenities',$am_arr);
 			return 2;
 		}
-			
-			
 	}
 	
 	function get_amanities_by_id($am_id){
 		$this->db->select('*');
 		$this->db->from('additional_amenities');
 		$this->db->where('id',$am_id);
-		
 		$result=$this->db->get()->row_array();
-		
 		return $result;
 	}
 	
 	function get_amanities(){
 		$this->db->select('*');
 		$this->db->from('additional_amenities');
-			
 		$result=$this->db->get()->result_array();
-		
 		return $result;
 	}
 	function get_bookings(){
@@ -260,6 +254,15 @@ class Packagemodel extends CI_Model
 		$this->db->where('package_booking_id',$booking_id);
 		$this->db->update('package_booking',$arr_booking_code);
 		return $booking_id;
+	}
+
+	
+	function list_amenities_display(){
+		$this->db->select('*');
+		$this->db->from('additional_amenities');
+		$this->db->where('status',1);
+		$result=$this->db->get()->result_array();
+		return $result;
 	}
 	
 }
