@@ -41,6 +41,21 @@ tinymce.init({
     ],
     toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
 });
+
+function set_session(lang)
+{
+    if(lang != '')
+    {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url();?>index.php/admin/set_session_lang",
+            data: "language="+lang,
+            success: function(msg) {
+                location.reload();
+            }
+        });
+    }
+}
 </script>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -70,6 +85,35 @@ tinymce.init({
     
 </div>
 <div class="top-nav clearfix">
+
+    <!-- HEADER LANGUAGE : begin -->
+    <div class="header-language">
+        <?php 
+        $lang = '';
+        if(empty($this->session->userdata('language'))){
+            $lang = 'EN';
+        }
+        else
+        {
+            if(trim($this->session->userdata('language')) == 'arabic'){
+                $lang = 'AR';
+            }
+            else
+            {
+                $lang = 'EN';
+            }
+        }
+        ?>
+        <button class="header-btn" id="btn_active"><?php echo $lang; ?> <i class="fa fa-angle-down"></i></button> 
+        <nav class="header-nav">
+            <ul class="custom-list">
+               <li class="active" id="li_english"><a href="javascript:void(0)" onClick="set_session('en');">EN</a></li>
+                <li id="li_arabic"><a href="javascript:void(0)" onClick="set_session('ar');">AR</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- HEADER LANGUAGE : end -->
+
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
         <!--<li>
@@ -85,7 +129,7 @@ tinymce.init({
             <ul class="dropdown-menu extended logout">
                <!-- <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>-->
-                <li><a href="logout"><i class="fa fa-key"></i> <?php echo $this->lang->line('logut');?></a></li>
+                <li><a href="logout"><i class="fa fa-key"></i> <?php echo $this->lang->line('logout');?></a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
@@ -137,8 +181,8 @@ tinymce.init({
                         <span><?php echo $this->lang->line('testimonial_management');?></span>
                     </a>
 					 <ul class="sub">
-                        <li><a href="<?php echo base_url();?>index.php/testimonial/add_testimonial">Add Testimonial</a></li>
-                        <li><a href="<?php echo base_url();?>index.php/testimonial/list_testimonial">List Testimonial</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/testimonial/add_testimonial"><?php echo $this->lang->line('add_testimonial');?></a></li>
+                        <li><a href="<?php echo base_url();?>index.php/testimonial/list_testimonial"><?php echo $this->lang->line('list_testimonial');?></a></li>
 						
                     </ul>
 					
@@ -146,11 +190,11 @@ tinymce.init({
 				<li class="sub-menu">
                     <a class="active" href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Booking Management</span>
+                        <span><?php echo $this->lang->line('booking_management');?></span>
                     </a>
 					 <ul class="sub">
                         
-                        <li><a href="<?php echo base_url();?>index.php/admin_package/list_bookings">List of Bookings</a></li>
+                        <li><a href="<?php echo base_url();?>index.php/admin_package/list_bookings"><?php echo $this->lang->line('list_bookings');?></a></li>
 						
                     </ul>
 					
@@ -159,7 +203,7 @@ tinymce.init({
               
                     <a href="login.html">
                         <i class="fa fa-user"></i>
-                        <span>Login Page</span>
+                        <span><?php echo $this->lang->line('login_page');?></span>
                     </a>
                 </li>
             </ul>

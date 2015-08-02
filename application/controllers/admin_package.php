@@ -6,29 +6,42 @@
 			$this->load->library('pagination');
 			$this->load->helper('form');
 			$this->load->helper('url');
+			if( !empty($this->session->userdata('language')))
+			{
+				if($this->session->userdata('language')=='english')
+				{
+					$this->lang->load('landing', 'english');
+				}
+				if($this->session->userdata('language')=='arabic')
+				{
+					$this->lang->load('landing', 'arabic');
+				}
+			}
+			else{
+				$this->session->set_userdata('language','english');
+				$this->lang->load('landing', 'english');
+			}
 		}
-		public function add_package($package_id=0){
-		
+
+	public function add_package($package_id=0)
+	{
 		if(!isAdminLoggedIn())
 		{
 			redirect("index.php/admin/admin_login");
 		}
-		
-		
-		
+
 		//$this->load->view('admin/admin_dashboard', $data);
 		$this->load->model('country');
 		$data['country_list'] = $this->country->get_country_ids();
 		$this->load->model('packagemodel','package');
-		
+		$this->load->model('adminmodel','admin');
 		$data['package_details']=$this->package->get_package_details($package_id);
 		$data['images']=$this->package->get_images($package_id);
-		//$data['amenities_list'] = $this->admin->fetch_amenities();
+		$data['amenities_list'] = $this->admin->fetch_amenities();
+		echo '<pre>';print_r($data);exit;
 		$this->load->view('admin/header');
 		$this->load->view('admin/add_package',$data);
 		$this->load->view('admin/footer');
-		
-	
 	}
 	
 	function save_package(){

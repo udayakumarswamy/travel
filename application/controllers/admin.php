@@ -14,6 +14,21 @@ class Admin  extends CI_Controller
 		$this->load->library('pagination');
 		$this->load->helper('form');
         $this->load->helper('url');
+        if( !empty($this->session->userdata('language')))
+		{
+			if($this->session->userdata('language')=='english')
+			{
+				$this->lang->load('landing', 'english');
+			}
+			if($this->session->userdata('language')=='arabic')
+			{
+				$this->lang->load('landing', 'arabic');
+			}
+		}
+		else{
+			$this->session->set_userdata('language','english');
+			$this->lang->load('landing', 'english');
+		}
 	}
 	
 	public function index()
@@ -105,8 +120,25 @@ class Admin  extends CI_Controller
 		$this->load->view('admin/header');
 		$this->load->view('admin/list_package',$data);
 		$this->load->view('admin/footer');
-		
-	
+	}
+
+	function set_session_lang()
+	{
+		$lang = $this->input->post('language');
+		if(isset($lang) && !empty($lang))
+		{
+			if(trim($lang) == 'en')
+			{
+				$this->session->set_userdata('language','english');
+				$this->lang->load('landing', 'english');
+			}
+			if(trim($lang) == 'ar')
+			{
+				$this->session->set_userdata('language','arabic');	
+				$this->lang->load('landing', 'arabic');
+			}
+			echo 1;
+		}
 	}
 	
 	

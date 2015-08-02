@@ -103,7 +103,7 @@
 	  $lang['old_new_pwd_same'] = 'New Password and Repeat Password must be Same';
 	  $lang['pwd_changed'] = 'Password Changed Successfully';
 	  $lang['no_old_pwd_in_db'] = 'Sorry! Old password not found in our Database';
-$lang['logo'] = 'LOGO';
+	  $lang['logo'] = 'LOGO';
 	  $lang['welcome_dashboard'] = 'Welcome To Dashboard';
 	  $lang['logout'] = 'Logout';
 	  $lang['property_management'] = 'Property Management';
@@ -133,7 +133,12 @@ $lang['logo'] = 'LOGO';
 	  $lang['enter_country'] = 'Please enter Country';
 	  $lang['enter_pkg_dest'] = 'Please enter Package destination';
 	  $lang['data_saved_sucfuly'] = 'Data Saved Successfully';
-
+$lang['add_testimonial'] = 'Add Testimonial';
+	  $lang['list_testimonial'] = 'List Testimonial';
+	  $lang['booking_management'] = 'Booking Management';
+	  $lang['list_bookings'] = 'List of Bookings';
+	  $lang['login_page'] = 'Login Page';
+	  $lang['required'] = 'required';
 	  $lang['your_pkg_list'] = 'Your Package List';
 	  $lang['pkg_name'] = 'Package Name';
 	  $lang['pkg_dept_date'] = 'Package Departure Date';
