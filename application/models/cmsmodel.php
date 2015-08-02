@@ -36,13 +36,18 @@
 		}
 		
 		function get_content($cms_id){
-		$this->db->select('*');
-		$this->db->from('dt_cms');
-		$this->db->where('cms_id',$cms_id);
-		$result=$this->db->get();
-		return $result->row_array();
-		
+			$this->db->select('*');
+			$this->db->from('dt_cms');
+			$this->db->where('cms_id',$cms_id);
+			$result=$this->db->get();
+			return $result->row_array();
 		}
+
+	function del_cms($cms_id){
+		$this->db->where('cms_id',$cms_id);
+		$this->db->delete('dt_cms');
+		return 1;
+	}		
 		
 		
 }

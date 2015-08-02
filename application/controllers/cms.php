@@ -58,6 +58,14 @@
 			$ret_arr=array('result'=>$cms_id);
 			echo json_encode($ret_arr);
 		}
+
+		function del_cms(){
+			$cms_id = $this->input->post('am_id');
+			$this->load->model('cmsmodel','cms');
+			$result=$this->cms->del_cms($cms_id);
+			$ret_arr=array('result'=>$result);
+			echo json_encode($ret_arr);
+		}
 		
 		
 

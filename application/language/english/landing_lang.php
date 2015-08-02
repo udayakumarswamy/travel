@@ -112,7 +112,7 @@
 	  $lang['add_amenities'] = 'Add Amenities';
 	  $lang['cms_management'] = 'CMS Management';
 	  $lang['add_cms_page'] = 'Add CMS Page';
-	  $lang['list_cms_page'] = 'List of CMS Page';
+	  $lang['list_cms_page'] = 'List of CMS Pages';
 	  $lang['testimonial_management'] = 'Testimonial Management';
 	  $lang['package_title'] = 'Package Title';
 	  $lang['no_of_seats_avail_for_adults'] = 'Number of Seats Available for Adults';
@@ -176,3 +176,5 @@
 	  $lang['pls_enter_content_in_english'] = 'Please Enter Page Content in English';
 	  $lang['pls_enter_content_in_arabic'] = 'Please Enter Page Content in Arabic';
 	  $lang['amenities_name'] = 'Amenities Name';
+	  $lang['page_name'] = 'Page Name';
+	  
