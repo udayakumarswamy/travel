@@ -195,7 +195,7 @@ function del_package(){
 	$ret_arr=array('result'=>$result);
 	echo json_encode($ret_arr);
 }
-function list_bookings(){
+	function list_bookings(){
 		if(!isAdminLoggedIn())
 		{
 			redirect("index.php/admin/admin_login");
@@ -204,6 +204,18 @@ function list_bookings(){
 		$data['bookings']=$this->package->get_bookings();
 		$this->load->view('admin/header');
 		$this->load->view('admin/list_bookings',$data);
+		$this->load->view('admin/footer');
+
+	}
+	function view_booking($bid){
+		if(!isAdminLoggedIn())
+		{
+			redirect("index.php/admin/admin_login");
+		}
+		$this->load->model('packagemodel','package');
+		$data['bookings']=$this->package->view_booking($bid);
+		$this->load->view('admin/header');
+		$this->load->view('admin/view_booking',$data);
 		$this->load->view('admin/footer');
 
 	}

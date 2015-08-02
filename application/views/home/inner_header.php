@@ -265,7 +265,7 @@
 							<div class="page-header-inner">
 								<h1 style="color:#666666"><?php echo $this->lang->line('welcome');?>&nbsp;<?php echo $username ?></h1>
 								<ul class="custom-list breadcrumbs">
-								<li><a href="#"><?php echo $this->lang->line('home');?></a> / </li>
+								<li><a href="<?php echo base_url();?>index.php/landing/welcome"><?php echo $this->lang->line('home');?></a> / </li>
 								<li><a href="<?php echo base_url();?>index.php/landing/my_account"><?php echo $this->lang->line('my_profile');?></a> / </li>
 								<li><a href="<?php echo base_url();?>index.php/landing/changepass"><?php echo $this->lang->line('change_password');?></a>/</li>
 								<?php if($usertype==2){ ?>

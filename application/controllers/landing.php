@@ -132,6 +132,13 @@ class Landing  extends CI_Controller
 			$data['title']= 'Welcome';
 			$data['username'] = $this->session->userdata('username');
 			$data['usertype'] = $this->session->userdata('usertype');
+			if($data['usertype'] == 1) {
+				$this->load->model('usermodel','user');
+				$data['bookings']=$this->user->get_bookings($this->session->userdata('userId'));
+			} else {
+				$this->load->model('agentmodel','agent');
+				$data['bookings']=$this->agent->get_bookings($this->session->userdata('userId'));
+			}
 			$this->load->view('home/inner_header',$data);
 			$this->load->view('home/welcome', $data);
 			$this->load->view('home/footer',$data);
