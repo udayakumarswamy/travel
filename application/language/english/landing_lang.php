@@ -133,7 +133,7 @@
 	  $lang['enter_country'] = 'Please enter Country';
 	  $lang['enter_pkg_dest'] = 'Please enter Package destination';
 	  $lang['data_saved_sucfuly'] = 'Data Saved Successfully';
-$lang['add_testimonial'] = 'Add Testimonial';
+	  $lang['add_testimonial'] = 'Add Testimonial';
 	  $lang['list_testimonial'] = 'List Testimonial';
 	  $lang['booking_management'] = 'Booking Management';
 	  $lang['list_bookings'] = 'List of Bookings';
@@ -144,3 +144,7 @@ $lang['add_testimonial'] = 'Add Testimonial';
 	  $lang['pkg_dept_date'] = 'Package Departure Date';
 	  $lang['status'] = 'Status';
 	  $lang['action'] = 'Action';
+	  $lang['list_packages'] = 'List of Packages';
+	  $lang['pkg_arr_date'] = 'Package Arr Date';
+	  $lang['featured'] = 'Featured';
+	  $lang['are_u_sure_delete'] = 'Are you sure you want to delete?';

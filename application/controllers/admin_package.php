@@ -38,7 +38,7 @@
 		$data['package_details']=$this->package->get_package_details($package_id);
 		$data['images']=$this->package->get_images($package_id);
 		$data['amenities_list'] = $this->admin->fetch_amenities();
-		echo '<pre>';print_r($data);exit;
+		// echo '<pre>';print_r($data);exit;
 		$this->load->view('admin/header');
 		$this->load->view('admin/add_package',$data);
 		$this->load->view('admin/footer');
