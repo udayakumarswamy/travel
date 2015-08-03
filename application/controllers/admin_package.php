@@ -6,7 +6,8 @@
 			$this->load->library('pagination');
 			$this->load->helper('form');
 			$this->load->helper('url');
-			if( !empty($this->session->userdata('language')))
+			$sess_data = $this->session->userdata('language');
+			if( !empty($sess_data))
 			{
 				if($this->session->userdata('language')=='english')
 				{

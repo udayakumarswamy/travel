@@ -3,7 +3,8 @@
         function __construct(){
 
             parent::__construct();
-            if( !empty($this->session->userdata('language')))
+            $us_data = $this->session->userdata('language');
+            if( !empty($us_data))
             {
                 if($this->session->userdata('language')=='english')
                 {

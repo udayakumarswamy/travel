@@ -6,7 +6,8 @@ class User extends CI_Controller{
 	{
         parent::__construct();
 		$this->load->model('usermodel');
-    if( !empty($this->session->userdata('language')))
+    $user_data =  $this->session->userdata('language');
+    if( !empty($user_data))
     {
       if($this->session->userdata('language')=='english')
       {
@@ -186,7 +187,8 @@ public function check_email_exists($email){
 }
 
 function list_bookings(){
-  if(!empty($this->session->userdata('userId')))
+  $us_id = $this->session->userdata('userId');
+  if(!empty($us_id))
   {
     $data['title']= 'Welcome';
     $data['username'] = $this->session->userdata('username');

@@ -4,7 +4,8 @@ class Landing  extends CI_Controller
 {
 	function __construct(){
 		parent::__construct();	
-		if( !empty($this->session->userdata('language')))
+		$sess_data = $this->session->userdata('language'); 
+		if( !empty($sess_data))
 		{
 			if($this->session->userdata('language')=='english')
 			{
@@ -127,7 +128,8 @@ class Landing  extends CI_Controller
 			$data['postfix']='';
 		else
 			$data['postfix']='_ar';	*/
-		if(!empty($this->session->userdata('userId')))
+			$user_id = $this->session->userdata('userId');
+		if(!empty($user_id))
 		{
 			$data['title']= 'Welcome';
 			$data['username'] = $this->session->userdata('username');

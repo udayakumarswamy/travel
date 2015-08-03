@@ -11,7 +11,8 @@
 			{
 				redirect("index.php/admin/admin_login");
 			}
-			if( !empty($this->session->userdata('language')))
+			$user_data =  $this->session->userdata('language');
+			if( !empty($user_data))
 			{
 				if($this->session->userdata('language')=='english')
 				{
