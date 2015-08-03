@@ -18,7 +18,20 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/library/css/animate.custom.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/library/css/magnific-popup.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/library/css/style.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/library/css/skins/default.css">
+
+		<?php
+			if($this->session->userdata('language')=='arabic'){
+				?>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/library/css/skins/ar_default.css">
+				<?php
+			}
+			else {
+				?>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/library/css/skins/en_default.css">
+				<?php
+
+			}
+		?>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/uploadfile.css">
 		
 		<!--link rel="stylesheet" type="text/css" href="library/css/custom.css"> uncomment if you want to use custom CSS definitions -->
