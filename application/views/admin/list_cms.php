@@ -14,12 +14,13 @@
                      </span>
                 </header>
                 <div class="panel-body">
+                    <h2><?php echo $this->lang->line('list_cms_page');?></h2>
                     <table class="table  table-hover general-table">
                         <thead>
                         <tr>
-                            <th> #</th>
+                            <th width="50"> #</th>
                             <th><?php echo $this->lang->line('page_name');?></th>
-                            <th><?php echo $this->lang->line('action');?></th>
+                            <th width="100"><?php echo $this->lang->line('action');?></th>
                         </tr>
                         </thead>
                         <tbody>

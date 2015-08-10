@@ -14,6 +14,7 @@
                      </span>
                 </header>
                 <div class="panel-body">
+                    <h2><?php echo $this->lang->line('list_packages');?></h2>
                     <table class="table  table-hover general-table">
                         <thead>
                         <tr>

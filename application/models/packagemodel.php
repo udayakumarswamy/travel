@@ -43,7 +43,7 @@ class Packagemodel extends CI_Model
 		return $result->result_array();
 	}
 	
-	function get_search_result($package_country_name='',$package_country='',$dept_date='',$arr_date='',$adults='',$childrens='',$sort_type='',$sort=''){
+	function get_search_result($package_country = '',$dept_date='',$arr_date='',$adults='',$childrens='',$sort_type='',$sort=''){
 		
 		//echo "SELECT * FROM package_details WHERE country_id='$package_country' AND dept_date>='$dept_date' AND arr_date<='$arr_date'";
 		$condition = '';
@@ -51,28 +51,37 @@ class Packagemodel extends CI_Model
 			$condition = $condition . " country_id != '' ";
 		}
 		else {
-			$condition = $condition . " country_id='%".$package_country."%' ";
+			$condition = $condition . " country_id='".$package_country."' ";
 		}
 
-		if($dept_date != '--' && $arr_date != '--') {
-			$condition = $condition . " OR (dept_date >='".$dept_date."' AND arr_date <= '".$arr_date."') ";
+		if($dept_date != '' && $arr_date != '') {
+			$condition = $condition . " AND (dept_date >= '".$dept_date."' AND arr_date <= '".$arr_date."') ";
 		}
-		elseif($dept_date != '--') {
-			$condition = $condition . " OR (dept_date >='".$dept_date."') ";
+		elseif($dept_date != '') {
+			$condition = $condition . " AND (dept_date >='".$dept_date."') ";
 		}
-		elseif($arr_date != '--') {
-			$condition = $condition . " OR (arr_date <='".$arr_date."') ";
+		elseif($arr_date != '') {
+			$condition = $condition . " AND (arr_date <='".$arr_date."') ";
 		}
 		else {
-			$condition = $condition . " OR (dept_date >='". date('Y-m-d')."') ";
+			$condition = $condition . " AND (dept_date >='". date('Y-m-d')."') ";
 		}
+
+		if($adults != '' && $adults != 0) {
+			$condition = $condition . " AND number_of_seats_adult >= " . $adults;
+		}
+
+		if($childrens != '' && $childrens != 0) {
+			$condition = $condition . " AND number_of_seats_child >= " . $childrens;
+		}
+
 		// echo $condition;
 		$order_by='order by dept_date';
 		if($sort_type=='alpha')
 			$order_by='order by package_title '.$sort;
 		if($sort_type=='price')
 			$order_by='order by total_cost '.$sort;	
-		/*echo "SELECT *,SUM(package_cost_adult+package_cost_child) AS total_cost FROM package_details WHERE country_id='$package_country' AND dept_date>='$dept_date' AND arr_date<='$arr_date' group by package_id $order_by";	*/
+		// echo "SELECT *,SUM(package_cost_adult+package_cost_child) AS total_cost FROM package_details WHERE ".$condition." AND is_active='Y' group by package_id $order_by";	
 		//$result=$this->db->query("SELECT *,SUM(package_cost_adult+package_cost_child) AS total_cost FROM package_details WHERE country_id='$package_country' AND dept_date>='$dept_date' AND arr_date<='$arr_date' and is_active='Y' group by package_id $order_by");
 		$result=$this->db->query("SELECT *,SUM(package_cost_adult+package_cost_child) AS total_cost FROM package_details WHERE ".$condition." AND is_active='Y' group by package_id $order_by");
 		$package_arr=$result->result_array();
@@ -260,8 +269,9 @@ class Packagemodel extends CI_Model
 	function list_amenities_display(){
 		$this->db->select('*');
 		$this->db->from('additional_amenities');
-		$this->db->where('status',1);
+		// $this->db->where('status',1);
 		$result=$this->db->get()->result_array();
+		// print_r($result);exit;
 		return $result;
 	}
 	

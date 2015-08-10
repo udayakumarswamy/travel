@@ -90,7 +90,8 @@ function set_session(lang)
     <div class="header-language">
         <?php 
         $lang = '';
-        if(empty($this->session->userdata('language'))){
+$l = $this->session->userdata('language');
+        if(empty($l)){
             $lang = 'EN';
         }
         else
@@ -129,7 +130,7 @@ function set_session(lang)
             <ul class="dropdown-menu extended logout">
                <!-- <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>-->
-                <li><a href="<?php echo base_url(); ?>admin/logout"><i class="fa fa-key"></i> <?php echo $this->lang->line('logout');?></a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/admin/logout"><i class="fa fa-key"></i> <?php echo $this->lang->line('logout');?></a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->

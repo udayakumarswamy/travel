@@ -14,13 +14,14 @@
                          </span>
                     </header>
                     <div class="panel-body">
+                        <h2><?php echo $this->lang->line('list_amenities');?></h2>
                         <table class="table  table-hover general-table">
                             <thead>
                             <tr>
-                                <th> #</th>
+                                <th width="50"> #</th>
                                 <th><?php echo $this->lang->line('amenities_name');?></th>
-                                <th><?php echo $this->lang->line('status');?></th>
-                                <th><?php echo $this->lang->line('action');?></th>
+                                <th width="100"><?php echo $this->lang->line('status');?></th>
+                                <th width="100"><?php echo $this->lang->line('action');?></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -38,6 +39,7 @@
 							} ?>
                             </tbody>
                         </table>
+
                     </div>
                 </section>
             </div>

@@ -31,9 +31,19 @@
 
 									<!-- SEARCH INPUT : begin -->
 									<span class="search-input">
-										<input type="text" id="country_id" name="country" placeholder="<?php echo $this->lang->line('destination_country');?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
+										<select name="country" data-placeholder="<?php echo $this->lang->line('destination_country');?>">
+											<option value="">Select Country</option>
+											<?php
+											foreach ($countries as $key => $country) {
+												?>
+												<option value="<?php echo $key; ?>"><?php echo $country; ?></option>
+												<?php
+											}
+											?>
+										</select>
+										<!-- <input type="text" id="country_id" name="country" placeholder="<?php echo $this->lang->line('destination_country');?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
 										<div id="suggesstion-box" style=" position: absolute;left: 25px;top:50px;z-index: 100000; background-color:rgba(0,0,0,0.5);width:25%; padding-left:10px; color:#FFFFFF"></div>
-										<input type="hidden" name="cn_id" id="cn_id" value=""/> 
+										<input type="hidden" name="cn_id" id="cn_id" value=""/> --> 
 									</span>
 									<!-- SEARCH INPUT : end -->
 
@@ -554,7 +564,7 @@
 							
 							<h2 <?php if($postfix!=''){?> dir="rtl" <?php }?>><?php echo $cms_about['cms_page_name'.$postfix];?></h2>
 							
-							<p <?php if($postfix!=''){?> dir="rtl" <?php }?>><?php echo stripslashes($cms_about['cms_page_content'.$postfix]);?></p>
+							<p <?php if($postfix!=''){?> dir="rtl" <?php }?>><?php echo htmlspecialchars_decode($cms_about['cms_page_content'.$postfix]);?></p>
 							<!--<p class="cta-button">
 								<a href="#" class="button"><i class="fa fa-heart"></i> Get Started!</a>
 							</p>-->
@@ -636,9 +646,9 @@
 								<div class="row">
 									<div class="col-md-6">
 										<ul class="custom-list">
-											<li <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><a href="#" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('home');?></a></li>
-											<li <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><a href="#" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('browse');?></a></li>
-											<li <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><a href="#" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('about_us');?></a></li>
+											<li <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><a href="<?php echo base_url(); ?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('home');?></a></li>
+											<li <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><a href="<?php echo base_url(); ?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('browse');?></a></li>
+											<li <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><a href="<?php echo base_url('index.php/aboutus'); ?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('about_us');?></a></li>
 										</ul>
 									</div>
 									<div class="col-md-6">

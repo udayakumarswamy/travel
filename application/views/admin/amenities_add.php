@@ -16,12 +16,14 @@
                              </span>
                         </header>
                         <div class="panel-body">
+                        	<h2><?php echo $this->lang->line('add_amenities');?></h2>
                             <div class=" form">
-									<div id="success_div" class="col-lg-offset-2 col-lg-6 succ_msg" style="display:none"></div>
+									<div id="success_div" class="col-lg-offset-2 col-lg-12 succ_msg" style="display:none"></div>
 									<div id="error_div" class="col-lg-offset-2 err_msg col-lg-6" style="display:none"></div>
 									<input type="hidden" name="am_id" id="am_id" value="<?php echo isset($amenities['id']) && !empty($amenities['id']) ? $amenities['id'] : 0;?>"/>
 									<div class="form-group" >
-										<div class="col-lg-offset-2 col-lg-6" style="padding-bottom:20px">
+											<label class="control-label col-lg-3" for="cemail"><?php echo $this->lang->line('pkg_name');?> </label>
+										<div class="col-lg-offset-2 col-lg-12" style="padding-bottom:20px">
                                         <input type="text" class="form-control" id="amenities" name="amenities" style="width:400px;" value="<?php echo isset($amenities['amenities_value']) && !empty($amenities['amenities_value']) ? $amenities['amenities_value']:'';?>" placeholder="<?php echo $this->lang->line('amenity_name');?>" />
 										</div>
                                     </div>
@@ -38,7 +40,7 @@ if(isset($amenities['status']) ){
 } ?>                                    
                                     <div class="form-group ">
 	<label class="control-label col-lg-3" for="cemail"><?php echo $this->lang->line('status');?> </label>
-	<div class="col-lg-6">
+	<div class="col-lg-3">
 	<input type="radio" class="" name="aminity_status" value="1" id="active_1" <?php echo $act_checked;?>/>  <?php echo $this->lang->line('active');?>&nbsp;&nbsp;&nbsp;
 	<input type="radio" class="" name="aminity_status" value="0" id="active_0" <?php echo $inact_checked;?>/>  <?php echo $this->lang->line('in_active');?>
 	</div>

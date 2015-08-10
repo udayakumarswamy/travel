@@ -8,7 +8,6 @@
             <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        List of Bookings
                         <span class="tools pull-right">
 						    
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
@@ -17,19 +16,18 @@
                          </span>
                     </header>
                     <div class="panel-body">
+                        <h2><?php echo $this->lang->line('list_bookings');?></h2>
                         <table class="table  table-hover general-table">
                             <thead>
                             <tr>
-                                <th width="5%">
-                                        #
-                                    </th>
-                                    <th>Image</th>
-                                    <th><?php echo $this->lang->line('pkg_name'); ?></th>
-                                    <th><?php echo $this->lang->line('booked_by'); ?></th>
-                                    <th><?php echo $this->lang->line('noof_people'); ?></th>
-                                    <th><?php echo $this->lang->line('total_package_cost'); ?></th>
-                                    <th><?php echo $this->lang->line('departure_date'); ?></th>
-                                    <th><?php echo $this->lang->line('arrival_date'); ?></th>
+                                <th width="110">#</th>
+                                <th width="100">Image</th>
+                                <th><?php echo $this->lang->line('pkg_name'); ?></th>
+                                <th><?php echo $this->lang->line('booked_by'); ?></th>
+                                <th><?php echo $this->lang->line('noof_people'); ?></th>
+                                <th><?php echo $this->lang->line('total_package_cost'); ?></th>
+                                <th><?php echo $this->lang->line('departure_date'); ?></th>
+                                <th><?php echo $this->lang->line('arrival_date'); ?></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -38,13 +36,13 @@
 							foreach($bookings as $b){?>
 							<tr>
                                 <td>
-                                    <a href="<?php echo base_url(); ?>admin_package/view_booking/<?php echo $b['package_booking_id']; ?>">
+                                    <a href="<?php echo base_url(); ?>index.php/admin_package/view_booking/<?php echo $b['package_booking_id']; ?>">
                                         <?php echo $b['booking_code'];?>
                                     </a>
                                 </td>
                                 <td><img src="<?php echo base_url(); ?>/uploads/<?php echo $b['is_featured_image'];?>" width="100"></td>
                                 <td class="hidden-phone">
-                                    <a href="<?php echo base_url(); ?>admin/view_package/<?php echo $b['package_id']; ?>">
+                                    <a href="<?php echo base_url(); ?>index.php/admin/view_package/<?php echo $b['package_id']; ?>">
                                         <?php echo stripslashes($b['package_title']);?>
                                     </a>
                                 </td>

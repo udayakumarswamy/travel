@@ -23,7 +23,7 @@
 		  		  			$b = $bookings[0];
                             ?>
 							<tr>
-                                <td>Booking ID</td>
+                                <td width="250">Booking ID</td>
                                 <td><?php echo $b['booking_code'];?></td>
                             </tr>
                             <tr>
@@ -72,6 +72,7 @@
                             </tr>
                             </tbody>
                         </table>
+                        <a href="<?php echo base_url();?>index.php/admin_package/list_bookings" class="pull-right"> <<< Back</a>
                     </div>
                 </section>
             </div>

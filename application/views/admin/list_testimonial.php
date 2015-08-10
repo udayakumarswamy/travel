@@ -14,13 +14,14 @@
                          </span>
                     </header>
                     <div class="panel-body">
+                        <h2><?php echo $this->lang->line('list_testimonial');?></h2>
                         <table class="table  table-hover general-table">
                             <thead>
                             <tr>
-                                <th> #</th>
+                                <th width="50"> #</th>
                                 <th><?php echo $this->lang->line('testimonial');?></th>
                                 <th><?php echo $this->lang->line('testimonial');?>(<?php echo $this->lang->line('arabic');?>)</th>
-								<th><?php echo $this->lang->line('action');?></th>
+								<th width="100"><?php echo $this->lang->line('action');?></th>
                             </tr>
                             </thead>
                             <tbody>

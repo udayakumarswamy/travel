@@ -28,6 +28,7 @@ tinymce.init({
                      </span>
                 </header>
 <div class="panel-body">
+	<h2><?php echo $this->lang->line('add_testimonial');?></h2>
     <div class=" form">
 			<div id="success_div" class="succ_msg col-lg-offset-2 col-lg-6" style="display:none"></div>
 			<div id="error_div" class="err_msg col-lg-offset-2 col-lg-6" style="display:none"></div>

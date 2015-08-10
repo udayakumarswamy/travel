@@ -13,10 +13,11 @@
         </span>
     </header>
     <div class="panel-body">
+        <h2><?php echo $this->lang->line('package_details');?></h2>
         <?php $package_details = $package_details[0]; ?>
         <table class="table  table-hover general-table">
             <tr>
-                <td><?php echo $this->lang->line('package_title');?> </td>
+                <td width="300"><?php echo $this->lang->line('package_title');?> </td>
                 <td><?php echo $package_details['package_title'];?></td>
             </tr>
             <tr>
@@ -69,6 +70,9 @@
                 </td>
             </tr>
         </table>
+
+        <a href="<?php echo base_url();?>index.php/admin/list_package" class="pull-right"> <<< Back</a>
+
 
     <!-- page end-->
     </section>

@@ -43,24 +43,35 @@
                 $data['postfix']='';
             else
                 $data['postfix']='_ar'; 
-            $package_country=$this->input->get('cn_id');
-            $package_country_name=$this->input->get('country');
+
+            $package_country=$this->input->get('country');
             $package_arrival_date=$this->input->get('arrival');
             $package_dept_date=$this->input->get('departure');
             $adult=$this->input->get('adults');
             $children=$this->input->get('children');
             
-            $arr_date_arr=explode('/',$package_arrival_date);
-            $arr_date=$arr_date_arr[2].'-'.$arr_date_arr[0].'-'.$arr_date_arr[1];
-            $dept_date_arr=explode('/',$package_dept_date);
-            $dept_date=$dept_date_arr[2].'-'.$dept_date_arr[0].'-'.$dept_date_arr[1];
+            if($package_dept_date != '') {
+                $dept_date = date('Y-m-d', strtotime($package_dept_date));
+            }
+            else {
+                $dept_date = date('Y-m-d');
+            }
+
+            if($package_arrival_date != '') {
+                $arr_date = date('Y-m-d', strtotime($package_arrival_date));
+            }
+            else {
+                $arr_date = date('Y-m-d', strtotime('+1 week'));
+            }
+
             
             $this->load->model('packagemodel','package');
+            $this->load->model('country','country');
+            $data['countries'] = $this->country->get_country_ids();
             // $data['total_rows']=$this->package->get_search_total_result($package_country_name,$package_country,$dept_date,$arr_date,$adult,$children);
-            $data['package']=$this->package->get_search_result($package_country_name,$package_country,$dept_date,$arr_date,$adult,$children);
+            $data['package']=$this->package->get_search_result($package_country,$dept_date,$arr_date,$adult,$children);
             $data['total_rows'] = count($data['package']);
             $data['package_country']=$package_country;
-            $data['package_country_name']=$package_country_name;
             $data['arr_date']=$arr_date;
             $data['dept_date']=$dept_date;
             $data['adult']=$adult;
@@ -81,6 +92,15 @@
             $country_name=$this->input->post('country_name');
             $arr_date=$this->input->post('arr_date');
             $dept_date=$this->input->post('dept_date');
+            
+            if($package_dept_date != '') {
+                $dept_date = date('Y-m-d', strtotime($dept_date));
+            }
+
+            if($package_arrival_date != '') {
+                $arr_date = date('Y-m-d', strtotime($arr_date));
+            }
+
             $adults=$this->input->post('adults');
             $children=$this->input->post('children');
             if($this->input->post('sort'))

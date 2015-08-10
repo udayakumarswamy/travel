@@ -136,7 +136,8 @@
 							<div class="header-language">
 								<?php 
 								$lang = '';
-								if(empty($this->session->userdata('language'))){
+								$l = $this->session->userdata('language');
+								if(empty($l)){
 									$lang = 'EN';
 								}
 								else

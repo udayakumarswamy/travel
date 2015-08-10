@@ -230,12 +230,22 @@ if($postfix=='')
 											<input type="hidden" id="cn_id" name="cn_id"  value="<?php echo $package_country;?>"/>
 											<!-- SEARCH INPUT : begin -->
 											<p class="search-input">
-												<input type="text" name="country" id="c_id" placeholder="Destination Country" value="<?php echo $package_country_name;?>">
-												<div id="suggesstion-box" style=" position: absolute;left: 50px;top:175px;z-index: 100000; background-color:#fff;width:70%; padding-left:10px; color:#666666"></div>
+												<select name="country" data-placeholder="<?php echo $this->lang->line('destination_country');?>">
+													<option value="">Select Country</option>
+													<?php
+													foreach ($countries as $key => $country) {
+														?>
+														<option value="<?php echo $key; ?>" <?php echo ($key == $package_country) ? 'selected' : '' ; ?>><?php echo $country; ?></option>
+														<?php
+													}
+													?>
+												</select>
+												<!-- <input type="text" name="country" id="c_id" placeholder="Destination Country" value="<?php echo $package_country_name;?>">
+												<div id="suggesstion-box" style=" position: absolute;left: 50px;top:175px;z-index: 100000; background-color:#fff;width:70%; padding-left:10px; color:#666666"></div> -->
 											</p>
 											<!-- SEARCH INPUT : end -->
 											<script type="text/javascript">
-									$(document).ready(function(){
+									/*$(document).ready(function(){
 										$("#c_id").keyup(function(){
 											
 											$.ajax({
@@ -260,7 +270,7 @@ if($postfix=='')
 									$("#cn_id").val(id);
 									$("#suggesstion-box").hide();
 									
-									}
+									}*/
 								</script>
 											<!-- ARRIVAL DATE, DEPARTURE DATE : begin -->
 											<p class="form-row clearfix">

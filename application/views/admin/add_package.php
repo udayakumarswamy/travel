@@ -185,7 +185,7 @@ function pkg_list(){
 	<div class="row">
 	<div class="col-lg-12">
 	<section class="panel">
-	<header class="panel-heading"><?php echo $this->lang->line('add_package');?>
+	<header class="panel-heading">
 		<span class="tools pull-right">
 			<a class="fa fa-chevron-down" href="javascript:;"></a>
 			<a class="fa fa-cog" href="javascript:;"></a>
@@ -194,6 +194,7 @@ function pkg_list(){
 	</header>
 	<div class="panel-body">
 	<div class=" form">
+		<h2><?php echo $this->lang->line('add_package');?></h2>
 	<?php $attributes=array('class'=>"cmxform form-horizontal",
 	'id'=>'commentForm');				
 	echo form_open('index.php/admin_package/save_package',$attributes);
