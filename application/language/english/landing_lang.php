@@ -186,10 +186,12 @@
 	  $lang['in_active'] = 'Inactive';
 	  $lang['pls_select_amenity_status'] = 'Please Select Amenity Status';
 	  $lang['other'] = 'Other';
-	  
-	  /********************/
 	  $lang['booking_details'] = 'Booking Details';
 	  $lang['book_pkg_id'] = 'Booking Id';
 	  $lang['no_adult'] = 'No of Adults';
 	  $lang['no_child'] = 'No of Children';
 	  $lang['no_infant'] = 'No of Infant';
+
+	  /*************/
+	  $lang['booking'] = 'Booking';
+	  $lang['success'] = 'Success';

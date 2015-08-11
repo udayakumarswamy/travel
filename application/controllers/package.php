@@ -169,14 +169,14 @@
         }
         
         function booking_success(){
-           if($this->session->userdata('language')=='english')
+           /*if($this->session->userdata('language')=='english')
                 $data['postfix']='';
             else
                 $data['postfix']='_ar'; 
             if($this->session->userdata('language')=='english')
                 $data['postfix']='';
             else
-                $data['postfix']='_ar'; 
+                $data['postfix']='_ar'; */
             $package_id=$this->input->post('package_id');
             $adults=$this->input->post('adults');
             $children=$this->input->post('children');
@@ -192,10 +192,15 @@
                 $infant=0;      
             
             $this->load->model('packagemodel','package');
-            $booking_id=$this->package->book_package($package_id,$adults,$children,$infant,$user_id,$package_cost);
+            $booking_id = $this->package->book_package($package_id,$adults,$children,$infant,$user_id,$package_cost);
+            /**/
+            $this->load->model('agentmodel','agent');
+            $bookings = $this->agent->get_booking_details($booking_id);
+            $data['bookings'] = $bookings[0];
+            /**/
             $this->load->view('home/header',$data);
-            $this->load->view('property/booking_success');
-            $this->load->view('home/footer');
+            $this->load->view('property/booking_success',$data);
+            $this->load->view('home/footer',$data);
         }
 
         function booking_faliure(){
