@@ -447,7 +447,7 @@ if($postfix=='')
 											<h4 class="filter-title"><?php echo $this->lang->line('filter_results');?></h4>
 
 											<!-- PRICE FILTER : begin -->
-											<div class="price-filter toggle-container">
+											<!-- <div class="price-filter toggle-container">
 												<h5 class="toggle-title"><?php echo $this->lang->line('by_price');?></h5>
 												<div class="toggle-content">
 
@@ -467,7 +467,7 @@ if($postfix=='')
 													</div>
 
 												</div>
-											</div>
+											</div> -->
 											<!-- PRICE FILTER : end -->
 
 											<!-- RATING FILTER : begin -->
