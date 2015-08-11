@@ -12,6 +12,15 @@
 <td><?php echo isset($bookings['booking_code']) && !empty($bookings['booking_code']) ? $bookings['booking_code'] : ''; ?></td>
 </tr>
 <tr>
+<td><?php echo $this->lang->line('username'); ?> </td>
+<td><?php echo isset($bookings['userName']) && !empty($bookings['userName']) ? $bookings['userName'] : ''; ?></td>
+</tr>
+<tr>
+<td><?php echo $this->lang->line('email'); ?> </td>
+<td><?php echo isset($bookings['EmailAddress']) && !empty($bookings['EmailAddress']) ? $bookings['EmailAddress'] : ''; ?></td>
+</tr>
+
+<tr>
 <td><?php echo $this->lang->line('pkg_name'); ?></td>
 <td><?php echo isset($bookings['package_title']) && !empty($bookings['package_title']) ? $bookings['package_title'] : ''; ?></td>
 </tr>
