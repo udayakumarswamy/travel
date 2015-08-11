@@ -191,3 +191,10 @@
 	  $lang['in_active'] = 'غير فعال';
 	  $lang['pls_select_amenity_status'] = 'الرجاء اختيار الميزة الحالة';
 	  $lang['other'] = 'آخر';
+
+
+	  $lang['booking_details'] = 'حجز تفاصيل';
+	  $lang['book_pkg_id'] = 'حجز رقم';
+	  $lang['no_adult'] = 'عدد البالغين';
+	  $lang['no_child'] = 'عدد الأطفال';
+	  $lang['no_infant'] = 'عدد الرضع';
