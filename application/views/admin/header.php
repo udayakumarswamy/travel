@@ -79,41 +79,50 @@ function set_session(lang)
     </div>
 </div>
 <!--logo end-->
-
-<div class="nav notify-row" id="top_menu"><?php echo $this->lang->line('welcome_dashboard');?>
+<div class="nav notify-row" id="top_menu">
+    <!--  notification start -->
+    <ul class="nav top-menu">
+        <!-- settings start -->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <i class="fa fa-tasks"></i>
+            </a>
+            <?php 
+            $lang = '';
+            $l = $this->session->userdata('language');
+            if(empty($l)){
+                $lang = 'EN';
+            }
+            else
+            {
+                if(trim($this->session->userdata('language')) == 'arabic'){
+                    $lang = 'AR';
+                }
+                else
+                {
+                    $lang = 'EN';
+                }
+            }
+        ?>
+            <ul class="dropdown-menu extended tasks-bar">
+                <li class="external">
+                    <a href="javascript:void(0)" onClick="set_session('en');">EN</a>
+                </li>
+                <li class="external">
+                    <a href="javascript:void(0)" onClick="set_session('ar');">AR</a>
+                </li>
+            </ul>
+        </li>
+        <!-- settings end -->
+        
+    </ul>
+    <!--  notification end -->
+</div>
     
     
 </div>
 <div class="top-nav clearfix">
 
-    <!-- HEADER LANGUAGE : begin -->
-    <div class="header-language">
-        <?php 
-        $lang = '';
-$l = $this->session->userdata('language');
-        if(empty($l)){
-            $lang = 'EN';
-        }
-        else
-        {
-            if(trim($this->session->userdata('language')) == 'arabic'){
-                $lang = 'AR';
-            }
-            else
-            {
-                $lang = 'EN';
-            }
-        }
-        ?>
-        <button class="header-btn" id="btn_active"><?php echo $lang; ?> <i class="fa fa-angle-down"></i></button> 
-        <nav class="header-nav">
-            <ul class="custom-list">
-               <li class="active" id="li_english"><a href="javascript:void(0)" onClick="set_session('en');">EN</a></li>
-                <li id="li_arabic"><a href="javascript:void(0)" onClick="set_session('ar');">AR</a></li>
-            </ul>
-        </nav>
-    </div>
-    <!-- HEADER LANGUAGE : end -->
 
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
