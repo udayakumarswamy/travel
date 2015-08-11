@@ -74,8 +74,6 @@
 	  $lang['forgot_success_msg'] = 'Password changed and send to your email.';
 	  $lang['forgot_cant_changed'] = "Password can't changed";
 	  $lang['forgot_email_not_found'] = 'Sorry! This email not found in our database';
-
-	  /*****************/
 	  $lang['update_profile'] = 'Update Profile';
 	  $lang['first_name'] = 'First Name';
 	  $lang['last_name'] = 'Last Name';
@@ -170,7 +168,6 @@
 	  $lang['cms_page_content_in_english'] = 'CMS Page Content in English';
 	  $lang['cms_page_content_in_arabic'] = 'CMS Page Content in Arabic';
 	  $lang['cms_page_in_arabic'] = 'CMS Page Name in Arabic';
-
 	  $lang['pls_enter_cms_page_name'] = 'Please Enter CMS Page Name';
 	  $lang['pls_enter_arabic_cms_page_name'] = 'Please Enter Arabic CMS Page Name';
 	  $lang['pls_enter_content_in_english'] = 'Please Enter Page Content in English';
@@ -190,3 +187,9 @@
 	  $lang['pls_select_amenity_status'] = 'Please Select Amenity Status';
 	  $lang['other'] = 'Other';
 	  
+	  /********************/
+	  $lang['booking_details'] = 'Booking Details';
+	  $lang['book_pkg_id'] = 'Booking Id';
+	  $lang['no_adult'] = 'No of Adults';
+	  $lang['no_child'] = 'No of Children';
+	  $lang['no_infant'] = 'No of Infant';

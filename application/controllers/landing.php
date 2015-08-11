@@ -806,8 +806,21 @@ class Landing  extends CI_Controller
 
 	function pkg_details()
 	{
-		$pkg_id = $this->input->get('pkg_id');
-		echo '====='.$pkg_id.'======';
+		$bookingId = $this->input->get('pkg_id');
+		$user_id = $this->session->userdata('userId');
+		if(!empty($user_id)){
+			$data['username'] = $this->session->userdata('username');
+			$data['usertype'] = $this->session->userdata('usertype');
+			$this->load->model('agentmodel','agent');
+			$bookings = $this->agent->get_booking_details($bookingId);
+			$data['bookings'] = $bookings[0];
+			$this->load->view('home/inner_header',$data);
+			$this->load->view('home/booking_details', $data);
+			$this->load->view('home/footer',$data);
+		} else {
+			redirect('/landing');
+		}
+
 	}
 
 
