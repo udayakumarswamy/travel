@@ -27,7 +27,7 @@
                             $i=1;
                             foreach($bookings as $b){?>
                             <tr>
-                                <td><?php echo $b['booking_code'];?></td>
+                                <td><a href="<?php echo base_url(); ?>landing/pkg_details?pkg_id=<?php echo $b['package_booking_id'];?> "><?php echo $b['booking_code'];?></a></td>
                                 <td><img src="<?php echo base_url(); ?>/uploads/<?php echo $b['is_featured_image'];?>" width="100"></td>
                                 <td class="hidden-phone"><?php echo stripslashes($b['package_title']);?></td>
                                

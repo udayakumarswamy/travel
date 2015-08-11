@@ -250,80 +250,51 @@ class Landing  extends CI_Controller
 
 
 	public function welcome()
-
 	{
-
 		/*if($this->session->userdata('language')=='english')
-
-			$data['postfix']='';
-
+		$data['postfix']='';
 		else
+		$data['postfix']='_ar';	*/
 
-			$data['postfix']='_ar';	*/
-
-			$user_id = $this->session->userdata('userId');
-
-		if(!empty($user_id))
-
-		{
-
+		$user_id = $this->session->userdata('userId');
+		if(!empty($user_id)){
 			$data['title']= 'Welcome';
-
 			$data['username'] = $this->session->userdata('username');
-
 			$data['usertype'] = $this->session->userdata('usertype');
 
 			if($data['usertype'] == 1) {
-
 				$this->load->model('usermodel','user');
-
 				$data['bookings']=$this->user->get_bookings($this->session->userdata('userId'));
-
 			} else {
-
 				$this->load->model('agentmodel','agent');
-
 				$data['bookings']=$this->agent->get_bookings($this->session->userdata('userId'));
-
 			}
 
+			// echo $user_id.'-------<pre>'; print_r($data);exit;
 			$this->load->view('home/inner_header',$data);
-
 			$this->load->view('home/welcome', $data);
-
 			$this->load->view('home/footer',$data);
-
-		}else{
-
+		} else {
 			redirect('/landing');
-
 		}
 
+	/* if(($this->session->userdata('username')!="")){
 
+	$data['title']= 'Welcome';
 
+	//  $this->load->view('home/header_view',$data);
 
+	$this->load->view('home/welcome', $data);
 
+	//$this->load->view('home/footer_view',$data);
 
+	}else{
 
+	redirect("home/index");
 
+	}
 
-		/* if(($this->session->userdata('username')!="")){
-
-		$data['title']= 'Welcome';
-
-		//  $this->load->view('home/header_view',$data);
-
-		$this->load->view('home/welcome', $data);
-
-		//$this->load->view('home/footer_view',$data);
-
-		}else{
-
-		redirect("home/index");
-
-		}
-
-		//  http://www.technicalkeeda.com/php-codeigniter/verify-email-address-using-php-codeigniter*/
+	//  http://www.technicalkeeda.com/php-codeigniter/verify-email-address-using-php-codeigniter*/
 
 	}
 
@@ -832,6 +803,13 @@ class Landing  extends CI_Controller
 		}
 
 	}
+
+	function pkg_details()
+	{
+		$pkg_id = $this->input->get('pkg_id');
+		echo '====='.$pkg_id.'======';
+	}
+
 
 	
 
