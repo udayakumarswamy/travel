@@ -288,7 +288,7 @@
 								<?php
 								if($usertype == 1) {
 									?>
-								<li><a href="<?php echo base_url();?>index.php/user/list_bookings"><?php echo $this->lang->line('list_bookings');?></a></li>
+<!-- 								<li><a href="<?php echo base_url();?>index.php/user/list_bookings"><?php echo $this->lang->line('list_bookings');?></a></li> -->
 									<?php
 								} else {
 									?>

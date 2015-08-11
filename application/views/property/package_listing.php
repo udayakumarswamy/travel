@@ -293,7 +293,7 @@ if($postfix=='')
 
 											<!-- NUMBER OF ADULTS AN CHILDREN : begin -->
 											<p class="form-row clearfix">
-												<span class="select-box input-left" title="Adults" value='1'>
+												<span class="select-box1 input-left" title="Adults" value='1'>
 													<select name="adults" data-placeholder="Adults">
 														<option><?php echo $this->lang->line('adults');?></option>
 														<?php
@@ -305,15 +305,17 @@ if($postfix=='')
 														?>
 													</select>
 												</span>
-												<span class="select-box input-right" title="Children">
+												<span class="select-box1 input-right" title="Children">
 													<select name="children" data-placeholder="Children">
 														<option><?php echo $this->lang->line('children');?></option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
+														<?php
+														for ($i=1; $i <= 5; $i++) { 
+															?>
+														<option value="<?php echo $i; ?>" <?php if($children == $i) { echo "selected"; } ?>><?php echo $i; ?></option>
+															<?php
+														}
+														?>
+														</select>
 												</span>
 											</p>
 											<!-- NUMBER OF ADULTS AN CHILDREN : end -->
