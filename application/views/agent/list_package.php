@@ -34,7 +34,8 @@
 										<td><?php echo date('d-m-Y', strtotime($r['dept_date']));?></td>
 										<td><?php echo date('d-m-Y', strtotime($r['arr_date']));?></td>
 										<td><?php if($r['is_active']=='Y'){?> Active <?php }else{ ?> Inactive <?php } ?></td>
-										<td><a href="<?php echo base_url();?>index.php/agent/add_package/<?php echo $r['package_id'];?>"><span class="fa fa-edit"></span></a>&nbsp;,<a href="#"  class="del" data-id=<?php echo $r['package_id'];?>><span class="fa fa-times"></span></a>&nbsp;<a href="#"><span class="fa fa-book"></span></a></td>
+										<?php /*<td><a href="<?php echo base_url();?>index.php/agent/add_package/<?php echo $r['package_id'];?>"><span class="fa fa-edit"></span></a>&nbsp;,<a href="#"  class="del" data-id=<?php echo $r['package_id'];?>><span class="fa fa-times"></span></a>&nbsp;<a href="#"><span class="fa fa-book"></span></a></td>*/?>
+										<td><a href="<?php echo base_url();?>index.php/agent/add_package/<?php echo $r['package_id'];?>"><span class="fa fa-edit"></span></a>&nbsp;,<a href="#"  class="del" data-id=<?php echo $r['package_id'];?>><span class="fa fa-times"></span></a>&nbsp;</td>
 									</tr>
 									<?php 
 									$i++;

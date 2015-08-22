@@ -57,9 +57,6 @@ class Agentmodel extends CI_Model
 			$data['package_id']=$package_id;
 			$data['image_files']=$v;
 			$this->db->insert('package_images',$data);
-			
-			
-			
 		}
 	}
 	function get_package($package_id){

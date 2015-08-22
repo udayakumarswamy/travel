@@ -65,8 +65,11 @@
 		$posted_by_id=$this->session->userdata('userId');
 		$upload_files=$this->input->post('files');
 		$this->load->model('agentmodel','agent');
-		$package_id=$this->agent->add_package($package_title,$d_date,$a_date,$package_cost_adult,$package_cost_child,$package_cost_infant,$number_of_seats_adult,$number_of_seats_child,$number_of_seats_infant,$country_id,$amenities,$package_desc,$posted_by_id,$package_id);
-		
+		$pkg_id = $this->agent->add_package($package_title,$d_date,$a_date,$package_cost_adult,$package_cost_child,$package_cost_infant,$number_of_seats_adult,$number_of_seats_child,$number_of_seats_infant,$country_id,$amenities,$package_desc,$posted_by_id,$package_id);
+		if(empty($package_id)){
+			$package_id =  $pkg_id;
+		}
+		// echo '~~~~~~'.$package_id.'-------'.$upload_files.'~~~~~~';
 		$this->agent->save_uploaded_files($package_id,$upload_files);
 		$ret_arr=array('result'=>$package_id);
 		echo json_encode($ret_arr);
