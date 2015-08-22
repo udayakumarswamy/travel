@@ -140,7 +140,7 @@ if($postfix=='')
 													<!--<div class="property-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
 -->												</div>
 												
-												<button class="button submit-btn reserve"  data-package="<?php echo $p['package_id'];?>"><i class="fa fa-check"></i> <?php echo $this->lang->line('make_reservation');?></button>	
+												<button class="button submit-btn reserve"  data-package="<?php echo $p['package_id'];?>"><i class="fa fa-check"></i> <?php echo $this->lang->line('book_now');?></button>	
 											</div>
 										</li>
 										<?php 

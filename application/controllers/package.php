@@ -61,7 +61,7 @@
                 $arr_date = date('Y-m-d', strtotime($package_arrival_date));
             }
             else {
-                $arr_date = date('Y-m-d', strtotime('+1 week'));
+                $arr_date = date('Y-m-d', strtotime('+2 week'));
             }
 
             

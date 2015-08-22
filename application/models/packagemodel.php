@@ -82,7 +82,7 @@ class Packagemodel extends CI_Model
 		if($sort_type=='price')
 			$order_by='order by total_cost '.$sort;	
 			
-		echo "-------SELECT *,SUM(package_cost_adult+package_cost_child) AS total_cost FROM package_details WHERE ".$condition." AND is_active='Y' group by package_id $order_by-------------"; exit;
+		// echo "-------SELECT *,SUM(package_cost_adult+package_cost_child) AS total_cost FROM package_details WHERE ".$condition." AND is_active='Y' group by package_id $order_by-------------"; exit;
 
 		$result=$this->db->query("SELECT *,SUM(package_cost_adult+package_cost_child) AS total_cost FROM package_details WHERE ".$condition." AND is_active='Y' group by package_id $order_by");
 		$package_arr=$result->result_array();
