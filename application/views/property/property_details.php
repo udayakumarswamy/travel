@@ -326,7 +326,7 @@ var adults=0;
 var children=0;
 var param=package_id+'/'+country_id+'/'+adults+'/'+children;
 
-window.location="<?php echo base_url();?>index.php/<?php echo $folder;?>package/book_my_package/"+param;
+window.location="<?php echo base_url();?>index.php/package/book_my_package/"+param;
 });
 </script>
 <!-- BOTTOM PANEL : end -->

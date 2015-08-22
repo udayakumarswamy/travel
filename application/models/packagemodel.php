@@ -275,5 +275,15 @@ class Packagemodel extends CI_Model
 		// print_r($result);exit;
 		return $result;
 	}
+
+
+	function get_package_booking_details($package_id) {
+		$this->db->select('*');
+		$this->db->from('package_booking');
+		// $this->db->join();
+		$this->db->where('package_id',$package_id);
+		$result = $this->db->get()->result_array();
+		return $result;
+	}
 	
 }

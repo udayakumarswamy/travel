@@ -134,6 +134,7 @@
                 $data['postfix']='';
             else
                 $data['postfix']='_ar'; 
+
             $this->load->model('packagemodel','package');
             $this->load->model('country','country');
             $data['package']=$this->package->get_package_details($package_id);
@@ -239,10 +240,34 @@
             $adult=$this->input->post('adult');
             $child=$this->input->post('child');
             $infant=$this->input->post('infant');
-            $package_details=$this->package->get_package_details($package_id);
-            
-            $total_cost=$adult*$package_details['package_cost_adult']+$child*$package_details['package_cost_child']+$infant*$package_details['package_cost_adult'];
-            $result=array('result'=>$total_cost);
+            $booked_details = $this->check_package_avialability($package_id);
+            $package_details = $this->package->get_package_details($package_id);
+            $adult_remaining = intval($package_details['number_of_seats_adult'] - $booked_details['adults']);
+            $child_remaining = intval($package_details['number_of_seats_child'] - $booked_details['children']);
+            $infant_remaining = intval($package_details['number_of_seats_infant'] - $booked_details['infant']);
+            $result=array();
+            $ad_status = 1;
+            $ch_status = 1;
+            $inf_status = 1;
+            if(intval($adult) < $adult_remaining)
+            {
+                $ad_status = 0;
+                $result['error'] = 'Only '.$adult_remaining.' adults avialable';
+            }
+            if(intval($child) < $child_remaining)
+            {
+                $ch_status = 0;
+                $result['error'] = 'Only '.$child_remaining.' children avialable';
+            }if(intval($infant) < $infant_remaining)
+            {
+                $inf_status = 0;
+                $result['error'] = 'Only '.$infant_remaining.' infants avialable';
+            }
+
+            if(!empty($ad_status) && !empty($ch_status) && !empty($inf_status)) {
+                $total_cost=$adult*$package_details['package_cost_adult']+$child*$package_details['package_cost_child']+$infant*$package_details['package_cost_adult'];
+                $result=array('result'=>$total_cost);
+            }
             echo json_encode($result);
         }
 
@@ -250,6 +275,29 @@
         $this->load->model('packagemodel','package');
         $amenities = $this->package->list_amenities_display();
         return $amenities;
+    }           
+
+    // pkg_id -- package_id
+    function check_package_avialability($package_id)
+    {
+        $pre_bookig_details = $this->package->get_package_booking_details($package_id);
+        $no_of_adults = 0;
+        $no_of_childs = 0;
+        $no_of_infants = 0;
+        if(count($pre_bookig_details) > 0) {
+            foreach ($pre_bookig_details as  $val) {
+                if(!empty($val['booking_code'])) {
+                    $no_of_adults = intval($no_of_adults + $val['adults']);
+                    $no_of_childs = intval($no_of_childs + $val['children']);
+                    $no_of_infants = intval($no_of_infants + $val['infant']);
+                }
+            }
+        }
+        $data = array();
+        $data['adults'] = $no_of_adults;
+        $data['children'] = $no_of_childs;
+        $data['infant'] = $no_of_infants;
+        return  $data;
     }
 
 }
