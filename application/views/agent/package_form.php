@@ -55,19 +55,21 @@
                 $("#dept_date").datepicker({
                     dateFormat: "mm/dd/yy",
                     setDate:0,
+                    minDate: currentDate,
                     onSelect: function (selected) {
                         var dt = new Date(selected);
-                        dt.setDate(dt.getDate() + 1);
+                        dt.setDate(dt.getDate());
                         $("#arr_date").datepicker("option", "minDate", dt);
                     }
                 });
                 $("#arr_date").datepicker({
                     dateFormat: "mm/dd/yy",
                     setDate: '0',
+                    minDate: currentDate,
                     onSelect: function (selected) {
                         var dt = new Date(selected);
-                        dt.setDate(dt.getDate() - 1);
-                        $("#dept_date").datepicker("option", "maxDate", dt);
+                        //dt.setDate(dt.getDate() - 1);
+                        //$("#dept_date").datepicker("option", "maxDate", dt);
                     }
                 });
                 $("#dept_date").datepicker("setDate", currentDate);
