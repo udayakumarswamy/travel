@@ -39,9 +39,9 @@
               <p>
                 <input type="text" id="dept_date" name="dept_date" value="<?php echo date('n/d/Y', strtotime($package_details['dept_date']));?>" class="required" placeholder="<?php echo $this->lang->line('departure_date');?>">
                 <script>
-                $(function() {
-                  $( "#dept_date" ).datepicker();
-                });
+                /*$(function() {
+                  $( "#dept_date" ).datepicker({ dateFormat: "mm/dd/yy"}).datepicker("setDate", "0");
+                });*/
                 </script>
               </p>
             </div>
@@ -50,9 +50,33 @@
                 <input type="text" id="arr_date" name="arr_date"  value="<?php echo date('n/d/Y', strtotime($package_details['arr_date']));?>" class="required" placeholder="<?php echo $this->lang->line('arrival_date');?>">
               </p>
               <script>
-              $(function() {
-                $( "#arr_date" ).datepicker();
-              });
+              $(function () {
+                var currentDate = new Date();
+                $("#dept_date").datepicker({
+                    dateFormat: "mm/dd/yy",
+                    setDate:0,
+                    onSelect: function (selected) {
+                        var dt = new Date(selected);
+                        dt.setDate(dt.getDate() + 1);
+                        $("#arr_date").datepicker("option", "minDate", dt);
+                    }
+                });
+                $("#arr_date").datepicker({
+                    dateFormat: "mm/dd/yy",
+                    setDate: '0',
+                    onSelect: function (selected) {
+                        var dt = new Date(selected);
+                        dt.setDate(dt.getDate() - 1);
+                        $("#dept_date").datepicker("option", "maxDate", dt);
+                    }
+                });
+                $("#dept_date").datepicker("setDate", currentDate);
+                $("#arr_date").datepicker("setDate", currentDate);
+            });
+              /*$(function() {
+                var currentDate = new Date();
+                $( "#arr_date" ).datepicker({ dateFormat: "mm/dd/yy"}).datepicker("setDate", "0");
+              });*/
               </script>
             </div>
           </div>

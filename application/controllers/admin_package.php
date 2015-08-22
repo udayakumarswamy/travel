@@ -51,6 +51,7 @@
 		 if($package_id==0 || $package_id=='')
 		 	$package_id=0;
 		 $package_title=$this->input->post('package_title');
+		 $package_title_in_arabic=$this->input->post('package_title_in_arabic');
 		 $dept_date=$this->input->post('dept_date');
 		 $dep_arr=explode('/',$dept_date);
 		 $d_date=$dep_arr[2].'-'.$dep_arr[0].'-'.$dep_arr[1];
@@ -75,7 +76,7 @@
 				
 		 $upload_files=$this->input->post('files');
 		 $this->load->model('agentmodel','agent');
-		 $package_id=$this->agent->add_package($package_title,$d_date,$a_date,$package_cost_adult,$package_cost_child,$package_cost_infant,$number_of_seats_adult,$number_of_seats_child,$number_of_seats_infant,$country_id,$amenities,$package_desc,$posted_by_id,$package_id);
+		 $package_id=$this->agent->add_package($package_title,$package_title_in_arabic,$d_date,$a_date,$package_cost_adult,$package_cost_child,$package_cost_infant,$number_of_seats_adult,$number_of_seats_child,$number_of_seats_infant,$country_id,$amenities,$package_desc,$posted_by_id,$package_id);
 		 
 		 $this->agent->save_uploaded_files($package_id,$upload_files);
 		 $ret_arr=array('result'=>$package_id);

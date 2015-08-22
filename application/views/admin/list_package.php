@@ -7,7 +7,7 @@
                 <header class="panel-heading"><?php echo $this->lang->line('list_packages');?>
                     
                     <span class="tools pull-right">
-                        <a href="<?php echo base_url();?>index.php/admin/add_package/"><?php echo $this->lang->line('add_package');?></a>
+                        <a href="<?php echo base_url();?>index.php/admin_package/add_package/"><?php echo $this->lang->line('add_package');?></a>
                         <a href="javascript:;" class="fa fa-chevron-down"></a>
                         <a href="javascript:;" class="fa fa-cog"></a>
                         <a href="javascript:;" class="fa fa-times"></a>

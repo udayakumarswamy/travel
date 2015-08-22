@@ -22,9 +22,10 @@ class Agentmodel extends CI_Model
 			return false;
 	}
 	
-	function add_package($package_title,$dept_date,$arr_date,$package_cost_adult,$package_cost_child,$package_cost_infant,$number_of_seats_adult,$number_of_seats_child,$number_of_seats_infant,$country_id,$amenities,$package_desc,$posted_by_id,$package_id=0){
+	function add_package($package_title,$package_title_in_arabic,$dept_date,$arr_date,$package_cost_adult,$package_cost_child,$package_cost_infant,$number_of_seats_adult,$number_of_seats_child,$number_of_seats_infant,$country_id,$amenities,$package_desc,$posted_by_id,$package_id=0){
 	
 		$data['package_title']=$package_title;
+		$data['package_title_in_arabic']=$package_title_in_arabic;
 		$data['dept_date']=$dept_date;
 		$data['package_title']=$package_title;
 		$data['arr_date']=$arr_date;

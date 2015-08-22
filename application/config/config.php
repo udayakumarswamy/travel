@@ -17,8 +17,8 @@
 //$config['base_url']	= 'http://safacs.org/travel/';
 //$config['admin_url'] = "http://safacs.org/travel/admin/";
 
-$config['base_url']	= 'http://localhost/travels/';
-$config['admin_url'] = "http://localhost/travels/admin/";
+$config['base_url']	= 'http://localhost/travel/';
+$config['admin_url'] = "http://localhost/travel/admin/";
 
 //$config['base_url']	= 'http://localhost';
 //$config['admin_url'] = "http://localhost/admin/";

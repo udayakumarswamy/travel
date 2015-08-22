@@ -9,6 +9,8 @@
 	// e.preventDefault();	
 	var package_title=$("#package_title").val();
 	// alert(package_title);
+	var package_title_in_arabic = $("#package_title_in_arabic").val();
+	// alert(package_title_in_arabic);
 	var dept_date=$("#dept_date").val();
 	// alert(dept_date);
 	var arr_date=$("#arr_date").val();
@@ -50,6 +52,18 @@
 		valid=0;
 		$("#error_div").show();
 		$("#error_div").text("<?php echo $this->lang->line('enter_pckg_title');?>");
+		$('#error_div').focus();
+		return false;
+		/*$('html, body').animate({
+			scrollTop: $('#error_div').focus();
+			// scrollTop: $('.err').offset().top
+		}, 500);*/
+	}
+
+	if(package_title_in_arabic==''){
+		valid=0;
+		$("#error_div").show();
+		$("#error_div").text("<?php echo $this->lang->line('enter_pckg_title_arabic');?>");
 		$('#error_div').focus();
 		return false;
 		/*$('html, body').animate({
@@ -141,7 +155,7 @@
 		$.ajax({
 			type:"POST",
 			url:'<?php echo base_url();?>index.php/admin_package/save_package',
-			data:{'package_id':package_id,'package_title':package_title,'dept_date':dept_date,'arr_date':arr_date,'package_cost_adult':package_cost_adult,'package_cost_child':package_cost_child,'package_cost_infant':package_cost_infant,'number_of_seats_adult':number_of_seats_adult,'number_of_seats_child':number_of_seats_child,'number_of_seats_infant':number_of_seats_infant,'country_id':country_id,'amenities':ameneties,'package_desc':package_desc,'files':hid_upload_file,'posted_by_id':posted_by_id},
+			data:{'package_id':package_id,'package_title':package_title,'package_title_in_arabic':package_title_in_arabic,'dept_date':dept_date,'arr_date':arr_date,'package_cost_adult':package_cost_adult,'package_cost_child':package_cost_child,'package_cost_infant':package_cost_infant,'number_of_seats_adult':number_of_seats_adult,'number_of_seats_child':number_of_seats_child,'number_of_seats_infant':number_of_seats_infant,'country_id':country_id,'amenities':ameneties,'package_desc':package_desc,'files':hid_upload_file,'posted_by_id':posted_by_id},
 			dataType:"json",
 			success:function(data){
 				if(data.result>0){
@@ -211,6 +225,12 @@ function pkg_list(){
 		<label for="cname" class="control-label col-lg-3"><?php echo $this->lang->line('package_title');?> (<?php echo $this->lang->line('required');?>)</label>
 		<div class="col-lg-6">
 			<input type="text" class="form-control" id="package_title" name="package_title"  value="<?php echo isset($package_details['package_title']) && !empty($package_details['package_title']) ? $package_details['package_title'] : '';?>" placeholder="<?php echo $this->lang->line('package_title');?>" required  minlength="2" autofocus>
+		</div>
+	</div>
+	<div class="form-group ">
+		<label for="cname" class="control-label col-lg-3"><?php echo $this->lang->line('package_title_in_arabic');?> (<?php echo $this->lang->line('required');?>)</label>
+		<div class="col-lg-6">
+			<input type="text" class="form-control" id="package_title_in_arabic" name="package_title_in_arabic"  value="<?php echo isset($package_details['package_title_in_arabic']) && !empty($package_details['package_title_in_arabic']) ? $package_details['package_title_in_arabic'] : '';?>" placeholder="<?php echo $this->lang->line('package_title_in_arabic');?>" required  minlength="2" autofocus>
 		</div>
 	</div>
 	<div class="form-group ">

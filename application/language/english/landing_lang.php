@@ -197,3 +197,5 @@
 	  /********************/
 	  $lang['book_now'] = 'Book Now';
 	  $lang['package_details'] = 'Package Details';
+	  $lang['package_title_in_arabic'] = 'Package Title in Arabic';
+	  $lang['enter_pckg_title_arabic'] = 'Please enter Arabic package title';
