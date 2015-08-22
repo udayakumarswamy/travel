@@ -249,16 +249,17 @@
             $ad_status = 1;
             $ch_status = 1;
             $inf_status = 1;
-            if(intval($adult) < $adult_remaining)
+
+            if(intval($adult) > $adult_remaining)
             {
                 $ad_status = 0;
                 $result['error'] = 'Only '.$adult_remaining.' adults avialable';
             }
-            if(intval($child) < $child_remaining)
+            if(intval($child) > $child_remaining)
             {
                 $ch_status = 0;
                 $result['error'] = 'Only '.$child_remaining.' children avialable';
-            }if(intval($infant) < $infant_remaining)
+            }if(intval($infant) > $infant_remaining)
             {
                 $inf_status = 0;
                 $result['error'] = 'Only '.$infant_remaining.' infants avialable';
