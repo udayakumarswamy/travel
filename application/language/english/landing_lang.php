@@ -191,7 +191,9 @@
 	  $lang['no_adult'] = 'No of Adults';
 	  $lang['no_child'] = 'No of Children';
 	  $lang['no_infant'] = 'No of Infant';
-
-	  /*************/
 	  $lang['booking'] = 'Booking';
 	  $lang['success'] = 'Success';
+
+	  /********************/
+	  $lang['book_now'] = 'Book Now';
+	  $lang['package_details'] = 'Package Details';

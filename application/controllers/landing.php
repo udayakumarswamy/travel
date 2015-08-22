@@ -47,42 +47,24 @@ class Landing  extends CI_Controller
 	
 
 	function index(){
-
 		//$this->load->view('home/index');
-
 		$data['title']= 'Home';
-
 		$this->load->model('packagemodel','package');
-
 		$this->load->model('testimonialmodel','testimonial');
-
 		$this->load->model('cmsmodel','cms');
 		$this->load->model('country','country');
-
 		if($this->session->userdata('language')=='english')
-
 		$data['postfix']='';
-
 		else
-
 		$data['postfix']='_ar';	
-
 		$data['countries'] = $this->country->get_country_ids();
-
 		$data['featured']=$this->package->list_featured_package();
-
 		$data['destination']=$this->package->list_featured_destination();
-
 		$data['testimonials']=$this->testimonial->list_testimonial();
-
 		$data['cms_about']=$this->cms->get_content(1);
-
 		$this->load->view('home/header',$data);
-
 		$this->load->view("home/index", $data);
-
 		$this->load->view('home/footer',$data);
-
 	}
 
 	

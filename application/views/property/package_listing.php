@@ -37,41 +37,39 @@ if($postfix=='')
 									<div class="properties-listing-header clearfix">
 
 										<!-- LIST SORTING : begin -->
-										<div class="list-sorting">
-											<form class="default-form">
-												<input type="hidden" name="country_id" id="country_id" value="<?php echo $package_country;?>"/>
-												<input type="hidden" name="country_name" id="country_name" value="<?php echo $package_country_name;?>"/>
-												<input type="hidden" name="arr_date" id="arr_date" value="<?php echo $arr_date;?>"/>
-												<input type="hidden" name="dept_date" id="dept_date" value="<?php echo $dept_date;?>"/>
-												<input type="hidden" name="adult" id="adult" value="<?php echo $adult;?>"/>
-												<input type="hidden" name="children" id="children" value="<?php echo $children;?>"/>
-												
-												<h5><?php echo $this->lang->line('sort_by');?></h5>
-												<div class="row">
-												<div class="col-md-6">
-													<select name="sort-alphabetical" id="sort-alpha">
-														<option value="asc">A to Z</option>
-														<option value="desc">Z to A</option>
-													</select></div>
-												<div class="col-md-6">
-														<select name="sort-price" id="sort-price">
-														<option value="asc"><?php echo $this->lang->line('price');?> &uarr;</option>
-														<option value="desc"><?php echo $this->lang->line('price');?> &darr;</option>
-														</select>
-												</div>	
-												<div class="clearfix"></div>
-												</div>
-												<!--<span class="select-box">
-													<select name="sort-rating" >
-														<option value="asc">Rating &uarr;</option>
-														<option value="desc">Rating &darr;</option>
-													</select>
-												</span>
+	<div class="list-sorting">
+		<form class="default-form">
+			<input type="hidden" name="country_id" id="country_id" value="<?php echo $package_country;?>"/>
+			<input type="hidden" name="country_name" id="country_name" value="<?php echo $package_country_name;?>"/>
+			<input type="hidden" name="arr_date" id="arr_date" value="<?php echo $arr_date;?>"/>
+			<input type="hidden" name="dept_date" id="dept_date" value="<?php echo $dept_date;?>"/>
+			<input type="hidden" name="adult" id="adult" value="<?php echo $adult;?>"/>
+			<input type="hidden" name="children" id="children" value="<?php echo $children;?>"/>
+			
+			<h5><?php echo $this->lang->line('sort_by');?></h5>
+			<div class="row">
+			<div class="col-md-6">
+				<select name="sort-alphabetical" id="sort-alpha">
+					<option value="asc">A to Z</option>
+					<option value="desc">Z to A</option>
+				</select></div>
+			<div class="col-md-6">
+					<select name="sort-price" id="sort-price">
+					<option value="asc"><?php echo $this->lang->line('price');?> &uarr;</option>
+					<option value="desc"><?php echo $this->lang->line('price');?> &darr;</option>
+					</select>
+			</div>	
+			<div class="clearfix"></div>
+			</div>
+			<!--<span class="select-box">
+				<select name="sort-rating" >
+					<option value="asc">Rating &uarr;</option>
+					<option value="desc">Rating &darr;</option>
+				</select>
+			</span>
 -->												
-													
-												
-											</form>
-										</div>
+		</form>
+	</div>
 										<script type="text/javascript">
 											$("#sort-alpha").change(function(){
 												$.ajax({

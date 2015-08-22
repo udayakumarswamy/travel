@@ -340,6 +340,7 @@ a:hover { border-color: #f1155a; }
 	/* FORM */
 	.banner-search input[type=text],
 	.banner-search input[type=password],
+	.banner-search button,
 	.banner-search select { color: #999999; background-color: #241c1f; border-color: #241c1f; }
 	.banner-search input[type=text].active,
 	.banner-search input[type=password].active { border-color: #f1155a; }
@@ -370,18 +371,18 @@ a:hover { border-color: #f1155a; }
 	.page-header .breadcrumbs { color: #FFF; background-color: #423338; }
 	.page-header-nav a { color: #423338; background-color: #FFF; }
 	.page-header-nav .active a { color: #FFF; background-color: #f1155a; }
-	.page-about-us .page-header { background-image: url( '../../../dummies/page_header_01.jpg' ); }
+	.page-about-us .page-header { background-image: url( '../../../../dummies/page_header_01.jpg' ); }
 	.page-contact-us .page-header,
 	.page-privacy-policy .page-header,
-	.page-terms-conditions .page-header { background-image: url( '../../../../images/switz-1.jpg' ); }
-	.page-search-results .page-header { background-image: url( '../../../../images/switz-2.jpg' ); }
-	.page-property-details .page-header { background-image: url('../../../../images/switz-1.jpg'); }
+	.page-terms-conditions .page-header { background-image: url( '../../../../../images/switz-1.jpg' ); }
+	.page-search-results .page-header { background-image: url( '../../../../../images/switz-2.jpg' ); }
+	.page-property-details .page-header { background-image: url('../../../../../images/switz-1.jpg'); }
 
 	/* -------------------------------------------------------------------------
 		CONTENT SECTION
 	------------------------------------------------------------------------- */
 
-	.content-section.our-team { background: #f3f3f3 url( '../../../dummies/content_img_03.jpg' ) center bottom no-repeat; }
+	.content-section.our-team { background: #f3f3f3 url( '../../../../dummies/content_img_03.jpg' ) center bottom no-repeat; }
 
 	/* -------------------------------------------------------------------------
 		CONTACT FORM
