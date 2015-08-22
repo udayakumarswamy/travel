@@ -37,7 +37,7 @@ if($postfix=='')
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-6" style="margin-left:300px">
+										<div class="col-md-6" style="margin-left:0px">
 										<div class="panel-item book-form">
 													<?php $attributes=array('class'=>"default-form");?>
 													<?php echo form_open("index.php/".$folder."package/checkout",$attributes);?>
@@ -93,6 +93,39 @@ if($postfix=='')
 															<button class="button submit-btn"><i class="fa fa-check"></i><?php echo $this->lang->line('make_reservation');?></button>
 														</p>
 													<?php echo form_close();?>
+												</div>
+										</div>	
+										
+										<div class="col-md-6" >
+										<div class="panel-item book-form">
+													<?php $attributes=array('class'=>"default-form");?>
+													<?php echo form_open("index.php/".$folder."package/checkout",$attributes);?>
+														
+														<input type="hidden" name="package_id" id="package_id" value="<?php echo $package['package_id'];?>" />
+														<h4><?php echo stripslashes($package['package_title']);?></h4>
+														<!-- <h4><?php echo $country['country'];?></h4> -->
+														
+														<p class="form-row">
+															<h4><?php echo $this->lang->line('arrival_date');?>:<span id="cost_span" style="color:#CC0033"><?php echo stripslashes($package['dept_date']);?></span></h4>
+														</p>
+														<p class="form-row">
+															<h4><?php echo $this->lang->line('departure_date');?>:<span id="cost_span" style="color:#CC0033"><?php echo stripslashes($package['arr_date']);?></span></h4>
+														</p>
+														<p class="form-row">
+															<h4><?php echo $this->lang->line('cost_per_adult');?>:<span style="color:#CC0033">$</span><span id="cost_span" style="color:#CC0033"><?php echo stripslashes($package['package_cost_adult']);?></span></h4>
+														</p>
+														<p class="form-row">
+															<h4><?php echo $this->lang->line('cost_per_adult');?>:<span style="color:#CC0033">$</span><span id="cost_span" style="color:#CC0033"><?php echo stripslashes($package['package_cost_adult']);?></span></h4>
+														</p>
+														<p class="form-row">
+															<h4><?php echo $this->lang->line('cost_per_adult');?>:<span style="color:#CC0033">$</span><span id="cost_span" style="color:#CC0033"><?php echo stripslashes($package['package_cost_adult']);?></span></h4>
+														</p>
+														<p class="form-row">
+															<h4><?php echo $this->lang->line('cost_per_adult');?>:<span style="color:#CC0033">$</span><span id="cost_span" style="color:#CC0033"><?php echo stripslashes($package['package_cost_adult']);?></span></h4>
+														</p>
+														<p class="form-row">
+															<h4><?php echo $this->lang->line('cost_per_adult');?>:<span style="color:#CC0033">$</span><span id="cost_span" style="color:#CC0033"><?php echo stripslashes($package['package_cost_adult']);?></span></h4>
+														</p>
 												</div>
 										</div>			
 									</div>

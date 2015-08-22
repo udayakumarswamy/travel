@@ -353,6 +353,7 @@
               $('html, body').animate({
                 scrollTop: $('.err').offset().top
               }, 500);
+              setTimeout(function(){ window.location.assign("<?php echo base_url();?>index.php/agent/list_package"); }, 3000);
             }
           }
         });

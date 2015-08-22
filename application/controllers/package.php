@@ -140,6 +140,7 @@
             $data['country']=$this->country->get_country_by_id($country_id);
             $data['adults']=$adults;
             $data['children']=$children;
+            //echo'<pre>'; print_r($data); exit;
             $this->load->view('home/header',$data);
             $this->load->view('property/booking_form',$data);
             $this->load->view('home/footer');

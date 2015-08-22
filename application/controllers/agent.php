@@ -69,11 +69,13 @@
 		if(empty($package_id)){
 			$package_id =  $pkg_id;
 		}
-		// echo '~~~~~~'.$package_id.'-------'.$upload_files.'~~~~~~';
+		 //echo '~~~~~~'.$package_id.'-------'.$upload_files.'~~~~~~';
+		 //print_r($upload_files);
 		$this->agent->save_uploaded_files($package_id,$upload_files);
 		$ret_arr=array('result'=>$package_id);
 		echo json_encode($ret_arr);
-		
+		/*$this->load->helper('url');
+		redirect(base_url().'agent/list_package');*/
 	}
 	
 	function upload(){
