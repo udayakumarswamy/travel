@@ -1,5 +1,21 @@
-﻿<section class="content-section">
-<div class="container">
+﻿<div id="core" class="page-search-results">
+	<!-- PAGE HEADER : begin -->
+	<div class="page-header">
+		<div class="container">
+			<div class="page-header-inner clearfix">
+				<h1><?php echo $this->lang->line('book_now');?></h1>
+				<ul class="custom-list breadcrumbs">
+					<li><a href="#"><?php echo $this->lang->line('home');?></a> / </li>
+					<li><a href="#"><?php echo $this->lang->line('book');?></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- PAGE HEADER : end -->
+
+	<!-- MAIN WRAPPER : begin -->
+	<div class="main-wrapper-container">
+		<div class="container">
 <div class="row">
 <div class="package-detailas">
 <table class="table responsive table-hover general-table">
@@ -34,15 +50,15 @@
 </tr>
 <tr>
 <td><?php echo $this->lang->line('no_adult'); ?> </td>
-<td><?php echo isset($bookings['adults']) && !empty($bookings['adults']) ? $bookings['adults'] : ''; ?></td>
+<td><?php echo isset($bookings['adults']) && !empty($bookings['adults']) ? $bookings['adults'] : 0; ?></td>
 </tr>
 <tr>
 <td><?php echo $this->lang->line('no_child'); ?></td>
-<td><?php echo isset($bookings['children']) && !empty($bookings['children']) ? $bookings['children'] : ''; ?></td>
+<td><?php echo isset($bookings['children']) && !empty($bookings['children']) ? $bookings['children'] : 0; ?></td>
 </tr>
 <tr>
 <td><?php echo $this->lang->line('no_infant'); ?></td>
-<td><?php echo isset($bookings['infant']) && !empty($bookings['infant']) ? $bookings['infant'] : ''; ?></td>
+<td><?php echo isset($bookings['infant']) && !empty($bookings['infant']) ? $bookings['infant'] : 0; ?></td>
 </tr>
 <tr>
 <td><?php echo $this->lang->line('arrival_date'); ?> </td>
@@ -70,6 +86,8 @@ echo isset($bookings['amenities']) && !empty($bookings['amenities']) ? str_repla
 </div>
 </div>
 </div>
-</section>
+			
 
-
+	</div>
+</div>
+<!-- CORE : end --> 

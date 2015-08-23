@@ -43,17 +43,22 @@
 				</tr>
 				<tr>
 				<td><?php echo $this->lang->line('no_adult'); ?> </td>
-				<td><?php echo $this->session->userdata("adults");?></td>
-
+				<td><?php 
+				$ad = $this->session->userdata("adults");
+				echo !empty($ad) && is_numeric($ad) ? $ad : 0;?></td>
 				</tr>
 				<tr>
 				<td><?php echo $this->lang->line('no_child'); ?></td>
-				<td><?php echo $this->session->userdata("children");?></td>
+				<td><?php 
+				$ch = $this->session->userdata("children"); 
+				echo !empty($ch) && is_numeric($ch) ? $ch : 0; ?></td>
 
 				</tr>
 				<tr>
 				<td><?php echo $this->lang->line('no_infant'); ?></td>
-				<td><?php echo $this->session->userdata("infant");?></td>
+				<td><?php 
+				$inf =  $this->session->userdata("infant");
+				echo !empty($inf) && is_numeric($inf) ? $inf : 0 ;?></td>
 
 				</tr>
 				<tr>
