@@ -19,6 +19,8 @@
                 $this->session->set_userdata('language','english');
                 $this->lang->load('landing', 'english');
             }
+            // load Breadcrumbs
+            $this->load->library('breadcrumbs');
         }
 
         function package_details($package_id){
@@ -26,11 +28,19 @@
                 $data['postfix']='';
             else
                 $data['postfix']='_ar'; */
+
+            // add breadcrumbs
+            $this->breadcrumbs->push($this->lang->line('home'), '/');
+            $this->breadcrumbs->push($this->lang->line('search_result'), '/index.php/package/search_package');
+            $this->breadcrumbs->push($this->lang->line('package_details'), 'active');
+            // output
+            $res = $this->breadcrumbs->show();
+
             $this->load->model('packagemodel','package');
             $data['package']=$this->package->get_package_details($package_id);
             $data['package_images']=$this->package->get_package_image_details($package_id);
             $data['amenities'] = $this->list_amenities();
-
+            $data['breadcrumbs'] = $res;
             $this->load->model('packagemodel','package');
             // echo '<pre>'; print_r($data);exit;
             $this->load->view('home/header',$data);
@@ -63,8 +73,15 @@
             else {
                 $arr_date = date('Y-m-d', strtotime('+2 week'));
             }
+            /**************/
+            // add breadcrumbs
+            $this->breadcrumbs->push($this->lang->line('home'), '/');
+            $this->breadcrumbs->push($this->lang->line('search_result'), 'active');
+            // output
+            $res = $this->breadcrumbs->show();
 
-            
+
+            /**************/
             $this->load->model('packagemodel','package');
             $this->load->model('country','country');
             $data['countries'] = $this->country->get_country_ids();
@@ -77,6 +94,7 @@
             $data['adult']=$adult;
             $data['children']=$children;
             $data['amenities']=$this->package->get_amanities();
+            $data['breadcrumbs']=$res;
             $this->load->view('home/header',$data);
             $this->load->view('property/package_listing',$data);
             $this->load->view('home/footer');
@@ -146,12 +164,19 @@
             else
                 $data['postfix']='_ar'; 
 
+            // add breadcrumbs
+            $this->breadcrumbs->push($this->lang->line('home'), '/');
+            $this->breadcrumbs->push($this->lang->line('booking_package'), 'active');
+            // output
+            $res = $this->breadcrumbs->show();
+
             $this->load->model('packagemodel','package');
             $this->load->model('country','country');
             $data['package']=$this->package->get_package_details($package_id);
             $data['country']=$this->country->get_country_by_id($country_id);
             $data['adults']=$adults;
             $data['children']=$children;
+            $data['breadcrumbs']=$res;
             //echo'<pre>'; print_r($data); exit;
             $this->load->view('home/header',$data);
             $this->load->view('property/booking_form',$data);
@@ -230,6 +255,13 @@
             $infant=$this->input->post('infant');
             $user_id=$this->input->post('user_id');
             $package_cost=$this->input->post('package_cost');
+            // add breadcrumbs
+            $this->breadcrumbs->push($this->lang->line('home'), '/');
+            $this->breadcrumbs->push($this->lang->line('booking').' '.$this->lang->line('success'), 'active');
+            // output
+            $res = $this->breadcrumbs->show();
+
+            $data['breadcrumbs']=$res;
             
             if($adults=='Adults')
                 $adults=0;
@@ -274,7 +306,15 @@
                 $data['postfix']='';
             else
                 $data['postfix']='_ar'; 
-             $this->load->model('packagemodel','package');
+
+            // add breadcrumbs
+            $this->breadcrumbs->push($this->lang->line('home'), '/');
+            $this->breadcrumbs->push($this->lang->line('booking_details'), 'active');
+            // output
+            $res = $this->breadcrumbs->show();
+
+            $data['breadcrumbs']=$res;
+            $this->load->model('packagemodel','package');
             $package_details = $this->package->get_package_details($this->session->userdata("package_id"));
             $data['package'] =  $package_details;
             $this->load->view('home/header',$data);

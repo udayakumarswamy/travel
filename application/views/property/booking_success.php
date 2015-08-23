@@ -4,10 +4,7 @@
 		<div class="container">
 			<div class="page-header-inner clearfix">
 				<h1><?php echo $this->lang->line('book_now');?></h1>
-				<ul class="custom-list breadcrumbs">
-					<li><a href="#"><?php echo $this->lang->line('home');?></a> / </li>
-					<li><a href="#"><?php echo $this->lang->line('book');?></a></li>
-				</ul>
+				<?php echo $breadcrumbs;?>
 			</div>
 		</div>
 	</div>

@@ -14,10 +14,7 @@ if($postfix=='')
 									$total_rows=0;
 						?>			
 						<h1><?php echo $this->lang->line('search_result');?>- <?php echo $total_rows;?> <?php echo $this->lang->line('packages_found');?></h1>
-						<ul class="custom-list breadcrumbs">
-							<li><a href="#"><?php echo $this->lang->line('home');?></a> / </li>
-							<li><a href="#"><?php echo $this->lang->line('search_result');?></a></li>
-						</ul>
+						<?php echo $breadcrumbs;?>
 					</div>
 				</div>
 			</div>

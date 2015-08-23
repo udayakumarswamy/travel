@@ -201,3 +201,7 @@
 	  $lang['continue'] = 'Continue';
 	  $lang['only'] = 'Only';
 	  $lang['seats'] = 'seats';
+
+	  /***************/
+	  $lang['booking_package'] = 'Booking Package';
+	  $lang['package'] = 'Package';

@@ -5,16 +5,7 @@
 		<div class="container">
 			<div class="page-header-inner clearfix">
 				<h1><?php echo $package['package_title'];?></h1>
-				<ul class="custom-list breadcrumbs">
-					<li>
-						<a href="<?php echo base_url();?>"><?php echo $this->lang->line('home');?></a> / </li>
-					<li>
-						<a href="<?php echo base_url();?>/index.php/package/search_package?country=<?php echo $package['country'];?>&departure=&arrival=&adults=Adults&children=Children"><?php echo $this->lang->line('search_result');?></a> /
-					</li>
-					<li>
-						<a href="#"><?php echo $this->lang->line('package_details');?></a>
-					</li>
-				</ul>
+				<?php echo $breadcrumbs;?>
 			</div>
 		</div>
 	</div>

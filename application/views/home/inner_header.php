@@ -4,7 +4,7 @@
 
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Package</title>
+        <title><?php echo $this->lang->line('package');?></title>
         <link rel="shortcut icon" href="dummies/favicon.ico">
 
 		<!-- GOOGLE FONTS : begin -->
@@ -116,10 +116,7 @@
 								<ul>
 									<li class="has-submenu" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
 										<a href="/landing" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('home');?></a>
-										
 									</li>
-									
-									
 									<li <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><a href="about-us.html" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('about_us');?></a></li>
 									<li <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><a href="contact-us.html" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('contact_us');?></a></li>
 									<li <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><a href="privacy-policy.html" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('privacy_policy');?></a></li>
@@ -279,7 +276,7 @@
 							<div class="page-header-inner">
 								<h1 style="color:#666666"><?php echo $this->lang->line('welcome');?>&nbsp;<?php echo $username ?></h1>
 								<ul class="custom-list breadcrumbs">
-								<li><a href="<?php echo base_url();?>index.php/landing/welcome"><?php echo $this->lang->line('home');?></a> / </li>
+								<li><a href="<?php echo base_url();?>"><?php echo $this->lang->line('home');?></a> / </li>
 								<li><a href="<?php echo base_url();?>index.php/landing/my_account"><?php echo $this->lang->line('my_profile');?></a> / </li>
 								<li><a href="<?php echo base_url();?>index.php/landing/changepass"><?php echo $this->lang->line('change_password');?></a>/</li>
 								<?php if($usertype==2){ ?>

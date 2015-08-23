@@ -12,10 +12,7 @@ if($postfix=='')
 				<div class="page-header-inner clearfix">
 								
 					<h1><?php echo $this->lang->line('book_now');?></h1>
-					<ul class="custom-list breadcrumbs">
-						<li><a href="#"><?php echo $this->lang->line('home');?></a> / </li>
-						<li><a href="#"><?php echo $this->lang->line('book');?></a></li>
-					</ul>
+					<?php echo $breadcrumbs;?>
 				</div>
 			</div>
 		</div>
@@ -79,9 +76,9 @@ if($postfix=='')
 														<p class="form-row">
 
 														</p>
-													<h4><?php echo $this->lang->line('total_package_cost');?>:<span style="color:#CC0033">$</span><span id="cost_span" style="color:#CC0033"><?php echo $total_cost=$adults*$package['package_cost_adult']+ $children*$package['package_cost_child'];?></span></h4>
+													<h4><?php echo $this->lang->line('total_package_cost');?>:<span style="color:#CC0033"><img src="<?php echo base_url();?>assets/images/dinar-icon.jpg" />&nbsp;</span><span id="cost_span" style="color:#CC0033"><?php echo $total_cost=$adults*$package['package_cost_adult']+ $children*$package['package_cost_child'];?></span></h4>
 <input type="hidden" name="cost_hidden" id="cost_hidden" value="<?php echo $total_cost;?>" />	
-														<p class="form-row sub_btn" >
+														<p class="form-row sub_btn" style="display:none;">
 															<button  class="button submit-btn" onclick="open_popup();"><i class="fa fa-check"></i><?php echo $this->lang->line('continue');?></button>
 														</p>
 													<?php echo form_close();?>
@@ -100,13 +97,13 @@ if($postfix=='')
 															<h4><?php echo $this->lang->line('departure_date');?>:<span style="color:#999">  <?php echo stripslashes($package['arr_date']);?></span></h4>
 														</p>
 														<p class="form-row">
-															<h4><?php echo $this->lang->line('cost_per_adult');?>:<span style="color:#999"> $</span><span style="color:#999"><?php echo stripslashes($package['package_cost_adult']);?></span></h4>
+															<h4><?php echo $this->lang->line('cost_per_adult');?>:<span style="color:#999"> <img src="<?php echo base_url();?>assets/images/dinar-icon.jpg" />&nbsp;</span><span style="color:#999"><?php echo stripslashes($package['package_cost_adult']);?></span></h4>
 														</p>
 														<p class="form-row">
-															<h4><?php echo $this->lang->line('cost_per_child');?>:<span style="color:#999"> $</span><span style="color:#999"><?php echo stripslashes($package['package_cost_child']);?></span></h4>
+															<h4><?php echo $this->lang->line('cost_per_child');?>:<span style="color:#999"> <img src="<?php echo base_url();?>assets/images/dinar-icon.jpg" />&nbsp;</span><span style="color:#999"><?php echo stripslashes($package['package_cost_child']);?></span></h4>
 														</p>
 														<p class="form-row">
-															<h4><?php echo $this->lang->line('cost_per_infant');?>:<span style="color:#999"> $</span><span style="color:#999"><?php echo stripslashes($package['package_cost_infant']);?></span></h4>
+															<h4><?php echo $this->lang->line('cost_per_infant');?>:<span style="color:#999"> <img src="<?php echo base_url();?>assets/images/dinar-icon.jpg" />&nbsp;</span><span style="color:#999"><?php echo stripslashes($package['package_cost_infant']);?></span></h4>
 														</p>
 														<p class="form-row">
 															<h4><?php echo $this->lang->line('amenities');?>:<span style="color:#999"> 
@@ -239,7 +236,13 @@ echo isset($txt) && !empty($txt) ? $txt : ''; ?></td>
 										child=0;
 									if(adult=='Adults')
 										adult=0;	
-										
+									if(inf == 0 && adult == 0 && child == 0)	{
+										$('.sub_btn').hide();
+										$("#cost_span").text(0);
+										$("#cost_hidden").val(0);
+									}else{
+										$('.sub_btn').show();
+									}
 										
 									$.ajax({
 										type:"POST",
