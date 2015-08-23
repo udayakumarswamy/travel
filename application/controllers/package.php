@@ -88,21 +88,32 @@
                 $data['postfix']='';
             else
                 $data['postfix']='_ar'; 
+            
             $country_id=$this->input->post('country_id');
             $country_name=$this->input->post('country_name');
-            $arr_date=$this->input->post('arr_date');
-            $dept_date=$this->input->post('dept_date');
+            $arr_date = $this->input->post('arr_date');
+            $dept_date = $this->input->post('dept_date');
             
-            if($package_dept_date != '') {
+            if($dept_date != '') {
                 $dept_date = date('Y-m-d', strtotime($dept_date));
             }
 
-            if($package_arrival_date != '') {
+            if($arr_date != '') {
                 $arr_date = date('Y-m-d', strtotime($arr_date));
             }
 
             $adults=$this->input->post('adults');
+            if(isset($adults) && !empty($adults)){
+                $adults = $adults;
+            }else{
+                $adults = '';
+            }
             $children=$this->input->post('children');
+            if(isset($children) && !empty($children)){
+                $children = $children;
+            }else{
+                $children = '';
+            }
             if($this->input->post('sort'))
                 $sort=$this->input->post('sort');
             else
@@ -118,8 +129,8 @@
             
             $this->load->model('packagemodel','package');
             $data['filter']=$filter;
-            // $data['total_rows']=$this->package->get_search_total_result($country_name,$country_id,$dept_date,$arr_date,$adults,$children,$sort_type,$sort);
-            $data['package']=$this->package->get_search_result($country_name,$country_id,$dept_date,$arr_date,$adults,$children,$sort_type,$sort);
+                                                            
+            $data['package']=$this->package->get_search_result($country_id,$dept_date,$arr_date,$adults,$children,$sort_type,$sort);
             $data['total_rows'] = count($data['package']);
             if($sort_type=='' || $sort_type=='alpha')
                 $this->load->view('property/list_package',$data);

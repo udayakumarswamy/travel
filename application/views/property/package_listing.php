@@ -75,7 +75,7 @@ if($postfix=='')
 												$.ajax({
 														type:"POST",
 														url:"<?php echo base_url();?>index.php/package/search_package_ajax",
-														data:{'country_id':$("#country_id").val(),'country_name':$("#country_name").val(),'arr_date':$("#arr_date").val(),'dept_date':$("#dept_date").val(),'adults':$("#adults").val(),'children':$("#children").val(),'sort':$(this).val(),'sort_type':'alpha'},
+														data:{'country_id':$("#country_id").val(),'country_name':$("#country_name").val(),'arr_date':$("#arr_date").val(),'dept_date':$("#dept_date").val(),'adults':$("#adult").val(),'children':$("#children").val(),'sort':$(this).val(),'sort_type':'alpha'},
 														success:function(data){
 															$("#package_list").html(data);
 														}
@@ -87,7 +87,7 @@ if($postfix=='')
 												$.ajax({
 														type:"POST",
 														url:"<?php echo base_url();?>index.php/package/search_package_ajax",
-														data:{'country_id':$("#country_id").val(),'country_name':$("#country_name").val(),'arr_date':$("#arr_date").val(),'dept_date':$("#dept_date").val(),'adults':$("#adults").val(),'children':$("#children").val(),'sort':$(this).val(),'sort_type':'price'},
+														data:{'country_id':$("#country_id").val(),'country_name':$("#country_name").val(),'arr_date':$("#arr_date").val(),'dept_date':$("#dept_date").val(),'adults':$("#adult").val(),'children':$("#children").val(),'sort':$(this).val(),'sort_type':'price'},
 														success:function(data){
 															$("#package_list").html('');
 															$("#package_list").html(data);
@@ -546,7 +546,7 @@ if($postfix=='')
 																$.ajax({
 																			type:"POST",
 																			url:"<?php echo base_url();?>index.php/package/search_package_ajax",
-																			data:{'country_id':$("#country_id").val(),'country_name':$("#country_name").val(),'arr_date':$("#arr_date").val(),'dept_date':$("#dept_date").val(),'adults':$("#adults").val(),'children':$("#children").val(),'filter':filter},
+																			data:{'country_id':$("#country_id").val(),'country_name':$("#country_name").val(),'arr_date':$("#arr_date").val(),'dept_date':$("#dept_date").val(),'adults':$("#adult").val(),'children':$("#children").val(),'filter':filter},
 																			success:function(data){
 																				$("#package_list").html(data);
 																			}
