@@ -193,8 +193,6 @@
 	  $lang['no_infant'] = 'No of Infant';
 	  $lang['booking'] = 'Booking';
 	  $lang['success'] = 'Success';
-
-	  /********************/
 	  $lang['book_now'] = 'Book Now';
 	  $lang['package_details'] = 'Package Details';
 	  $lang['package_title_in_arabic'] = 'Package Title in Arabic';
