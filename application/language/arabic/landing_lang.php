@@ -195,9 +195,8 @@
 	  $lang['no_adult'] = 'عدد البالغين';
 	  $lang['no_child'] = 'عدد الأطفال';
 	  $lang['no_infant'] = 'عدد الرضع';
-	   $lang['booking'] = 'الحجز';
+	  $lang['booking'] = 'الحجز';
 	  $lang['success'] = 'نجاح';
-	  
 	  $lang['book_now'] = 'كتاب الان';
 	  $lang['package_details'] = 'تفاصيل صفقة';
 	  $lang['package_title_in_arabic'] = 'حزمة العنوان باللغة العربية';
@@ -207,9 +206,5 @@
 	  $lang['only'] = 'فقط';
 	  $lang['seats'] = 'المقاعد';
 
-
-
-
-
-
-
+	  $lang['booking_package'] = 'حجز حزمة';
+	  $lang['package'] = 'رزمة';
