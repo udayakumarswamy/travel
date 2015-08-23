@@ -133,7 +133,7 @@ if($postfix=='')
 												<h5 class="property-location"><?php echo $p['package_country'];?></h5>
 												<p class="property-description"><?php echo substr(stripslashes($p['package_desc']),0,120);?></p>
 													<div class="property-price-rating">
-													<div class="property-price"><strong>$ <?php echo $p['total_cost'];?></strong></div>
+													<div class="property-price"><strong><img src="<?php echo base_url();?>assets/images/dinar-icon.jpg" />&nbsp; <?php echo $p['total_cost'];?></strong></div>
 													<!--<div class="property-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
 -->												</div>
 												

@@ -43,7 +43,7 @@
 </tr>
 <tr>
 <td><?php echo $this->lang->line('total_package_cost'); ?> </td> 
-<td><?php echo isset($bookings['package_cost']) && !empty($bookings['package_cost']) ? $bookings['package_cost'] : ''; ?></td>
+<td><?php echo isset($bookings['package_cost']) && !empty($bookings['package_cost']) ? '<img src="'. base_url().'assets/images/dinar-icon.jpg" />&nbsp;'.$bookings['package_cost'] : ''; ?></td>
 </tr>
 <tr>
 <td><?php echo $this->lang->line('no_adult'); ?> </td>

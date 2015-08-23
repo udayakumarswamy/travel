@@ -67,15 +67,15 @@
 									<table>
 										<tr>
 											<td><?php echo $this->lang->line('cost_per_adult');?></td>
-											<td class="textalign-right">$<?php echo $package['package_cost_adult'];?></td>
+											<td class="textalign-right"><img src="<?php echo base_url();?>assets/images/dinar-icon.jpg" />&nbsp;<?php echo $package['package_cost_adult'];?></td>
 										</tr>
 										<tr>
 											<td><?php echo $this->lang->line('cost_per_child');?></td>
-											<td class="textalign-right">$<?php echo $package['package_cost_child'];?></td>
+											<td class="textalign-right"><img src="<?php echo base_url();?>assets/images/dinar-icon.jpg" />&nbsp;<?php echo $package['package_cost_child'];?></td>
 										</tr>
 										<tr>
 											<td><?php echo $this->lang->line('cost_per_infant');?></td>
-											<td class="textalign-right">$<?php echo $package['package_cost_infant'];?></td>
+											<td class="textalign-right"><img src="<?php echo base_url();?>assets/images/dinar-icon.jpg" />&nbsp;<?php echo $package['package_cost_infant'];?></td>
 										</tr>
 									</table>
 								</div>
@@ -141,7 +141,7 @@
 <!-- OBJECT PRICE : begin -->
 <div class="panel-item object-price">
 <h4 class="panel-item-title"><?php echo $this->lang->line('price');?></h4>
-<p class="price"><?php echo $this->lang->line('from');?> <strong>$<?php echo round($package['package_cost_adult']);?></strong></p>
+<p class="price"><?php echo $this->lang->line('from');?> <strong><img src="<?php echo base_url();?>assets/images/dinar-icon.jpg" />&nbsp;<?php echo round($package['package_cost_adult']);?></strong></p>
 <button class="button submit-btn reserve"  data-package="<?php echo $package['package_id'];?>" data-country="<?php echo $package['country_id'];?>" ><i class="fa fa-check"></i><?php echo $this->lang->line('book_now');?></button>		
 </div>
 <!-- OBJECT PRICE : end -->

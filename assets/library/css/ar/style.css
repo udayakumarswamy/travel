@@ -110,16 +110,16 @@ body.enable-fixed-header { padding-top: 84px; }
 
 	/* SELECT BOX */
 	.default-form .select-box { display: inline-block; position: relative; width: 100%; }
-	.default-form .select-box .fa { position: absolute; top: 4px; right: 4px; padding: 10px; font-size: 14px; cursor: pointer; z-index: 20; }
+	.default-form .select-box .fa { position: absolute; top: 4px; left: 4px; padding: 10px; font-size: 14px; cursor: pointer; z-index: 20; }
 	.default-form .select-box .value-holder { position: relative; width: 100%; z-index: 10; }
 	.default-form .select-box .select-clone { display: none; position: absolute; top: 32px; left: 0; padding-top: 10px; width: 100%; max-height: 200px; overflow-y: auto; z-index: 30; border-radius: 0 0 7px 7px; border: 1px solid transparent; border-top: 0; }
-	.default-form .select-box .select-clone > li { padding: 5px 15px; text-align: left; cursor: pointer; }
+	.default-form .select-box .select-clone > li { padding: 5px 15px; text-align: right; cursor: pointer; }
 	.default-form .select-box .select-clone > li:last-child { border-radius: 0 0 7px 7px; }
 	.default-form .select-box select { display: none; }
 
 	/* CALENDAR */
 	.default-form .calendar-input { display: inline-block; position: relative; width: 100%; }
-	.default-form .calendar-input .fa { position: absolute; top: 11px; right: 14px; font-size: 18px; }
+	.default-form .calendar-input .fa { position: absolute; top: 11px; left: 14px; font-size: 18px; }
 	.ui-datepicker-calendar th,
 	.ui-datepicker-calendar th:first-child,
 	.ui-datepicker-calendar th:last-child { border-radius: 0; padding: 0; }
@@ -186,9 +186,10 @@ body.enable-fixed-header { padding-top: 84px; }
 	/* -------------------------------------------------------------------------
 		BUTTONS
 	------------------------------------------------------------------------- */
-
+	.list-layout > .button > i {float:none;}
+	.properties-search-basic form > p.form-row > .button > i, .property-content .button > i{margin-top:5px;float:left;}
 	.button { display: inline-block; position: relative; top: 0; padding: 10px 15px 9px 15px; border: 0; border-radius: 7px; cursor: pointer; }
-	.button > i { font-size: 14px; margin-right: 2px; }
+	.button > i { font-size: 14px; margin-right: 2px;}
 	.button:active { top: 1px; }
 	.button.type-2 { position: relative; padding: 0 40px 2px 0; background-color: #cdcdcd; }
 	.button.type-2 > span { display: block; padding: 10px 15px 7px 15px; border-radius: 5px; background: #FFF; }
@@ -336,6 +337,7 @@ body.enable-fixed-header { padding-top: 84px; }
 	.service-container .service-icon { display: inline-block; width: 140px; height: 140px; line-height: 140px; border-radius: 50%; }
 	.service-container .service-icon .fa { font-size: 60px; vertical-align: middle; }
 	.service-container .service-icon-custom { display: inline-block; width: 150px; height: 150px; background-position: center; background-repeat: no-repeat; }
+	#browse .container h2{width:85% !important;}
 
 	/* -------------------------------------------------------------------------
 		TABS
@@ -346,7 +348,7 @@ body.enable-fixed-header { padding-top: 84px; }
 	.tabs-container .tab-title-list > li { padding: 0; list-style-type: none; }
 	.tabs-container .tab-title-list > li:before { display: none; }
 	.tabs-container .tab-title-list:after { display: table; clear: both; content: ""; line-height: 0; }
-	.tabs-container .tab-title { float: left; margin: 0 2px 0 0; border-radius: 7px 7px 0 0; cursor: pointer;
+	.tabs-container .tab-title { float: right; margin: 0 2px 0 0; border-radius: 7px 7px 0 0; cursor: pointer;
 		-webkit-transition: padding 300ms ease-in-out, margin 300ms ease-in-out; -moz-transition: padding 300ms ease-in-out, margin 300ms ease-in-out; -ms-transition: padding 300ms ease-in-out, margin 300ms ease-in-out; -o-transition: padding 300ms ease-in-out, margin 300ms ease-in-out; transition: padding 300ms ease-in-out, margin 300ms ease-in-out; }
 	.tabs-container .tab-title:hover { margin-top: -5px; padding-bottom: 5px; }
 	.tabs-container .tab-title.active:hover { margin-top: 0; padding-bottom: 0; }
@@ -398,7 +400,7 @@ body.enable-fixed-header { padding-top: 84px; }
 
 	/* HEADER BTN */
 	.header-btn { height: 84px; line-height: 84px; cursor: pointer; border-bottom: 3px solid transparent; }
-	.header-btn > i { font-size: 14px; margin-right: 2px; }
+	.header-btn > i { font-size: 14px; margin-left: 2px; }
 
 	/* HEADER NAV */
 	.header-nav { display: none; position: absolute; top: 100%; }
@@ -434,7 +436,7 @@ body.enable-fixed-header { padding-top: 84px; }
 		HEADER BRANDING
 	------------------------------------------------------------------------- */
 
-	.header-branding { display: block; float: left; position: relative; top: 26px; margin-right: 20px; max-width: 180px; vertical-align: top; }
+	.header-branding { display: block; float: right; position: relative; top: 26px; margin-right: 20px; max-width: 180px; vertical-align: top; }
 	.header-branding a,
 	.header-branding img { display: block; border: 0; }
 
@@ -475,7 +477,7 @@ body.enable-fixed-header { padding-top: 84px; }
 		HEADER TOOLS
 	------------------------------------------------------------------------- */
 
-	.header-tools { float: right; }
+	.header-tools { float: left; }
 
 	/* HEADER LANGUAGE */
 	.header-language { display: inline-block; position: relative; margin-right: 15px; }
@@ -512,7 +514,7 @@ body.enable-fixed-header { padding-top: 84px; }
 
 	.banner-search { position: absolute; left: 0; bottom: 100px; width: 100%; }
 	.banner-search-inner { padding: 0 70px; }
-	.banner-search .tab-title { float: left; margin-right: 2px; border-radius: 7px 7px 0 0; cursor: pointer;
+	.banner-search .tab-title { float:right; margin-right:0px; border-radius: 7px 7px 0 0; cursor: pointer;
 		-webkit-transition: padding 300ms ease-in-out, margin 300ms ease-in-out; -moz-transition: padding 300ms ease-in-out, margin 300ms ease-in-out; -ms-transition: padding 300ms ease-in-out, margin 300ms ease-in-out; -o-transition: padding 300ms ease-in-out, margin 300ms ease-in-out; transition: padding 300ms ease-in-out, margin 300ms ease-in-out; }
 	.banner-search .tab-title:hover { margin-top: -5px; padding-bottom: 5px; }
 	.banner-search .tab-title.active:hover { margin-top: 0; padding-bottom: 0; }
@@ -545,9 +547,9 @@ body.enable-fixed-header { padding-top: 84px; }
 	.page-header { background-position: center; background-size: cover; }
 	.page-header.has-nav { border-bottom: 3px solid transparent; }
 	.page-header-inner { position: relative; height: 210px; }
-	.page-header h1 { float: left; margin-top: 44px; max-width: 50%; font-size: 1.875em; line-height: 1.1em; }
+	.page-header h1 { float: right; margin-top: 44px; max-width: 50%; font-size: 1.875em; line-height: 1.1em; }
 	.page-header.has-nav h1 { margin-top: 58px; }
-	.page-header .breadcrumbs { float: right; margin-top: 36px; padding: 10px 14px; max-width: 50%; border-radius: 7px; }
+	.page-header .breadcrumbs { float: left; margin-top: 36px; padding: 10px 14px; max-width: 50%; border-radius: 7px; }
 	.page-header.has-nav .breadcrumbs { margin-top: 50px; }
 	.page-header .breadcrumbs li { display: inline-block; }
 	.page-header-nav { position: absolute; left: 0; bottom: 0; }
@@ -631,7 +633,7 @@ body.enable-fixed-header { padding-top: 84px; }
 	.property-list.layout-grid { margin: -10px; }
 	.property-list.layout-grid .property { float: left; margin: 10px; width: 225px; height: auto; text-align: center; }
 	.property-list.layout-grid .property.first-in-row { clear: left;  }
-	.property-list.layout-grid .property-thumb { position: relative; top: auto; left: auto; width: 100%; height: auto; border-radius: 7px 7px 0 0; }
+	.property-list.layout-grid .property-thumb { position: relative; top: auto; left: auto; width: 100%; height: 165px; border-radius: 7px 7px 0 0; }
 	.property-list.layout-grid .property-thumb .overlay { border-radius: 7px 7px 0 0; }
 	.property-list.layout-grid .property-thumb .overlay span { top: 70px; }
 	.property-list.layout-grid .property-thumb img { display: block; }
@@ -664,7 +666,7 @@ body.enable-fixed-header { padding-top: 84px; }
 	.properties-search-filter { padding: 20px 30px 30px 30px; }
 	.properties-search-filter .filter-title { margin: 0 0 10px 0; font-size: 1.5em; }
 	.properties-search-filter .toggle-title { position: relative; margin: 0; padding: 10px 30px 10px 0; font-size: 1.125em; cursor: pointer; }
-	.properties-search-filter .toggle-title:after { display: block; position: absolute; top: 14px; right: 0; font-size: 14px;
+	.properties-search-filter .toggle-title:after { display: block; position: absolute; top: 14px; left: 0; font-size: 14px;
 		font-family: FontAwesome; font-style: normal; font-weight: normal; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; content: "\f077"; }
 	.properties-search-filter .toggle-content { padding-bottom: 10px; }
 	.properties-search-filter .closed .toggle-title:after { content: "\f078"; }
