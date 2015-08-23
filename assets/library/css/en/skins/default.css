@@ -340,7 +340,6 @@ a:hover { border-color: #f1155a; }
 	/* FORM */
 	.banner-search input[type=text],
 	.banner-search input[type=password],
-	.banner-search button,
 	.banner-search select { color: #999999; background-color: #241c1f; border-color: #241c1f; }
 	.banner-search input[type=text].active,
 	.banner-search input[type=password].active { border-color: #f1155a; }
