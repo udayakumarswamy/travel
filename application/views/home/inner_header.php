@@ -149,12 +149,8 @@
 								<button class="header-btn"><?php echo $lang;?> <i class="fa fa-angle-down"></i></button>
 								<nav class="header-nav">
 									<ul class="custom-list">
-										<?php /*<li class="active"><a href="<?php echo base_url();?>index.php/landing">EN</a></li>
-										<li><a href="<?php echo base_url();?>index.php/ar/landing">AR</a></li> */?>
 										<li class="active" ><a href="javascript:void(0)" onClick="set_session('en');">EN</a></li>
 										<li ><a href="javascript:void(0)" onClick="set_session('ar');">AR</a></li>
-										
-										
 									</ul>
 								</nav>
 							</div>
@@ -169,7 +165,7 @@
 							<div class="header-register">
 								
 								<?php if($this->session->userdata('userId')==''){
-?><button class="register-toggle header-btn" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><i class="fa fa-plus-circle"></i><?php echo $this->lang->line('register');?></button><?php }?>
+?> <button class="register-toggle header-btn" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><i class="fa fa-plus-circle"></i><?php echo $this->lang->line('register');?></button><?php }?>
 								<div class="header-form">
 								<?php if($this->session->userdata('userId')==''){?>
 
@@ -227,8 +223,7 @@
 											<a href="<?php echo base_url();?>index.php/landing/forgotpassword" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('forgot_password');?></a>
 										</p>
                                          </form>
-										
-										
+												
 										
 										
 											
@@ -243,7 +238,7 @@
 
 							<!-- HEADER ADD OFFER : begin -->
 							<?php if($this->session->userdata('userId') && $this->session->userdata('usertype')==2 ){?>
-							<span class="header-add-offer"><a href="<?php echo base_url();?>index.php/agent/add_package" class="button"><i class="fa fa-plus"></i> Add Package</a></span>
+							<span class="header-add-offer"><a href="<?php echo base_url();?>index.php/agent/add_package" class="button"><i class="fa fa-plus"></i> <?php echo $this->lang->line('add_package');?></a></span>
 							<?php } ?>
 							<!-- HEADER ADD OFFER : end -->
 

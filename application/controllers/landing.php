@@ -13,7 +13,6 @@ class Landing  extends CI_Controller
 		$sess_data = $this->session->userdata('language'); 
 
 		if( !empty($sess_data))
-
 		{
 
 			if($this->session->userdata('language')=='english')
@@ -48,11 +47,13 @@ class Landing  extends CI_Controller
 
 	function index(){
 		//$this->load->view('home/index');
+		// echo '!!!!!'.$this->session->userdata('language').'#######';
 		$data['title']= 'Home';
 		$this->load->model('packagemodel','package');
 		$this->load->model('testimonialmodel','testimonial');
 		$this->load->model('cmsmodel','cms');
 		$this->load->model('country','country');
+
 		if($this->session->userdata('language')=='english')
 		$data['postfix']='';
 		else
@@ -478,26 +479,17 @@ class Landing  extends CI_Controller
 
 					
 
-	 public function logout()
-
-	 {
-
+	public function logout() {
+		$old_lang = $this->session->userdata('language');
 		$newdata = array(
-
-		'username'   =>'',
-
-		'userId'  =>'',
-
-		'usertype'  =>'',
-
+			'username'   =>'',
+			'userId'  =>'',
+			'usertype'  =>'',
 		);
-
-		$this->session->unset_userdata($newdata );
-
+		$this->session->unset_userdata($newdata);
 		$this->session->sess_destroy();
-
-		$this->index();
-
+		$this->session->set_userdata('language',$old_lang);
+		redirect("index.php/landing/index");
 	}
 
 	

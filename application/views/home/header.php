@@ -299,129 +299,123 @@ function set_session(lang)
 					<!-- HEADER MENU : end -->
 
 					<!-- HEADER TOOLS : begin -->
-					<div class="header-tools">
+<div class="header-tools">
 
-						<!-- HEADER LANGUAGE : begin -->
-						<div class="header-language">
-							<?php 
-							$lang = '';
-							$l = $this->session->userdata('language');
-							if(empty($l)){
-								$lang = 'EN';
-							}
-							else
-							{
-								if(trim($this->session->userdata('language')) == 'arabic'){
-									$lang = 'AR';
-								}
-								else
-								{
-									$lang = 'EN';
-								}
-							}
-							?>
-							<button class="header-btn" id="btn_active"><?php echo $lang; ?> <i class="fa fa-angle-down"></i></button> 
-							<nav class="header-nav">
-								<ul class="custom-list">
-										<?php /*?><li class="active"><a href="<?php echo base_url();?>landing">EN</a></li>
-										<li><a href="<?php echo base_url();?>ar/landing">AR</a></li><?php */?>
-										
-										<li class="active" id="li_english"><a href="javascript:void(0)" onClick="set_session('en');">EN</a></li>
-										<li id="li_arabic"><a href="javascript:void(0)" onClick="set_session('ar');">AR</a></li>
-										
-									</ul>
-								</nav>
-							</div>
-							<!-- HEADER LANGUAGE : end -->
-							
-							<!-- HEADER REGISTER : begin -->
-							<?php if($this->session->userdata('userId')){?>
-							<a href="<?php echo base_url();?>index.php/landing/welcome">
-								My Account
-							</a>
-							<?php } ?>
-							<div class="header-register">
-								
-								<?php if($this->session->userdata('userId')==''){
-									?><button class="register-toggle header-btn" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><i class="fa fa-plus-circle"></i><?php echo $this->lang->line('register');?></button><?php }?>
-									<div class="header-form">
-										<?php if($this->session->userdata('userId')==''){?>
+<!-- HEADER LANGUAGE : begin -->
+<div class="header-language">
+<?php 
+$lang = '';
+$l = $this->session->userdata('language');
+if(empty($l)){
+$lang = 'EN';
+}
+else
+{
+if(trim($this->session->userdata('language')) == 'arabic'){
+$lang = 'AR';
+}
+else
+{
+$lang = 'EN';
+}
+}
+?>
+<button class="header-btn" id="btn_active"><?php echo $lang; ?> <i class="fa fa-angle-down"></i></button> 
+<nav class="header-nav">
+<ul class="custom-list">
+<?php /*?><li class="active"><a href="<?php echo base_url();?>landing">EN</a></li>
+<li><a href="<?php echo base_url();?>ar/landing">AR</a></li><?php */?>
 
-										<!--<form action="index.html" class="default-form">-->
-										<form name="userregistrationForm" id="userregistrationForm"  class="default-form" >
-											<p class="alert-message warning"><i class="ico fa fa-exclamation-circle"></i><span id="registration_error"></span> <i class="fa fa-times close"></i></p>
-											<p class="alert-message success"><i class="ico fa fa-exclamation-circle"></i><span id="registration_success"></span> <i class="fa fa-times close"></i></p>
-											<p class="form-row">
-												<input class="required" type="text" placeholder="<?php echo $this->lang->line('username');?>"  id="user_name" name="user_name" value="<?php echo set_value('user_name'); ?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
-											</p>
-											<p class="form-row">
-												<input class="required email" type="text" placeholder="<?php echo $this->lang->line('email');?>"  id="email_address" name="email_address" value="<?php echo set_value('email_address'); ?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
-											</p>
-											<p class="form-row">
-												<input class="required" type="password" placeholder="<?php echo $this->lang->line('password');?>" id="password" name="password" value="<?php echo set_value('password'); ?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
-											</p>
-											<p class="form-row">
-												<input class="required" type="password" placeholder="<?php echo $this->lang->line('repeat_password');?>" id="con_password" name="con_password" value="<?php echo set_value('con_password'); ?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>/>
-											</p>
-											<p class="form-row">
-												<?php echo $this->lang->line('user');?><input  type="radio"  name="user_type" value="1" checked="checked" id="user" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?> />&nbsp;<?php echo $this->lang->line('agent');?><input  type="radio"  name="user_type" value="2" id="agent" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?> />
-											</p>
-											<p class="form-row">
-												<button class="submit-btn button" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><i class="fa fa-plus-circle"></i> <?php echo $this->lang->line('register');?></button>
-											</p>
-										</form>
-										<?php } ?>
-									</div>
-								</div>
-								<!-- HEADER REGISTER : end -->
+<li class="active" id="li_english"><a href="javascript:void(0)" onClick="set_session('en');">EN</a></li>
+<li id="li_arabic"><a href="javascript:void(0)" onClick="set_session('ar');">AR</a></li>
 
-								<!-- HEADER LOGIN : begin -->
-								<?php if($this->session->userdata('userId')){?>
-								<a href="<?php echo base_url();?>index.php/landing/logout">
-									Log Out
-								</a>
-								<?php } ?>
-								<?php if($this->session->userdata('userId')==''){?>
-								<div class="header-login">
-									<button class="login-toggle header-btn" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?> ><i class="fa fa-power-off"></i><?php echo $this->lang->line('login');?></button>
-									<div class="header-form">
-										<form name="userloginForm" id="userloginForm" class="default-form">
+</ul>
+</nav>
+</div>
+<!-- HEADER LANGUAGE : end -->
 
-											<p class="alert-message warning"><i class="ico fa fa-exclamation-circle"></i><span class="error"></span><i class="fa fa-times close"></i></p>	
-											<p class="form-row">
-												<input class="required email" type="text" placeholder="<?php echo $this->lang->line('email');?>"  id="email" name="email" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?> >
-											</p>
-											<p class="form-row">
-												<input class="required" type="password" placeholder="<?php echo $this->lang->line('password');?>"  id="pass" name="pass" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?> >
-											</p>
-											<p class="form-row">
-												<button class="submit-btn button" id="btn_submit"><i class="fa fa-power-off"></i><?php echo $this->lang->line('login');?></button>
-											</p>
-											<p class="form-row forgot-password">
-												<a href="<?php echo base_url();?>landing/forgotpassword" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('forgot_password');?></a>
-											</p>
-										</form>
-										
-										
-										
-										
+<!-- HEADER REGISTER : begin -->
+<?php if($this->session->userdata('userId')){?>
+<a href="<?php echo base_url();?>index.php/landing/welcome">
+<?php echo $this->lang->line('my_account');?></a>
+<?php } ?>
+<div class="header-register">
 
-										
-										
+<?php if($this->session->userdata('userId')==''){
+?><button class="register-toggle header-btn" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><i class="fa fa-plus-circle"></i><?php echo $this->lang->line('register');?></button><?php }?>
+<div class="header-form">
+<?php if($this->session->userdata('userId')==''){?>
 
-										<!--</form>-->
-									</div>
-								</div>
-								<?php } ?>
-								<!-- HEADER LOGIN : end -->
+<!--<form action="index.html" class="default-form">-->
+<form name="userregistrationForm" id="userregistrationForm"  class="default-form" >
+<p class="alert-message warning"><i class="ico fa fa-exclamation-circle"></i><span id="registration_error"></span> <i class="fa fa-times close"></i></p>
+<p class="alert-message success"><i class="ico fa fa-exclamation-circle"></i><span id="registration_success"></span> <i class="fa fa-times close"></i></p>
+<p class="form-row">
+<input class="required" type="text" placeholder="<?php echo $this->lang->line('username');?>"  id="user_name" name="user_name" value="<?php echo set_value('user_name'); ?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
+</p>
+<p class="form-row">
+<input class="required email" type="text" placeholder="<?php echo $this->lang->line('email');?>"  id="email_address" name="email_address" value="<?php echo set_value('email_address'); ?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
+</p>
+<p class="form-row">
+<input class="required" type="password" placeholder="<?php echo $this->lang->line('password');?>" id="password" name="password" value="<?php echo set_value('password'); ?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>>
+</p>
+<p class="form-row">
+<input class="required" type="password" placeholder="<?php echo $this->lang->line('repeat_password');?>" id="con_password" name="con_password" value="<?php echo set_value('con_password'); ?>" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>/>
+</p>
+<p class="form-row">
+<?php echo $this->lang->line('user');?><input  type="radio"  name="user_type" value="1" checked="checked" id="user" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?> />&nbsp;<?php echo $this->lang->line('agent');?><input  type="radio"  name="user_type" value="2" id="agent" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?> />
+</p>
+<p class="form-row">
+<button class="submit-btn button" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><i class="fa fa-plus-circle"></i> <?php echo $this->lang->line('register');?></button>
+</p>
+</form>
+<?php } ?>
+</div>
+</div>
+<!-- HEADER REGISTER : end -->
 
-								<!-- HEADER ADD OFFER : begin -->
-								<?php if($this->session->userdata('userId') && $this->session->userdata('usertype')==2 ){?>
-								<span class="header-add-offer"><a href="<?php echo base_url();?>agent/add_package" class="button"><i class="fa fa-plus"></i> Add Package</a></span>
-								<?php } ?>
-								<!-- HEADER ADD OFFER : end -->
+<!-- HEADER LOGIN : begin -->
+<?php if($this->session->userdata('userId')){?>
+<a href="<?php echo base_url();?>index.php/landing/logout">
+<?php echo $this->lang->line('log_out');?>
 
-							</div>
+</a>
+<?php } ?>
+<?php if($this->session->userdata('userId')==''){?>
+<div class="header-login">
+<button class="login-toggle header-btn" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?> ><i class="fa fa-power-off"></i><?php echo $this->lang->line('login');?></button>
+<div class="header-form">
+<form name="userloginForm" id="userloginForm" class="default-form">
+
+<p class="alert-message warning"><i class="ico fa fa-exclamation-circle"></i><span class="error"></span><i class="fa fa-times close"></i></p>	
+<p class="form-row">
+<input class="required email" type="text" placeholder="<?php echo $this->lang->line('email');?>"  id="email" name="email" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?> >
+</p>
+<p class="form-row">
+<input class="required" type="password" placeholder="<?php echo $this->lang->line('password');?>"  id="pass" name="pass" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?> >
+</p>
+<p class="form-row">
+<button class="submit-btn button" id="btn_submit"><i class="fa fa-power-off"></i><?php echo $this->lang->line('login');?></button>
+</p>
+<p class="form-row forgot-password">
+<a href="<?php echo base_url();?>landing/forgotpassword" <?php if($this->session->userdata('language')=='arabic'){?> dir="rtl" <?php } ?>><?php echo $this->lang->line('forgot_password');?></a>
+</p>
+</form>
+
+
+<!--</form>-->
+</div>
+</div>
+<?php } ?>
+<!-- HEADER LOGIN : end -->
+
+<!-- HEADER ADD OFFER : begin -->
+<?php if($this->session->userdata('userId') && $this->session->userdata('usertype')==2 ){?>
+<span class="header-add-offer"><a href="<?php echo base_url();?>agent/add_package" class="button"><i class="fa fa-plus"></i> <?php echo $this->lang->line('add_package');?></a></span>
+<?php } ?>
+<!-- HEADER ADD OFFER : end -->
+
+</div>
 							<!-- HEADER TOOLS : end -->
 
 						</div>
