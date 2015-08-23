@@ -153,14 +153,33 @@
                 $data['postfix']='';
             else
                 $data['postfix']='_ar'; 
+
+            $adults = $this->input->post('adults');
+            $children = $this->input->post('children');
+            $infant = $this->input->post('infant');
+            if(is_numeric($adults)){
+                $adults = $this->input->post('adults');
+            }else{
+                $adults = 0;
+            }
+            if(is_numeric($children)){
+                $children = $this->input->post('children');
+            } else {
+                $children = 0;
+            }
+            if(is_numeric($infant)){
+                $infant = $this->input->post('$infant');
+            } else {
+                $infant = 0;
+            }
+
             $data['package_id']=$this->input->post('package_id');
-            $data['adults']=$this->input->post('adults');
+            $data['adults']= $this->input->post('adults');
             $data['children']=$this->input->post('children');
             $data['infant']=$this->input->post('infant');
             $data['package_cost']=$this->input->post('cost_hidden');
             $array_package_data=$data;
             $this->session->set_userdata($array_package_data);
-            
             if(!$this->session->userdata('userId')){
                 $this->load->view('home/header',$data);
                 $this->load->view('property/checkout',$data);
@@ -169,6 +188,21 @@
                 redirect('index.php/package/intermediate_booking');
             }                               
         }
+
+        /*function confirmation(){
+            $data['package_id']=$this->input->post('package_id');
+            $data['adults']=$this->input->post('adults');
+            $data['children']=$this->input->post('children');
+            $data['infant']=$this->input->post('infant');
+            $data['package_cost']=$this->input->post('cost_hidden');
+            $this->load->model('packagemodel','package');
+            $package_details = $this->package->get_package_details($data['package_id']);
+            $data['pkg_details'] =  $package_details;
+            // echo '<pre>'; print_r($this->session->userdata);exit;
+            $this->load->view('home/header',$data);
+            $this->load->view('property/confirmation',$data);
+            $this->load->view('home/footer');
+        }*/
         
         function booking_success(){
            /*if($this->session->userdata('language')=='english')
@@ -218,6 +252,7 @@
             $this->load->view('property/booking_failure');
             $this->load->view('home/footer');
         }
+
         function intermediate_booking($user_id=0){
             if($user_id!=0)
                 $data['user_id']=$user_id;
@@ -228,7 +263,9 @@
                 $data['postfix']='';
             else
                 $data['postfix']='_ar'; 
-            
+             $this->load->model('packagemodel','package');
+            $package_details = $this->package->get_package_details($this->session->userdata("package_id"));
+            $data['package'] =  $package_details;
             $this->load->view('home/header',$data);
             $this->load->view('property/intermediate_booking',$data);
             $this->load->view('home/footer');
@@ -253,20 +290,22 @@
             if(intval($adult) > $adult_remaining)
             {
                 $ad_status = 0;
-                $result['error'] = 'Only '.$adult_remaining.' adults avialable';
+                $result['error_msg'] = $this->lang->line('only').' '.$adult_remaining.' '.$this->lang->line('adults').' '.$this->lang->line('seats').' '.$this->lang->line('available');
+                // exit;
             }
             if(intval($child) > $child_remaining)
             {
                 $ch_status = 0;
-                $result['error'] = 'Only '.$child_remaining.' children avialable';
+                $result['error_msg'] = $this->lang->line('only').' '.$child_remaining.' '.$this->lang->line('child').' '.$this->lang->line('seats').' '.$this->lang->line('available');
             }if(intval($infant) > $infant_remaining)
             {
                 $inf_status = 0;
-                $result['error'] = 'Only '.$infant_remaining.' infants avialable';
+                $result['error_msg'] = $this->lang->line('only').' '.$infant_remaining.' '.$this->lang->line('infant').' '.$this->lang->line('seats').' '.$this->lang->line('available');
             }
 
             if(!empty($ad_status) && !empty($ch_status) && !empty($inf_status)) {
-                $total_cost=$adult*$package_details['package_cost_adult']+$child*$package_details['package_cost_child']+$infant*$package_details['package_cost_adult'];
+                $total_cost=($adult*$package_details['package_cost_adult'])+($child*$package_details['package_cost_child'])+($infant*$package_details['package_cost_infant']);
+                $total_cost= intval($total_cost);
                 $result=array('result'=>$total_cost);
             }
             echo json_encode($result);

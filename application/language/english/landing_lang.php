@@ -199,3 +199,7 @@
 	  $lang['package_details'] = 'Package Details';
 	  $lang['package_title_in_arabic'] = 'Package Title in Arabic';
 	  $lang['enter_pckg_title_arabic'] = 'Please enter Arabic package title';
+	  $lang['available'] = 'Available';
+	  $lang['continue'] = 'Continue';
+	  $lang['only'] = 'Only';
+	  $lang['seats'] = 'seats';
